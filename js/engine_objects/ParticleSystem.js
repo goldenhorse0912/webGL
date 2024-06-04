@@ -592,7 +592,7 @@ ParticleSystem.prototype.rotate = function(axis, radians, fromScript){
 ParticleSystem.prototype.getVelocityAtTime = function(time, targetVector){
   if (this.motionMode == MOTION_MODE_NORMAL){
     if (!targetVector){
-      var vec = goldenhorse.vector(0, 0, 0);
+      var vec = ROYGBIV.vector(0, 0, 0);
       vec.x = this.velocity.x + (this.acceleration.x * time);
       vec.y = this.velocity.y + (this.acceleration.y * time);
       vec.z = this.velocity.z + (this.acceleration.z * time);

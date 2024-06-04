@@ -327,7 +327,7 @@ var Preconditions = function(){
 }
 
 Preconditions.prototype.errorHeader = function(callerFunc){
-  return callerFunc.goldenhorseFuncName+" error: ";
+  return callerFunc.roygbivFuncName+" error: ";
 }
 
 Preconditions.prototype.throw = function(callerFunc, errorMsg){
@@ -501,7 +501,7 @@ Preconditions.prototype.checkIfDecisionTree = function(callerFunc, decisionTree)
 }
 
 Preconditions.prototype.checkIfValueTypeSuitableForInformation = function(callerFunc, knowledge, informationName, newValue){
-  var expectedType = decisionHandler.informationTypesByKnowledgeName[knowledge.goldenhorseName][informationName];
+  var expectedType = decisionHandler.informationTypesByKnowledgeName[knowledge.roygbivName][informationName];
 
   if (expectedType == decisionHandler.informationTypes.BOOLEAN){
     if (!(typeof newValue == "boolean")){
@@ -525,7 +525,7 @@ Preconditions.prototype.checkIfKnowledgeInsideActiveScene = function(callerFunc,
 }
 
 Preconditions.prototype.checkIfKnowledgeHasInformation = function(callerFunc, knowledge, informationName){
-  var informationTypes = decisionHandler.informationTypesByKnowledgeName[knowledge.goldenhorseName];
+  var informationTypes = decisionHandler.informationTypesByKnowledgeName[knowledge.roygbivName];
   if (typeof informationTypes[informationName] == UNDEFINED){
     this.throw(callerFunc, "Knowledge does not have such information.");
   }
@@ -959,7 +959,7 @@ Preconditions.prototype.checkIfQuaternionOnlyIfDefined = function(callerFunc, pa
 
 Preconditions.prototype.checkIfAxisOnlyIfDefined = function(callerFunc, parameterName, obj){
   if (!(typeof obj == UNDEFINED)){
-    if (obj != goldenhorse.axes.X && obj != goldenhorse.axes.Y && obj != goldenhorse.axes.Z){
+    if (obj != ROYGBIV.axes.X && obj != ROYGBIV.axes.Y && obj != ROYGBIV.axes.Z){
       this.throw(callerFunc, parameterName+" must be x, y, or z.");
     }
   }
@@ -1178,7 +1178,7 @@ Preconditions.prototype.checkIfChildObjectOnlyIfExists = function(callerFunc, pa
 
 Preconditions.prototype.checkIfRotationMode = function(callerFunc, rotationMode){
   if (!(rotationMode == rotationModes.LOCAL || rotationMode == rotationModes.WORLD)){
-    this.throw(callerFunc, "rotationMode should be goldenhorse.rotationModes.LOCAL or goldenhorse.rotaitonModes.WORLD");
+    this.throw(callerFunc, "rotationMode should be ROYGBIV.rotationModes.LOCAL or ROYGBIV.rotaitonModes.WORLD");
   }
 }
 

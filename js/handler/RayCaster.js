@@ -93,7 +93,7 @@ RayCaster.prototype.refresh = function(){
       objectGroup.updateBoundingBoxes();
     }
     for (var i = 0; i<objectGroup.boundingBoxes.length; i++){
-      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].goldenhorseObjectName, objName);
+      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].roygbivObjectName, objName);
     }
   }
   if (mode == 0){

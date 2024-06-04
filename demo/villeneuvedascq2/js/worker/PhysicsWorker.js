@@ -83,7 +83,7 @@ PhysicsWorker.prototype.debug = function(){
   var response = {isDebug: true, bodies: []};
   for (var i = 0; i<physicsWorld.bodies.length; i++){
     response.bodies.push({
-      name: physicsWorld.bodies[i].goldenhorseName,
+      name: physicsWorld.bodies[i].roygbivName,
       position: {x: physicsWorld.bodies[i].position.x, y: physicsWorld.bodies[i].position.y, z: physicsWorld.bodies[i].position.z},
       quaternion: {x: physicsWorld.bodies[i].quaternion.x, y: physicsWorld.bodies[i].quaternion.y, z: physicsWorld.bodies[i].quaternion.z, w: physicsWorld.bodies[i].quaternion.w}
     });
@@ -98,10 +98,10 @@ PhysicsWorker.prototype.setObjectCollisionCallback = function(obj){
     obj.collisionEvent = function(event){
 
       var id;
-      if (event.body.goldenhorseName){
-        id = worker.idsByObjectName[event.body.goldenhorseName];
+      if (event.body.roygbivName){
+        id = worker.idsByObjectName[event.body.roygbivName];
       }else{
-        id = worker.idsByMassName[event.body.goldenhorseMassID];
+        id = worker.idsByMassName[event.body.roygbivMassID];
       }
 
       if (!obj.physicsWorkerCollisionInfo){

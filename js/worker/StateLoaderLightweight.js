@@ -125,7 +125,7 @@ StateLoaderLightweight.prototype.loadBoundingBoxes = function(){
       addedObject.quaternionWhenAttached = new THREE.Quaternion().set(curExport.quaternionWhenAttached._x, curExport.quaternionWhenAttached._y, curExport.quaternionWhenAttached._z, curExport.quaternionWhenAttached._w);
     }
     var bb = new THREE.Box3();
-    bb.goldenhorseObjectName = objName;
+    bb.roygbivObjectName = objName;
     addedObject.boundingBoxes = [bb];
     for (var i = 0; i<curExport.vertices.length; i++){
       var curVertex = curExport.vertices[i];
@@ -196,7 +196,7 @@ StateLoaderLightweight.prototype.loadBoundingBoxes = function(){
       var min = new THREE.Vector3(curBBExport.min.x, curBBExport.min.y, curBBExport.min.z);
       var max = new THREE.Vector3(curBBExport.max.x, curBBExport.max.y, curBBExport.max.z);
       var bb = new THREE.Box3(min.clone(), max.clone());
-      bb.goldenhorseObjectName = curBBExport.goldenhorseObjectName;
+      bb.roygbivObjectName = curBBExport.roygbivObjectName;
       objectGroup.boundingBoxes.push(bb);
     }
     objectGroup.updateBoundingBoxes();
@@ -267,7 +267,7 @@ StateLoaderLightweight.prototype.loadBoundingBoxes = function(){
     var curExport = modelInstanceExports[modelInstanceName];
 
     var bb = new THREE.Box3();
-    bb.goldenhorseObjectName = modelInstanceName;
+    bb.roygbivObjectName = modelInstanceName;
     modelInstance.boundingBoxes = [bb];
     modelInstance.vertices = [];
     modelInstance.triangles = [];
@@ -394,7 +394,7 @@ StateLoaderLightweight.prototype.loadPhysics = function(){
     }
     physicsBody.position.copy(curAddedObjectExport.physicsPosition);
     physicsBody.quaternion.copy(curAddedObjectExport.physicsQuaternion);
-    physicsBody.goldenhorseName = objName;
+    physicsBody.roygbivName = objName;
     var addedObject = new AddedObject();
     if (curAddedObjectExport.noPhysicsContributionWhenGlued){
       addedObject.noPhysicsContributionWhenGlued = true;
@@ -425,7 +425,7 @@ StateLoaderLightweight.prototype.loadPhysics = function(){
     }else{
       physicsBody = physicsBodyGenerator.generateBoxBody({x: curExport.physicsSimplificationParameters.sizeX, y: curExport.physicsSimplificationParameters.sizeY, z: curExport.physicsSimplificationParameters.sizeZ});
     }
-    physicsBody.goldenhorseName = objName;
+    physicsBody.roygbivName = objName;
     var hasAnyPhysicsShape = false;
     physicsBody.position.copy(curExport.initialPhysicsPositionWhenGlued);
     for (var i = 0; i<curExport.childNames.length; i++){

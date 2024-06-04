@@ -372,7 +372,7 @@ function parse(input){
           }
           for (var objectName in addedObjects){
             var addedObject = addedObjects[objectName];
-            if (addedObject.material.goldenhorseMaterialName == name){
+            if (addedObject.material.roygbivMaterialName == name){
               terminal.printError(Text.MATERIAL_USED_IN_AN_OBJECT.replace(Text.PARAM1, objectName));
               return true;
             }
@@ -381,7 +381,7 @@ function parse(input){
             var group = objectGroups[objectGroupName].group;
             for (var objectName in group){
               var object = group[objectName];
-              if (object.material.goldenhorseMaterialName == name){
+              if (object.material.roygbivMaterialName == name){
                 terminal.printError(Text.MATERIAL_USED_IN_AN_OBJECT.replace(Text.PARAM1, objectGroupName + "->" +objectName));
                 return true;
               }
@@ -2356,16 +2356,16 @@ function parse(input){
         break;
         case 103: //explain
           var functionName = splitted[1].toUpperCase();
-          var functionExplanation = Text[Text.goldenhorse_SCRIPTING_API_PREFIX+functionName];
+          var functionExplanation = Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+functionName];
           if (functionExplanation){
             var normalCase = "";
-            for (var i = 0; i<goldenhorse.functionNames.length; i++){
-              if (functionName == goldenhorse.functionNames[i].toUpperCase()){
-                normalCase = goldenhorse.functionNames[i];
+            for (var i = 0; i<ROYGBIV.functionNames.length; i++){
+              if (functionName == ROYGBIV.functionNames[i].toUpperCase()){
+                normalCase = ROYGBIV.functionNames[i];
               }
             }
             terminal.printHeader(Text.PARAM_WITH_DOTS.replace(Text.PARAM1, normalCase));
-            terminal.printInfo(Text[Text.goldenhorse_SCRIPTING_API_PREFIX+functionName]);
+            terminal.printInfo(Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+functionName]);
           }else{
             terminal.printError(Text.NO_SUCH_FUNCTION);
             return true;
@@ -2373,11 +2373,11 @@ function parse(input){
         break;
         case 104: //printScriptingFunctions
           terminal.printHeader(Text.FUNCTIONS_LIST);
-          for (var i = 0; i<goldenhorse.functionNames.length; i++){
+          for (var i = 0; i<ROYGBIV.functionNames.length; i++){
             terminal.printInfo(
               Text.TREE.replace(
-                Text.PARAM1, goldenhorse.functionNames[i]
-              ), (i != goldenhorse.functionNames.length - 1)
+                Text.PARAM1, ROYGBIV.functionNames[i]
+              ), (i != ROYGBIV.functionNames.length - 1)
             );
           }
           return true;
@@ -2408,13 +2408,13 @@ function parse(input){
               possibleMatchCount ++;
             }
           }
-          for (var i = 0; i<goldenhorse.functionNames.length; i++){
-            var functionName = goldenhorse.functionNames[i];
+          for (var i = 0; i<ROYGBIV.functionNames.length; i++){
+            var functionName = ROYGBIV.functionNames[i];
             if (functionName.toLowerCase().indexOf(textToSearch.toLowerCase()) !== -1){
               possibleAPIMathces[functionName] = true;
               possibleMatchCount ++;
             }else {
-              var functionInfo = Text[Text.goldenhorse_SCRIPTING_API_PREFIX+functionName.toUpperCase()];
+              var functionInfo = Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+functionName.toUpperCase()];
               if (functionInfo && functionInfo.toLowerCase().indexOf(textToSearch.toLowerCase()) !== -1){
                 possibleAPIMathces[functionName] = true;
                 possibleMatchCount ++;
@@ -5024,7 +5024,7 @@ function parse(input){
                 fileReader.onload = function(e){
                   var data = e.target.result;
                   var json = JSON.parse(data);
-                  if (!json.isgoldenhorseObjectExport){
+                  if (!json.isROYGBIVObjectExport){
                     terminal.printError(Text.FILE_NOT_VALID);
                     return;
                   }
@@ -5088,7 +5088,7 @@ function parse(input){
                 fileReader.onload = function(e){
                   var data = e.target.result;
                   var json = JSON.parse(data);
-                  if (!json.isgoldenhorseParticleSystemExport){
+                  if (!json.isROYGBIVParticleSystemExport){
                     terminal.printError(Text.FILE_NOT_VALID);
                     return;
                   }
@@ -7142,7 +7142,7 @@ function save(customState, customName){
   var blob = new Blob([json], {type: "application/json"});
   var url  = URL.createObjectURL(blob);
   var anchor = document.createElement('a');
-  anchor.download = customName? (customName+"_"+new Date()+".json"): "goldenhorse_SAVE_"+new Date()+".json";
+  anchor.download = customName? (customName+"_"+new Date()+".json"): "ROYGBIV_SAVE_"+new Date()+".json";
   anchor.href = url;
   if (typeof InstallTrigger !== 'undefined') {
     // F I R E F O X

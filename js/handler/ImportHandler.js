@@ -503,14 +503,14 @@ ImportHandler.prototype.importMaterials = function(obj){
     if (curMaterialExport.materialType == "BASIC"){
       material = new BasicMaterial(
         {
-          name: curMaterialExport.goldenhorseMaterialName,
+          name: curMaterialExport.roygbivMaterialName,
           color: color,
           alpha: opacity,
           aoMapIntensity: aoMapIntensity
         }
       );
     }
-    material.goldenhorseMaterialName = curMaterialExport.goldenhorseMaterialName;
+    material.roygbivMaterialName = curMaterialExport.roygbivMaterialName;
     material.textColor = color;
     materials[materialName] = material;
   }
@@ -585,7 +585,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
   for (var addedObjectName in addedObjectsExport){
     var curAddedObjectExport = addedObjectsExport[addedObjectName];
     var type = curAddedObjectExport.type;
-    var goldenhorseMaterialName = curAddedObjectExport.goldenhorseMaterialName;
+    var roygbivMaterialName = curAddedObjectExport.roygbivMaterialName;
     var destroyedGrids = new Object();
     var destroyedGridsExport = curAddedObjectExport.destroyedGrids;
     var metaData = curAddedObjectExport.metaData;
@@ -611,11 +611,11 @@ ImportHandler.prototype.importAddedObjects = function(obj){
         }
       }
     }
-    var material = materials[goldenhorseMaterialName];
+    var material = materials[roygbivMaterialName];
     if (!material){
-      if (goldenhorseMaterialName == "NULL_BASIC"){
+      if (roygbivMaterialName == "NULL_BASIC"){
         material = new BasicMaterial({
-          name: goldenhorseMaterialName,
+          name: roygbivMaterialName,
           color: "white",
           alpha: curAddedObjectExport.opacity,
           aoMapIntensity: curAddedObjectExport.aoMapIntensity,
@@ -685,7 +685,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
 
       var boxMesh;
       if (isDeployment && curAddedObjectExport.fromObjectGroup){
-        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.goldenhorseMaterialName + PIPE +
+        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.roygbivMaterialName + PIPE +
                           curAddedObjectExport.associatedTexturePack + PIPE + curAddedObjectExport.aoMapIntensity + PIPE +
                           curAddedObjectExport.emissiveIntensity + PIPE + curAddedObjectExport.emissiveColor + PIPE +
                           curAddedObjectExport.textureOffsetX + PIPE + curAddedObjectExport.textureOffsetY + PIPE +
@@ -744,7 +744,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
 
       var surface;
       if (isDeployment && curAddedObjectExport.fromObjectGroup){
-        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.goldenhorseMaterialName + PIPE +
+        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.roygbivMaterialName + PIPE +
                           curAddedObjectExport.associatedTexturePack + PIPE + curAddedObjectExport.aoMapIntensity + PIPE +
                           curAddedObjectExport.emissiveIntensity + PIPE + curAddedObjectExport.emissiveColor + PIPE +
                           curAddedObjectExport.textureOffsetX + PIPE + curAddedObjectExport.textureOffsetY + PIPE +
@@ -809,7 +809,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
       }
       var ramp;
       if (isDeployment && curAddedObjectExport.fromObjectGroup){
-        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.goldenhorseMaterialName + PIPE +
+        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.roygbivMaterialName + PIPE +
                           curAddedObjectExport.associatedTexturePack + PIPE + curAddedObjectExport.aoMapIntensity + PIPE +
                           curAddedObjectExport.emissiveIntensity + PIPE + curAddedObjectExport.emissiveColor + PIPE +
                           curAddedObjectExport.textureOffsetX + PIPE + curAddedObjectExport.textureOffsetY + PIPE +
@@ -888,7 +888,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
         geometryCache[geomKey] = geom;
       }
       if (isDeployment && curAddedObjectExport.fromObjectGroup){
-        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.goldenhorseMaterialName + PIPE +
+        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.roygbivMaterialName + PIPE +
                           curAddedObjectExport.associatedTexturePack + PIPE + curAddedObjectExport.aoMapIntensity + PIPE +
                           curAddedObjectExport.emissiveIntensity + PIPE + curAddedObjectExport.emissiveColor + PIPE +
                           curAddedObjectExport.textureOffsetX + PIPE + curAddedObjectExport.textureOffsetY + PIPE +
@@ -936,7 +936,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
       }
       var cylinderMesh;
       if (isDeployment && curAddedObjectExport.fromObjectGroup){
-        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.goldenhorseMaterialName + PIPE +
+        var materialKey = curAddedObjectExport.opacity + PIPE + curAddedObjectExport.roygbivMaterialName + PIPE +
                           curAddedObjectExport.associatedTexturePack + PIPE + curAddedObjectExport.aoMapIntensity + PIPE +
                           curAddedObjectExport.emissiveIntensity + PIPE + curAddedObjectExport.emissiveColor + PIPE +
                           curAddedObjectExport.textureOffsetX + PIPE + curAddedObjectExport.textureOffsetY + PIPE +
@@ -1231,11 +1231,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
       return;
     }
 
-    var shouldMap = addedObjectExport["diffusegoldenhorseTexturePackName"] == texturePackName ||
-                    addedObjectExport["alphagoldenhorseTexturePackName"] == texturePackName ||
-                    addedObjectExport["aogoldenhorseTexturePackName"] == texturePackName ||
-                    addedObjectExport["emissivegoldenhorseTexturePackName"] == texturePackName ||
-                    addedObjectExport["displacementgoldenhorseTexturePackName"] == texturePackName;
+    var shouldMap = addedObjectExport["diffuseRoygbivTexturePackName"] == texturePackName ||
+                    addedObjectExport["alphaRoygbivTexturePackName"] == texturePackName ||
+                    addedObjectExport["aoRoygbivTexturePackName"] == texturePackName ||
+                    addedObjectExport["emissiveRoygbivTexturePackName"] == texturePackName ||
+                    addedObjectExport["displacementRoygbivTexturePackName"] == texturePackName;
 
     if (!shouldMap) {
       continue;
@@ -1262,8 +1262,8 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
     if (!(typeof addedObjectExport.displacementBias == UNDEFINED)){
       displacementBias = addedObjectExport.displacementBias;
     }
-    if (addedObjectExport["displacementgoldenhorseTexturePackName"]){
-      if (addedObjectExport["displacementgoldenhorseTexturePackName"] == texturePackName){
+    if (addedObjectExport["displacementRoygbivTexturePackName"]){
+      if (addedObjectExport["displacementRoygbivTexturePackName"] == texturePackName){
         if (texturePack.hasHeight){
           if (!(typeof displacementScale == UNDEFINED)){
             addedObject.setDisplacementScale(displacementScale);

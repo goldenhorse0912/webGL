@@ -1,6 +1,6 @@
-# goldenhorse Analytics Server
+# ROYGBIV Analytics Server
 
-This is ready-to-ship analytics server for goldenhorse projects. The URL of analytics
+This is ready-to-ship analytics server for ROYGBIV projects. The URL of analytics
 server may be configuder via settings GUI, under Analytics folder.
 
 ## Usage

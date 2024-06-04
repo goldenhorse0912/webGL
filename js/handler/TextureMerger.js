@@ -1,5 +1,5 @@
 // This good old class turned into a separate library:
-// https://github.com/goldenhorse0912/TextureMerger
+// https://github.com/oguzeroglu/TextureMerger
 var TextureMerger = function(texturesObj, skipTextureBleedFix){
   if (!texturesObj){
     return;

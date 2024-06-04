@@ -859,7 +859,7 @@ var cliInnerDiv;
 var cliDivheader;
 
 // VERSION
-var goldenhorse_ENGINE_VERSION = 1;
+var ROYGBIV_ENGINE_VERSION = 1;
 
 // LOAD
 var loadInput;
@@ -1153,10 +1153,10 @@ var CONTAINER_ALIGNMENT_TYPE_RIGHT = "CONTAINER_ALIGNMENT_TYPE_RIGHT";
 var CONTAINER_ALIGNMENT_TYPE_LEFT = "CONTAINER_ALIGNMENT_TYPE_LEFT";
 var CONTAINER_ALIGNMENT_TYPE_TOP = "CONTAINER_ALIGNMENT_TYPE_TOP";
 var CONTAINER_ALIGNMENT_TYPE_BOTTOM = "CONTAINER_ALIGNMENT_TYPE_BOTTOM";
-var goldenhorseAttributeCounter = 1;
-var goldenhorseBufferAttributeCounter = 1;
-var goldenhorseSkippedArrayBufferUpdates = 0;
-var goldenhorseSkippedElementArrayBufferUpdates = 0;
+var roygbivAttributeCounter = 1;
+var roygbivBufferAttributeCounter = 1;
+var roygbivSkippedArrayBufferUpdates = 0;
+var roygbivSkippedElementArrayBufferUpdates = 0;
 var selectionHandler;
 var guiHandler;
 var cpuOperationsHandler;
@@ -1288,7 +1288,7 @@ if (!WORKERS_SUPPORTED && !(typeof WorkerGlobalScope !== UNDEFINED && self insta
 var Text;
 
 // SCRIPTING UTILITY FUNCTIONS
-var goldenhorse;
+var ROYGBIV;
 
 // KEYCODE TO STRING MAP
 var keyCodeToChar = {
@@ -3716,7 +3716,7 @@ AddedObject.prototype.exportLightweight = function(){
 AddedObject.prototype.export = function(){
   var exportObject = new Object();
   exportObject["type"] = this.type;
-  exportObject["goldenhorseMaterialName"] = this.material.goldenhorseMaterialName;
+  exportObject["roygbivMaterialName"] = this.material.roygbivMaterialName;
   var exportDestroyedGrids = new Object();
   for (var gridName in this.destroyedGrids){
     exportDestroyedGrids[gridName] = this.destroyedGrids[gridName].export();
@@ -3776,23 +3776,23 @@ AddedObject.prototype.export = function(){
 
   if (this.hasDiffuseMap()){
     var diffuseMap = this.mesh.material.uniforms.diffuseMap.value;
-    exportObject["diffusegoldenhorseTexturePackName"] = diffuseMap.goldenhorseTexturePackName;
+    exportObject["diffuseRoygbivTexturePackName"] = diffuseMap.roygbivTexturePackName;
   }
   if (this.hasAlphaMap()){
     var alphaMap = this.mesh.material.uniforms.alphaMap.value;
-    exportObject["alphagoldenhorseTexturePackName"] = alphaMap.goldenhorseTexturePackName;
+    exportObject["alphaRoygbivTexturePackName"] = alphaMap.roygbivTexturePackName;
   }
   if (this.hasAOMap()){
     var aoMap = this.mesh.material.uniforms.aoMap.value;
-    exportObject["aogoldenhorseTexturePackName"] = aoMap.goldenhorseTexturePackName;
+    exportObject["aoRoygbivTexturePackName"] = aoMap.roygbivTexturePackName;
   }
   if (this.hasEmissiveMap()){
     var emissiveMap = this.mesh.material.uniforms.emissiveMap.value;
-    exportObject["emissivegoldenhorseTexturePackName"] = emissiveMap.goldenhorseTexturePackName;
+    exportObject["emissiveRoygbivTexturePackName"] = emissiveMap.roygbivTexturePackName;
   }
   if (this.hasDisplacementMap()){
     var displacementMap = this.mesh.material.uniforms.displacementMap.value;
-    exportObject["displacementgoldenhorseTexturePackName"] = displacementMap.goldenhorseTexturePackName;
+    exportObject["displacementRoygbivTexturePackName"] = displacementMap.roygbivTexturePackName;
     if (!this.parentObjectName){
       exportObject["displacementScale"] = this.getDisplacementScale();
       exportObject["displacementBias"] = this.getDisplacementBias();
@@ -4888,27 +4888,27 @@ AddedObject.prototype.mapTexturePack = function(texturePack){
   this.resetMaps();
   if (texturePack.hasDiffuse){
     this.mapDiffuse(texturePack.diffuseTexture);
-    this.mesh.material.uniforms.diffuseMap.value.goldenhorseTexturePackName = texturePack.name;
+    this.mesh.material.uniforms.diffuseMap.value.roygbivTexturePackName = texturePack.name;
     this.mesh.material.uniforms.diffuseMap.value.needsUpdate = true;
   }
   if (texturePack.hasAlpha){
     this.mapAlpha(texturePack.alphaTexture);
-    this.mesh.material.uniforms.alphaMap.value.goldenhorseTexturePackName = texturePack.name;
+    this.mesh.material.uniforms.alphaMap.value.roygbivTexturePackName = texturePack.name;
     this.mesh.material.uniforms.alphaMap.value.needsUpdate = true;
   }
   if (texturePack.hasAO){
     this.mapAO(texturePack.aoTexture);
-    this.mesh.material.uniforms.aoMap.value.goldenhorseTexturePackName = texturePack.name;
+    this.mesh.material.uniforms.aoMap.value.roygbivTexturePackName = texturePack.name;
     this.mesh.material.uniforms.aoMap.value.needsUpdate = true;
   }
   if (texturePack.hasEmissive){
     this.mapEmissive(texturePack.emissiveTexture);
-    this.mesh.material.uniforms.emissiveMap.value.goldenhorseTexturePackName = texturePack.name;
+    this.mesh.material.uniforms.emissiveMap.value.roygbivTexturePackName = texturePack.name;
     this.mesh.material.uniforms.emissiveMap.value.needsUpdate = true;
   }
   if (texturePack.hasHeight && VERTEX_SHADER_TEXTURE_FETCH_SUPPORTED){
     this.mapDisplacement(texturePack.heightTexture);
-    this.mesh.material.uniforms.displacementMap.value.goldenhorseTexturePackName = texturePack.name;
+    this.mesh.material.uniforms.displacementMap.value.roygbivTexturePackName = texturePack.name;
     this.mesh.material.uniforms.displacementMap.value.needsUpdate = true;
   }
   this.associatedTexturePack = texturePack.name;
@@ -5430,8 +5430,8 @@ AddedObject.prototype.isVisibleOnThePreviewScene = function(parentName){
 AddedObject.prototype.isTexturePackUsed = function(texturePackName){
   var textureStack = this.getTextureStack();
   for (var i = 0; i<textureStack.length; i++){
-    if (!(textureStack[i].goldenhorseTexturePackName == "undefined")){
-      if (textureStack[i].goldenhorseTexturePackName == texturePackName){
+    if (!(textureStack[i].roygbivTexturePackName == "undefined")){
+      if (textureStack[i].roygbivTexturePackName == texturePackName){
         return true;
       }
     }
@@ -5569,7 +5569,7 @@ AddedObject.prototype.generateBoundingBoxes = function(parentAry){
   }
   this.vertices = pseudoGeometry.vertices;
   var bb = new THREE.Box3();
-  bb.goldenhorseObjectName = this.name;
+  bb.roygbivObjectName = this.name;
   this.boundingBoxes = [bb];
   if (parentAry){
     parentAry.push(bb);
@@ -6423,101 +6423,101 @@ function handleSkybox(){
 }
 
 function deploymentScripts(){
-  if(deploymentScriptsStatus.SCRIPT_EXECUTION_STATUS_plasma_init){if (cpuOperationsHandler.record){cpuOperationsHandler.scriptPerformances.plasma_init = performance.now()}var rv1 = goldenhorse.vector();
-var rv2 = goldenhorse.vector();
-var rv3 = goldenhorse.vector();
-var rv4 = goldenhorse.vector();
-var rv5 = goldenhorse.vector();
+  if(deploymentScriptsStatus.SCRIPT_EXECUTION_STATUS_plasma_init){if (cpuOperationsHandler.record){cpuOperationsHandler.scriptPerformances.plasma_init = performance.now()}var rv1 = ROYGBIV.vector();
+var rv2 = ROYGBIV.vector();
+var rv3 = ROYGBIV.vector();
+var rv4 = ROYGBIV.vector();
+var rv5 = ROYGBIV.vector();
 
-var norm = goldenhorse.vector(0, -1, 0);
+var norm = ROYGBIV.vector(0, -1, 0);
 
-var rq = goldenhorse.quaternion();
+var rq = ROYGBIV.quaternion();
 
 
-var plasmaPool = goldenhorse.getParticleSystemPool("plasmaPool");
-var explosionPool = goldenhorse.getParticleSystemPool("explosionPool");
+var plasmaPool = ROYGBIV.getParticleSystemPool("plasmaPool");
+var explosionPool = ROYGBIV.getParticleSystemPool("explosionPool");
 
 var startPSConfigsByPSName = new Object();
 var startPS2ConfigsByPSName = new Object();
-goldenhorse.executeForEachParticleSystem(plasmaPool, function(ps){
+ROYGBIV.executeForEachParticleSystem(plasmaPool, function(ps){
   startPSConfigsByPSName[ps.name] = {
-    particleSystem: ps, maxCameraDistance: 95, startPosition: goldenhorse.vector(), startVelocity: goldenhorse.vector()
+    particleSystem: ps, maxCameraDistance: 95, startPosition: ROYGBIV.vector(), startVelocity: ROYGBIV.vector()
   };
 });
-goldenhorse.executeForEachParticleSystem(explosionPool, function(ps){
+ROYGBIV.executeForEachParticleSystem(explosionPool, function(ps){
   startPS2ConfigsByPSName[ps.name] = {
     particleSystem: ps,
-    startPosition: goldenhorse.vector(),
-    startQuaternion: goldenhorse.quaternion()
+    startPosition: ROYGBIV.vector(),
+    startQuaternion: ROYGBIV.quaternion()
   };
 });
 
-if (!goldenhorse.isMobile()){
-  goldenhorse.setText(goldenhorse.getText("info"), "Powered by goldenhorse engine.");
-  goldenhorse.setScreenPointerLockChangeListener(function(isPointerLocked){
-    if (goldenhorse.getActiveSceneName() != "scene1"){
+if (!ROYGBIV.isMobile()){
+  ROYGBIV.setText(ROYGBIV.getText("info"), "Powered by ROYGBIV engine.");
+  ROYGBIV.setScreenPointerLockChangeListener(function(isPointerLocked){
+    if (ROYGBIV.getActiveSceneName() != "scene1"){
       return;
     }
     if (isPointerLocked){
-      goldenhorse.hideText(goldenhorse.getText("clickToStart"));
+      ROYGBIV.hideText(ROYGBIV.getText("clickToStart"));
     }else{
-      goldenhorse.showText(goldenhorse.getText("clickToStart"));
+      ROYGBIV.showText(ROYGBIV.getText("clickToStart"));
     }
   });
 }
 
-goldenhorse.getObject("limit").mesh.visible = false;
+ROYGBIV.getObject("limit").mesh.visible = false;
 
 
-var gun = goldenhorse.getObject("gun");
-var skullSprite = goldenhorse.getSprite("skullSprite");
-goldenhorse.onObjectPositionThresholdExceeded(goldenhorse.getObject("playerBody"), "y", -400, 2, function(){
-  goldenhorse.showSprite(skullSprite);
-  goldenhorse.startAnimation(skullSprite, "anim1");
+var gun = ROYGBIV.getObject("gun");
+var skullSprite = ROYGBIV.getSprite("skullSprite");
+ROYGBIV.onObjectPositionThresholdExceeded(ROYGBIV.getObject("playerBody"), "y", -400, 2, function(){
+  ROYGBIV.showSprite(skullSprite);
+  ROYGBIV.startAnimation(skullSprite, "anim1");
   var ctr = 0;
-  goldenhorse.onAnimationFinished(skullSprite, "anim1", function(){
+  ROYGBIV.onAnimationFinished(skullSprite, "anim1", function(){
     ctr ++;
     if (ctr == 3){
-      goldenhorse.stopAnimation(skullSprite, "anim1");
-      goldenhorse.setPosition(goldenhorse.getObject("playerBody"), 0, 250, 0);
-      goldenhorse.hideSprite(skullSprite);
+      ROYGBIV.stopAnimation(skullSprite, "anim1");
+      ROYGBIV.setPosition(ROYGBIV.getObject("playerBody"), 0, 250, 0);
+      ROYGBIV.hideSprite(skullSprite);
     }
   });
 });
 
 var lastGithubClickTime = 0;
-var githubText = goldenhorse.getText("githubText");
-var controlsText = goldenhorse.getText("controlsText");
-goldenhorse.onTextMouseOver(githubText, function(){
-  goldenhorse.setTextColor(githubText, "#fabd2f");
+var githubText = ROYGBIV.getText("githubText");
+var controlsText = ROYGBIV.getText("controlsText");
+ROYGBIV.onTextMouseOver(githubText, function(){
+  ROYGBIV.setTextColor(githubText, "#fabd2f");
 });
-goldenhorse.onTextMouseOver(controlsText, function(){
-  goldenhorse.setTextColor(controlsText, "#fabd2f");
+ROYGBIV.onTextMouseOver(controlsText, function(){
+  ROYGBIV.setTextColor(controlsText, "#fabd2f");
 });
-goldenhorse.onTextMouseOut(githubText, function(){
-  goldenhorse.setTextColor(githubText, "#83a598");
+ROYGBIV.onTextMouseOut(githubText, function(){
+  ROYGBIV.setTextColor(githubText, "#83a598");
 });
-goldenhorse.onTextMouseOut(controlsText, function(){
-  goldenhorse.setTextColor(controlsText, "#83a598");
+ROYGBIV.onTextMouseOut(controlsText, function(){
+  ROYGBIV.setTextColor(controlsText, "#83a598");
 });
-goldenhorse.onTextClick(githubText, function(){
+ROYGBIV.onTextClick(githubText, function(){
   var now = performance.now();
   if (now - lastGithubClickTime > 500){
-    window.open('https://github.com/goldenhorse0912/webGL', '_blank').location;
+    window.open('https://github.com/oguzeroglu/ROYGBIV', '_blank').location;
   }
   lastGithubClickTime = now;
 });
-goldenhorse.onTextClick(controlsText, function(){
-  if (!goldenhorse.isMobile()){
-    goldenhorse.changeScene("controlsDesktop", onControlsDesktopEntry);
+ROYGBIV.onTextClick(controlsText, function(){
+  if (!ROYGBIV.isMobile()){
+    ROYGBIV.changeScene("controlsDesktop", onControlsDesktopEntry);
   }else {
-    goldenhorse.changeScene("controlsMobile", onControlsMobileEntry);
+    ROYGBIV.changeScene("controlsMobile", onControlsMobileEntry);
   }
 });
 
-var fpsControl = goldenhorse.createFPSControl({
-  initialPosition: goldenhorse.vector(0, 250, 0),
-  playerBodyObject: goldenhorse.getObject("playerBody"),
+var fpsControl = ROYGBIV.createFPSControl({
+  initialPosition: ROYGBIV.vector(0, 250, 0),
+  playerBodyObject: ROYGBIV.getObject("playerBody"),
   requestFullScreen: false,
   weaponObject1: gun,
   speed: 400,
@@ -6527,176 +6527,176 @@ var fpsControl = goldenhorse.createFPSControl({
   touchLookSpeed: 0.015,
 
   shootableObjects: [
-    goldenhorse.getObject("box1"), goldenhorse.getObject("box2"), goldenhorse.getObject("box3"),
-    goldenhorse.getObject("box4"), goldenhorse.getObject("box5"), goldenhorse.getObject("box6"),
-    goldenhorse.getObject("box7"), goldenhorse.getObject("box8")
+    ROYGBIV.getObject("box1"), ROYGBIV.getObject("box2"), ROYGBIV.getObject("box3"),
+    ROYGBIV.getObject("box4"), ROYGBIV.getObject("box5"), ROYGBIV.getObject("box6"),
+    ROYGBIV.getObject("box7"), ROYGBIV.getObject("box8")
   ],
   onShoot: function(x, y, z, objName){
-    if (goldenhorse.getAnimationState(goldenhorse.getObject("gun"), "anim1") === ANIMATION_STATE_NOT_RUNNING){
-      var ps = goldenhorse.getParticleSystemFromPool(plasmaPool);
+    if (ROYGBIV.getAnimationState(ROYGBIV.getObject("gun"), "anim1") === ANIMATION_STATE_NOT_RUNNING){
+      var ps = ROYGBIV.getParticleSystemFromPool(plasmaPool);
       if (!ps){
         return;
       }
-      goldenhorse.getEndPoint(goldenhorse.getChildObject(gun, "K7KVM4VKB166L"), "-y", rv1);
-      goldenhorse.setVector(rv2, x - rv1.x, y - rv1.y, z - rv1.z);
-      goldenhorse.setVector(rv4, x, y, z);
-      var dist = goldenhorse.distance(rv1, rv4);
-      goldenhorse.multiplyScalar(rv2, 1500 / dist, rv3);
-      goldenhorse.startAnimation(gun, "anim1");
+      ROYGBIV.getEndPoint(ROYGBIV.getChildObject(gun, "K7KVM4VKB166L"), "-y", rv1);
+      ROYGBIV.setVector(rv2, x - rv1.x, y - rv1.y, z - rv1.z);
+      ROYGBIV.setVector(rv4, x, y, z);
+      var dist = ROYGBIV.distance(rv1, rv4);
+      ROYGBIV.multiplyScalar(rv2, 1500 / dist, rv3);
+      ROYGBIV.startAnimation(gun, "anim1");
       var startPSConfig = startPSConfigsByPSName[ps.name];
-      goldenhorse.setVector(startPSConfig.startPosition, rv1.x, rv1.y, rv1.z);
-      goldenhorse.setVector(startPSConfig.startVelocity, rv3.x, rv3.y, rv3.z);
-      goldenhorse.startParticleSystem(startPSConfig);
-      goldenhorse.showMuzzleFlash("mf1");
+      ROYGBIV.setVector(startPSConfig.startPosition, rv1.x, rv1.y, rv1.z);
+      ROYGBIV.setVector(startPSConfig.startVelocity, rv3.x, rv3.y, rv3.z);
+      ROYGBIV.startParticleSystem(startPSConfig);
+      ROYGBIV.showMuzzleFlash("mf1");
     }
   }
 });
 
 // mobile orientation
-if (goldenhorse.isMobile()){
-  goldenhorse.setScreenOrientationChangeListener(function(isLandscape){
+if (ROYGBIV.isMobile()){
+  ROYGBIV.setScreenOrientationChangeListener(function(isLandscape){
     if (isLandscape){
-      goldenhorse.changeScene("scene1", onScene1Entry);
+      ROYGBIV.changeScene("scene1", onScene1Entry);
     }else{
-      goldenhorse.changeScene("rotateDevice", function(){
-        goldenhorse.setActiveControl(goldenhorse.createCustomControl({}));
-        goldenhorse.startAnimation(goldenhorse.getText("rotateDevice"), "blink");
+      ROYGBIV.changeScene("rotateDevice", function(){
+        ROYGBIV.setActiveControl(ROYGBIV.createCustomControl({}));
+        ROYGBIV.startAnimation(ROYGBIV.getText("rotateDevice"), "blink");
       });
     }
   });
 }
-if (goldenhorse.isMobile() && !goldenhorse.isOrientationLandscape()){
-  goldenhorse.changeScene("rotateDevice", function(){
-    goldenhorse.setActiveControl(goldenhorse.createCustomControl({}));
-    goldenhorse.startAnimation(goldenhorse.getText("rotateDevice"), "blink");
+if (ROYGBIV.isMobile() && !ROYGBIV.isOrientationLandscape()){
+  ROYGBIV.changeScene("rotateDevice", function(){
+    ROYGBIV.setActiveControl(ROYGBIV.createCustomControl({}));
+    ROYGBIV.startAnimation(ROYGBIV.getText("rotateDevice"), "blink");
   });
 }else{
   onScene1Entry();
 }
 
 function onScene1Entry(){
-  goldenhorse.setActiveControl(fpsControl);
+  ROYGBIV.setActiveControl(fpsControl);
   for (var i = 1; i < 9; i++){
-    goldenhorse.startAnimation(goldenhorse.getObject("box" + i), "anim1");
+    ROYGBIV.startAnimation(ROYGBIV.getObject("box" + i), "anim1");
   }
-  goldenhorse.hideSprite(skullSprite);
+  ROYGBIV.hideSprite(skullSprite);
 
-  goldenhorse.executeForEachParticleSystem(plasmaPool, function(ps){
-    goldenhorse.setCollisionListener(ps, function(collisionInfo){
+  ROYGBIV.executeForEachParticleSystem(plasmaPool, function(ps){
+    ROYGBIV.setCollisionListener(ps, function(collisionInfo){
       if (collisionInfo.targetObjectName == "limit"){
         return;
       }
-      goldenhorse.stopParticleSystem(ps, 0);
-      var ps2 = goldenhorse.getParticleSystemFromPool(explosionPool);
-      goldenhorse.setVector(rv4, collisionInfo.faceNormalX, collisionInfo.faceNormalY, collisionInfo.faceNormalZ);
-      goldenhorse.setVector(rv5, collisionInfo.x, collisionInfo.y, collisionInfo.z);
-      goldenhorse.computeQuaternionFromVectors(rv4, norm, rq);
+      ROYGBIV.stopParticleSystem(ps, 0);
+      var ps2 = ROYGBIV.getParticleSystemFromPool(explosionPool);
+      ROYGBIV.setVector(rv4, collisionInfo.faceNormalX, collisionInfo.faceNormalY, collisionInfo.faceNormalZ);
+      ROYGBIV.setVector(rv5, collisionInfo.x, collisionInfo.y, collisionInfo.z);
+      ROYGBIV.computeQuaternionFromVectors(rv4, norm, rq);
       var startPSConfig2 = startPS2ConfigsByPSName[ps2.name];
-      goldenhorse.setVector(startPSConfig2.startPosition, rv5.x, rv5.y, rv5.z);
+      ROYGBIV.setVector(startPSConfig2.startPosition, rv5.x, rv5.y, rv5.z);
       startPSConfig2.startQuaternion.x = rq.x;
       startPSConfig2.startQuaternion.y = rq.y;
       startPSConfig2.startQuaternion.z = rq.z;
       startPSConfig2.startQuaternion.w = rq.w;
-      goldenhorse.startParticleSystem(startPSConfig2);
-      goldenhorse.fadeAway(ps2, 700);
+      ROYGBIV.startParticleSystem(startPSConfig2);
+      ROYGBIV.fadeAway(ps2, 700);
     });
   });
 
-  goldenhorse.setTextColor(goldenhorse.getText("controlsText"), "#83a598");
-  goldenhorse.setTextColor(goldenhorse.getText("githubText"), "#83a598");
+  ROYGBIV.setTextColor(ROYGBIV.getText("controlsText"), "#83a598");
+  ROYGBIV.setTextColor(ROYGBIV.getText("githubText"), "#83a598");
 
-  if (!goldenhorse.isMobile()){
-    goldenhorse.startAnimation(goldenhorse.getText("clickToStart"), "blink");
+  if (!ROYGBIV.isMobile()){
+    ROYGBIV.startAnimation(ROYGBIV.getText("clickToStart"), "blink");
   }
 
-  if (!goldenhorse.isMobile()){
-    goldenhorse.showText(goldenhorse.getText("clickToStart"));
+  if (!ROYGBIV.isMobile()){
+    ROYGBIV.showText(ROYGBIV.getText("clickToStart"));
   }else{
-    goldenhorse.hideText(goldenhorse.getText("clickToStart"));
+    ROYGBIV.hideText(ROYGBIV.getText("clickToStart"));
   }
 }
 
 function onControlsDesktopEntry(){
-  var container1 = goldenhorse.getContainer("selContainer1");
-  var container2 = goldenhorse.getContainer("selContainer2");
-  var container3 = goldenhorse.getContainer("selContainer3");
-  var container4 = goldenhorse.getContainer("selContainer4");
-  var container9 = goldenhorse.getContainer("container9");
+  var container1 = ROYGBIV.getContainer("selContainer1");
+  var container2 = ROYGBIV.getContainer("selContainer2");
+  var container3 = ROYGBIV.getContainer("selContainer3");
+  var container4 = ROYGBIV.getContainer("selContainer4");
+  var container9 = ROYGBIV.getContainer("container9");
 
-  goldenhorse.onContainerMouseOver(container1, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("moveText"), "#fb4934");
-    goldenhorse.setTextColor(goldenhorse.getText("wsadText"), "#fb4934");
+  ROYGBIV.onContainerMouseOver(container1, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("moveText"), "#fb4934");
+    ROYGBIV.setTextColor(ROYGBIV.getText("wsadText"), "#fb4934");
   });
-  goldenhorse.onContainerMouseOver(container2, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("lookText"), "#fb4934");
-    goldenhorse.setTextColor(goldenhorse.getText("mouseText"), "#fb4934");
+  ROYGBIV.onContainerMouseOver(container2, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("lookText"), "#fb4934");
+    ROYGBIV.setTextColor(ROYGBIV.getText("mouseText"), "#fb4934");
   });
-  goldenhorse.onContainerMouseOver(container3, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("jumpText"), "#fb4934");
-    goldenhorse.setTextColor(goldenhorse.getText("spaceText"), "#fb4934");
+  ROYGBIV.onContainerMouseOver(container3, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("jumpText"), "#fb4934");
+    ROYGBIV.setTextColor(ROYGBIV.getText("spaceText"), "#fb4934");
   });
-  goldenhorse.onContainerMouseOver(container4, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("shootText"), "#fb4934");
-    goldenhorse.setTextColor(goldenhorse.getText("clickText"), "#fb4934");
+  ROYGBIV.onContainerMouseOver(container4, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("shootText"), "#fb4934");
+    ROYGBIV.setTextColor(ROYGBIV.getText("clickText"), "#fb4934");
   });
-  goldenhorse.onContainerMouseOver(container9, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("goBackText"), "#fb4934");
-  });
-
-  goldenhorse.onContainerMouseOut(container1, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("moveText"), "#83a598");
-    goldenhorse.setTextColor(goldenhorse.getText("wsadText"), "#83a598");
-  });
-  goldenhorse.onContainerMouseOut(container2, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("lookText"), "#83a598");
-    goldenhorse.setTextColor(goldenhorse.getText("mouseText"), "#83a598");
-  });
-  goldenhorse.onContainerMouseOut(container3, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("jumpText"), "#83a598");
-    goldenhorse.setTextColor(goldenhorse.getText("spaceText"), "#83a598");
-  });
-  goldenhorse.onContainerMouseOut(container4, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("shootText"), "#83a598");
-    goldenhorse.setTextColor(goldenhorse.getText("clickText"), "#83a598");
-  });
-  goldenhorse.onContainerMouseOut(container9, function(){
-    goldenhorse.setTextColor(goldenhorse.getText("goBackText"), "#83a598");
+  ROYGBIV.onContainerMouseOver(container9, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("goBackText"), "#fb4934");
   });
 
-  goldenhorse.onContainerClick(container9, function(){
-    goldenhorse.changeScene("scene1", onScene1Entry);
+  ROYGBIV.onContainerMouseOut(container1, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("moveText"), "#83a598");
+    ROYGBIV.setTextColor(ROYGBIV.getText("wsadText"), "#83a598");
+  });
+  ROYGBIV.onContainerMouseOut(container2, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("lookText"), "#83a598");
+    ROYGBIV.setTextColor(ROYGBIV.getText("mouseText"), "#83a598");
+  });
+  ROYGBIV.onContainerMouseOut(container3, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("jumpText"), "#83a598");
+    ROYGBIV.setTextColor(ROYGBIV.getText("spaceText"), "#83a598");
+  });
+  ROYGBIV.onContainerMouseOut(container4, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("shootText"), "#83a598");
+    ROYGBIV.setTextColor(ROYGBIV.getText("clickText"), "#83a598");
+  });
+  ROYGBIV.onContainerMouseOut(container9, function(){
+    ROYGBIV.setTextColor(ROYGBIV.getText("goBackText"), "#83a598");
+  });
+
+  ROYGBIV.onContainerClick(container9, function(){
+    ROYGBIV.changeScene("scene1", onScene1Entry);
   })
 }
 
 function onControlsMobileEntry(){
-  goldenhorse.setActiveControl(goldenhorse.createCustomControl({}));
-  var splitText = goldenhorse.getText("controlsMobileSplit");
-  var backText = goldenhorse.getText("backMobile");
-  var moveText = goldenhorse.getText("moveMobile");
-  var lookText = goldenhorse.getText("lookMobile");
-  var jumpText = goldenhorse.getText("jumpMobile");
+  ROYGBIV.setActiveControl(ROYGBIV.createCustomControl({}));
+  var splitText = ROYGBIV.getText("controlsMobileSplit");
+  var backText = ROYGBIV.getText("backMobile");
+  var moveText = ROYGBIV.getText("moveMobile");
+  var lookText = ROYGBIV.getText("lookMobile");
+  var jumpText = ROYGBIV.getText("jumpMobile");
 
-  goldenhorse.setTextAlpha(backText, 0);
-  goldenhorse.setTextAlpha(moveText, 0);
-  goldenhorse.setTextAlpha(lookText, 0);
-  goldenhorse.setTextAlpha(jumpText, 0);
+  ROYGBIV.setTextAlpha(backText, 0);
+  ROYGBIV.setTextAlpha(moveText, 0);
+  ROYGBIV.setTextAlpha(lookText, 0);
+  ROYGBIV.setTextAlpha(jumpText, 0);
 
-  goldenhorse.startAnimation(splitText, "type");
-  goldenhorse.onAnimationFinished(splitText, "type", function(){
-    goldenhorse.startAnimation(moveText, "alpha");
-    goldenhorse.onAnimationFinished(moveText, "alpha", function(){
-      goldenhorse.setTextAlpha(moveText, 1);
-      goldenhorse.startAnimation(lookText, "alpha");
-      goldenhorse.onAnimationFinished(lookText, "alpha", function(){
-        goldenhorse.setTextAlpha(lookText, 1);
-        goldenhorse.startAnimation(jumpText, "alpha");
-        goldenhorse.onAnimationFinished(jumpText, "alpha", function(){
-          goldenhorse.setTextAlpha(jumpText, 1);
-          goldenhorse.startAnimation(backText, "alpha");
-          goldenhorse.onAnimationFinished(backText, "alpha", function(){
-            goldenhorse.setTextAlpha(backText, 1);
-            goldenhorse.onTextClick(backText, function(){
-              goldenhorse.changeScene("scene1", onScene1Entry);
+  ROYGBIV.startAnimation(splitText, "type");
+  ROYGBIV.onAnimationFinished(splitText, "type", function(){
+    ROYGBIV.startAnimation(moveText, "alpha");
+    ROYGBIV.onAnimationFinished(moveText, "alpha", function(){
+      ROYGBIV.setTextAlpha(moveText, 1);
+      ROYGBIV.startAnimation(lookText, "alpha");
+      ROYGBIV.onAnimationFinished(lookText, "alpha", function(){
+        ROYGBIV.setTextAlpha(lookText, 1);
+        ROYGBIV.startAnimation(jumpText, "alpha");
+        ROYGBIV.onAnimationFinished(jumpText, "alpha", function(){
+          ROYGBIV.setTextAlpha(jumpText, 1);
+          ROYGBIV.startAnimation(backText, "alpha");
+          ROYGBIV.onAnimationFinished(backText, "alpha", function(){
+            ROYGBIV.setTextAlpha(backText, 1);
+            ROYGBIV.onTextClick(backText, function(){
+              ROYGBIV.changeScene("scene1", onScene1Entry);
             });
           });
         });
@@ -6705,7 +6705,7 @@ function onControlsMobileEntry(){
   });
 }
 
-goldenhorse.stopScript("plasma_init");
+ROYGBIV.stopScript("plasma_init");
 if (cpuOperationsHandler.record){cpuOperationsHandler.scriptPerformances.plasma_init = performance.now() - cpuOperationsHandler.scriptPerformances.plasma_init}}
 
 }
@@ -7072,17 +7072,17 @@ window.onload = function() {
   particleSystemGenerator = new ParticleSystemGenerator();
 
   // SCRIPTING UTILITY FUNCTIONS
-  goldenhorse = new goldenhorse();
+  ROYGBIV = new Roygbiv();
   if (!isDeployment){
-    var goldenhorseScriptingAPIMethodCount = (Object.keys(goldenhorse.prototype).length);
-    if (goldenhorseScriptingAPIMethodCount != goldenhorse.functionNames.length){
+    var roygbivScriptingAPIMethodCount = (Object.keys(Roygbiv.prototype).length);
+    if (roygbivScriptingAPIMethodCount != ROYGBIV.functionNames.length){
       console.error("[*] Scripting API error: Some methods are missing in functionNames list.");
     }
-    for (var i = 0; i<goldenhorse.functionNames.length; i++){
-      if (!Text[Text.goldenhorse_SCRIPTING_API_PREFIX+goldenhorse.functionNames[i].toUpperCase()]){
-        console.error("[*] Scripting API error: "+goldenhorse.functionNames[i]+" explanation is not present.");
+    for (var i = 0; i<ROYGBIV.functionNames.length; i++){
+      if (!Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+ROYGBIV.functionNames[i].toUpperCase()]){
+        console.error("[*] Scripting API error: "+ROYGBIV.functionNames[i]+" explanation is not present.");
       }
-      goldenhorse[goldenhorse.functionNames[i]].goldenhorseFuncName = goldenhorse.functionNames[i];
+      ROYGBIV[ROYGBIV.functionNames[i]].roygbivFuncName = ROYGBIV.functionNames[i];
     }
   }
 
@@ -7182,7 +7182,7 @@ window.onload = function() {
     console.log(
       "%c "+BANNERL1+"\n"+BANNERL2+"\n"+BANNERL3+"\n"+
       BANNERL4+"\n"+BANNERL5 +"\n"+"                                         "
-      + "\nby Oguz Eroglu - github.com/goldenhorse0912   ",
+      + "\nby Oguz Eroglu - github.com/oguzeroglu   ",
       "background: black; color: lime"
     );
   }
@@ -7416,7 +7416,7 @@ function startDeployment(){
   appendtoDeploymentConsole(BANNERL4);
   appendtoDeploymentConsole(BANNERL5);
   appendtoDeploymentConsole("");
-  appendtoDeploymentConsole("by Golden Horse - github.com/goldenhorse0912");
+  appendtoDeploymentConsole("by Oğuz Eroğlu - github.com/oguzeroglu");
   appendtoDeploymentConsole("");
   appendtoDeploymentConsole("");
   if (NO_MOBILE && isMobile){
@@ -8228,14 +8228,14 @@ ImportHandler.prototype.importMaterials = function(obj){
     if (curMaterialExport.materialType == "BASIC"){
       material = new BasicMaterial(
         {
-          name: curMaterialExport.goldenhorseMaterialName,
+          name: curMaterialExport.roygbivMaterialName,
           color: color,
           alpha: opacity,
           aoMapIntensity: aoMapIntensity
         }
       );
     }
-    material.goldenhorseMaterialName = curMaterialExport.goldenhorseMaterialName;
+    material.roygbivMaterialName = curMaterialExport.roygbivMaterialName;
     material.textColor = color;
     materials[materialName] = material;
   }
@@ -8308,7 +8308,7 @@ ImportHandler.prototype.importAddedObjects = function(obj){
   for (var addedObjectName in addedObjectsExport){
     var curAddedObjectExport = addedObjectsExport[addedObjectName];
     var type = curAddedObjectExport.type;
-    var goldenhorseMaterialName = curAddedObjectExport.goldenhorseMaterialName;
+    var roygbivMaterialName = curAddedObjectExport.roygbivMaterialName;
     var destroyedGrids = new Object();
     var destroyedGridsExport = curAddedObjectExport.destroyedGrids;
     var metaData = curAddedObjectExport.metaData;
@@ -8334,11 +8334,11 @@ ImportHandler.prototype.importAddedObjects = function(obj){
         }
       }
     }
-    var material = materials[goldenhorseMaterialName];
+    var material = materials[roygbivMaterialName];
     if (!material){
-      if (goldenhorseMaterialName == "NULL_BASIC"){
+      if (roygbivMaterialName == "NULL_BASIC"){
         material = new BasicMaterial({
-          name: goldenhorseMaterialName,
+          name: roygbivMaterialName,
           color: "white",
           alpha: curAddedObjectExport.opacity,
           aoMapIntensity: curAddedObjectExport.aoMapIntensity,
@@ -8840,17 +8840,17 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
     if (!addedObjectExport){
       return;
     }
-    var diffusegoldenhorseTexturePackName;
-    var alphagoldenhorseTexturePackName;
-    var aogoldenhorseTexturePackName;
-    var emissivegoldenhorseTexturePackName;
-    var displacementgoldenhorseTexturePackName;
+    var diffuseRoygbivTexturePackName;
+    var alphaRoygbivTexturePackName;
+    var aoRoygbivTexturePackName;
+    var emissiveRoygbivTexturePackName;
+    var displacementRoygbivTexturePackName;
 
-    diffusegoldenhorseTexturePackName = addedObjectExport["diffusegoldenhorseTexturePackName"];
-    alphagoldenhorseTexturePackName = addedObjectExport["alphagoldenhorseTexturePackName"];
-    aogoldenhorseTexturePackName = addedObjectExport["aogoldenhorseTexturePackName"];
-    emissivegoldenhorseTexturePackName = addedObjectExport["emissivegoldenhorseTexturePackName"];
-    displacementgoldenhorseTexturePackName = addedObjectExport["displacementgoldenhorseTexturePackName"];
+    diffuseRoygbivTexturePackName = addedObjectExport["diffuseRoygbivTexturePackName"];
+    alphaRoygbivTexturePackName = addedObjectExport["alphaRoygbivTexturePackName"];
+    aoRoygbivTexturePackName = addedObjectExport["aoRoygbivTexturePackName"];
+    emissiveRoygbivTexturePackName = addedObjectExport["emissiveRoygbivTexturePackName"];
+    displacementRoygbivTexturePackName = addedObjectExport["displacementRoygbivTexturePackName"];
 
     var textureRepeatU, textureRepeatV;
     if (!(typeof addedObjectExport["textureRepeatU"] == UNDEFINED)){
@@ -8894,11 +8894,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
     if (!(typeof addedObjectExport.displacementBias == UNDEFINED)){
       displacementBias = addedObjectExport.displacementBias;
     }
-    if (diffusegoldenhorseTexturePackName){
-      if (diffusegoldenhorseTexturePackName == texturePackName){
+    if (diffuseRoygbivTexturePackName){
+      if (diffuseRoygbivTexturePackName == texturePackName){
         if (texturePack.hasDiffuse){
           addedObject.mapDiffuse(texturePack.diffuseTexture);
-          material.uniforms.diffuseMap.value.goldenhorseTexturePackName = texturePackName;
+          material.uniforms.diffuseMap.value.roygbivTexturePackName = texturePackName;
           if (!(typeof textureOffsetX == UNDEFINED)){
             material.uniforms.diffuseMap.value.offset.x = textureOffsetX;
           }
@@ -8916,11 +8916,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
         }
       }
     }
-    if (alphagoldenhorseTexturePackName){
-      if (alphagoldenhorseTexturePackName == texturePackName){
+    if (alphaRoygbivTexturePackName){
+      if (alphaRoygbivTexturePackName == texturePackName){
         if (texturePack.hasAlpha){
           addedObject.mapAlpha(texturePack.alphaTexture);
-          material.uniforms.alphaMap.value.goldenhorseTexturePackName = texturePackName;
+          material.uniforms.alphaMap.value.roygbivTexturePackName = texturePackName;
           if (!(typeof textureRepeatU == UNDEFINED)){
             material.uniforms.alphaMap.value.repeat.x = textureRepeatU;
           }
@@ -8932,11 +8932,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
         }
       }
     }
-    if (aogoldenhorseTexturePackName){
-      if (aogoldenhorseTexturePackName == texturePackName){
+    if (aoRoygbivTexturePackName){
+      if (aoRoygbivTexturePackName == texturePackName){
         if (texturePack.hasAO){
           addedObject.mapAO(texturePack.aoTexture);
-          material.uniforms.aoMap.value.goldenhorseTexturePackName = texturePackName;
+          material.uniforms.aoMap.value.roygbivTexturePackName = texturePackName;
           if (!(typeof textureRepeatU == UNDEFINED)){
             material.uniforms.aoMap.value.repeat.x = textureRepeatU;
           }
@@ -8948,11 +8948,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
         }
       }
     }
-    if (emissivegoldenhorseTexturePackName){
-      if (emissivegoldenhorseTexturePackName == texturePackName){
+    if (emissiveRoygbivTexturePackName){
+      if (emissiveRoygbivTexturePackName == texturePackName){
         if (texturePack.hasEmissive){
           addedObject.mapEmissive(texturePack.emissiveTexture);
-          material.uniforms.emissiveMap.value.goldenhorseTexturePackName = texturePackName;
+          material.uniforms.emissiveMap.value.roygbivTexturePackName = texturePackName;
           if (!(typeof textureRepeatU == UNDEFINED)){
             material.uniforms.emissiveMap.value.repeat.x = textureRepeatU;
           }
@@ -8964,11 +8964,11 @@ ImportHandler.prototype.mapLoadedTexturePack = function(texturePackName, exportO
         }
       }
     }
-    if (displacementgoldenhorseTexturePackName){
-      if (displacementgoldenhorseTexturePackName == texturePackName){
+    if (displacementRoygbivTexturePackName){
+      if (displacementRoygbivTexturePackName == texturePackName){
         if (texturePack.hasHeight){
           addedObject.mapDisplacement(texturePack.heightTexture);
-          material.uniforms.displacementMap.value.goldenhorseTexturePackName = texturePackName;
+          material.uniforms.displacementMap.value.roygbivTexturePackName = texturePackName;
           if (!(typeof textureRepeatU == UNDEFINED)){
             material.uniforms.displacementMap.value.repeat.x = textureRepeatU;
           }
@@ -9786,10 +9786,10 @@ StateLoader.prototype.resetProject = function(){
   fonts = new Object();
   NO_MOBILE = false;
   fixedAspect = 0;
-  goldenhorseAttributeCounter = 1;
-  goldenhorseBufferAttributeCounter = 1;
-  goldenhorseSkippedArrayBufferUpdates = 0;
-  goldenhorseSkippedElementArrayBufferUpdates = 0;
+  roygbivAttributeCounter = 1;
+  roygbivBufferAttributeCounter = 1;
+  roygbivSkippedArrayBufferUpdates = 0;
+  roygbivSkippedElementArrayBufferUpdates = 0;
   particleSystemRefHeight = 0;
   GLOBAL_PS_REF_HEIGHT_UNIFORM.value = 0;
   boundingClientRect = renderer.getBoundingClientRect();
@@ -9829,7 +9829,7 @@ StateLoader.prototype.resetProject = function(){
   }
   if (!isDeployment){
     guiHandler.hideAll();
-    $("#cliDivheader").text("goldenhorse Scene Creator - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
+    $("#cliDivheader").text("ROYGBIV Scene Creator - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
   }
   LIMIT_BOUNDING_BOX = new THREE.Box3(new THREE.Vector3(-4000, -4000, -4000), new THREE.Vector3(4000, 4000, 4000));
   BIN_SIZE = 50;
@@ -10546,7 +10546,7 @@ ObjectGroup.prototype.handleRenderSide = function(val){
 }
 
 ObjectGroup.prototype.textureCompare = function(txt1, txt2){
-  if (txt1.goldenhorseTexturePackName != txt2.goldenhorseTexturePackName){
+  if (txt1.roygbivTexturePackName != txt2.roygbivTexturePackName){
     return false;
   }
   if (txt1.offset.x != txt2.offset.x || txt1.offset.y != txt2.offset.y){
@@ -11859,7 +11859,7 @@ ObjectGroup.prototype.exportLightweight = function(){
   }
   for (var i = 0; i<this.boundingBoxes.length; i++){
     exportObj.boundingBoxes.push({
-      goldenhorseObjectName: this.boundingBoxes[i].goldenhorseObjectName,
+      roygbivObjectName: this.boundingBoxes[i].roygbivObjectName,
       boundingBox: this.boundingBoxes[i]
     });
   }
@@ -14114,7 +14114,7 @@ ParticleSystem.prototype.rotate = function(axis, radians, fromScript){
 ParticleSystem.prototype.getVelocityAtTime = function(time, targetVector){
   if (this.motionMode == MOTION_MODE_NORMAL){
     if (!targetVector){
-      var vec = goldenhorse.vector(0, 0, 0);
+      var vec = ROYGBIV.vector(0, 0, 0);
       vec.x = this.velocity.x + (this.acceleration.x * time);
       vec.y = this.velocity.y + (this.acceleration.y * time);
       vec.z = this.velocity.z + (this.acceleration.z * time);
@@ -14227,7 +14227,7 @@ var ObjectTrail = function(configurations){
     geometry = this.object.getNormalGeometry();
     var color = this.object.material.color;
     for (var i = 0; i<geometry.faces.length; i++){
-      geometry.faces[i].goldenhorseObjectName = this.object.name;
+      geometry.faces[i].roygbivObjectName = this.object.name;
       if (this.object.hasEmissiveMap()){
         geometry.faces[i].faceEmissiveIntensity = this.object.getEmissiveIntensity();
         geometry.faces[i].faceEmissiveColor = this.object.getEmissiveColor().clone();
@@ -14257,7 +14257,7 @@ var ObjectTrail = function(configurations){
     for (var i = 0; i<geometry.faces.length; i++){
       var mi = geometry.faces[i].materialIndex;
       var objName = miMap[mi];
-      geometry.faces[i].goldenhorseObjectName = objName;
+      geometry.faces[i].roygbivObjectName = objName;
       var childObj = this.object.group[objName];
       if (childObj.hasEmissiveMap()){
         geometry.faces[i].faceEmissiveIntensity = childObj.getEmissiveIntensity() * this.object.getEmissiveIntensity();
@@ -14363,7 +14363,7 @@ var ObjectTrail = function(configurations){
     }
 
 
-    var objName = face.goldenhorseObjectName;
+    var objName = face.roygbivObjectName;
     var obj;
     if (this.isAddedObject){
       obj = addedObjects[objName];
@@ -14698,7 +14698,7 @@ var ParticleMaterial = function(configurations){
   this.targetBlue = threeColor.b;
 }
 
-var goldenhorse = function(){
+var Roygbiv = function(){
   this.functionNames = [
     "getObject",
     "getParticleSystem",
@@ -14948,7 +14948,7 @@ var goldenhorse = function(){
 }
 
 
-goldenhorse.prototype.getObject = function(name){
+Roygbiv.prototype.getObject = function(name){
   if (mode == 0){
     return;
   }
@@ -14962,7 +14962,7 @@ goldenhorse.prototype.getObject = function(name){
   }
 }
 
-goldenhorse.prototype.getParticleSystem = function(name){
+Roygbiv.prototype.getParticleSystem = function(name){
   if (mode == 0){
     return;
   }
@@ -14974,7 +14974,7 @@ goldenhorse.prototype.getParticleSystem = function(name){
   }
 }
 
-goldenhorse.prototype.getChildObject = function(objectGroup, childObjectName){
+Roygbiv.prototype.getChildObject = function(objectGroup, childObjectName){
   if (mode == 0){
     return;
   }
@@ -14985,14 +14985,14 @@ goldenhorse.prototype.getChildObject = function(objectGroup, childObjectName){
   return 0;
 }
 
-goldenhorse.prototype.getRandomColor = function(){
+Roygbiv.prototype.getRandomColor = function(){
   if (mode == 0){
     return;
   }
   return ColorNames.generateRandomColor();
 }
 
-goldenhorse.prototype.getPosition = function(object, targetVector, axis){
+Roygbiv.prototype.getPosition = function(object, targetVector, axis){
   if (mode == 0){
     return;
   }
@@ -15103,7 +15103,7 @@ goldenhorse.prototype.getPosition = function(object, targetVector, axis){
   }
 }
 
-goldenhorse.prototype.getOpacity = function(object){
+Roygbiv.prototype.getOpacity = function(object){
   if (mode == 0){
     return;
   }
@@ -15113,7 +15113,7 @@ goldenhorse.prototype.getOpacity = function(object){
   return object.mesh.material.uniforms.totalAlpha.value;
 }
 
-goldenhorse.prototype.getMarkedPosition = function(markedPointName, targetVector){
+Roygbiv.prototype.getMarkedPosition = function(markedPointName, targetVector){
   if (mode == 0){
     return;
   }
@@ -15124,14 +15124,14 @@ goldenhorse.prototype.getMarkedPosition = function(markedPointName, targetVector
   return targetVector;
 }
 
-goldenhorse.prototype.getParticleSystemVelocityAtTime = function(particleSystem, time, targetVector){
+Roygbiv.prototype.getParticleSystemVelocityAtTime = function(particleSystem, time, targetVector){
   if (mode == 0){
     return;
   }
   return particleSystem.getVelocityAtTime(time, targetVector);
 }
 
-goldenhorse.prototype.getCameraDirection = function(targetVector){
+Roygbiv.prototype.getCameraDirection = function(targetVector){
   if (mode == 0){
     return;
   }
@@ -15142,7 +15142,7 @@ goldenhorse.prototype.getCameraDirection = function(targetVector){
   return targetVector;
 }
 
-goldenhorse.prototype.getCameraPosition = function(targetVector){
+Roygbiv.prototype.getCameraPosition = function(targetVector){
   if (mode == 0){
     return;
   }
@@ -15152,7 +15152,7 @@ goldenhorse.prototype.getCameraPosition = function(targetVector){
   return targetVector;
 }
 
-goldenhorse.prototype.getParticleSystemPool = function(name){
+Roygbiv.prototype.getParticleSystemPool = function(name){
   if (mode == 0){
     return;
   }
@@ -15160,14 +15160,14 @@ goldenhorse.prototype.getParticleSystemPool = function(name){
   return psPool;
 }
 
-goldenhorse.prototype.getParticleSystemFromPool = function(pool){
+Roygbiv.prototype.getParticleSystemFromPool = function(pool){
   if (mode == 0){
     return;
   }
   return pool.get();
 }
 
-goldenhorse.prototype.getEndPoint = function(object, axis, targetVector){
+Roygbiv.prototype.getEndPoint = function(object, axis, targetVector){
   if (mode == 0){
     return;
   }
@@ -15179,14 +15179,14 @@ goldenhorse.prototype.getEndPoint = function(object, axis, targetVector){
   return targetVector;
 }
 
-goldenhorse.prototype.getViewport = function(){
+Roygbiv.prototype.getViewport = function(){
   if (mode == 0){
     return;
   }
   return currentViewport;
 }
 
-goldenhorse.prototype.getText = function(textName){
+Roygbiv.prototype.getText = function(textName){
   if (mode == 0){
     return;
   }
@@ -15197,28 +15197,28 @@ goldenhorse.prototype.getText = function(textName){
   return 0;
 }
 
-goldenhorse.prototype.getFPS = function(){
+Roygbiv.prototype.getFPS = function(){
   if (mode == 0){
     return;
   }
   return fpsHandler.fps;
 }
 
-goldenhorse.prototype.getActiveSceneName = function(){
+Roygbiv.prototype.getActiveSceneName = function(){
   if (mode == 0){
     return;
   }
   return sceneHandler.getActiveSceneName();
 }
 
-goldenhorse.prototype.getAnimationState = function(object, animationName){
+Roygbiv.prototype.getAnimationState = function(object, animationName){
   if (mode == 0){
     return;
   }
   return object.animations[animationName].animationState;
 }
 
-goldenhorse.prototype.getLightning = function(lightningName){
+Roygbiv.prototype.getLightning = function(lightningName){
   if (mode == 0){
     return;
   }
@@ -15229,7 +15229,7 @@ goldenhorse.prototype.getLightning = function(lightningName){
   return 0;
 }
 
-goldenhorse.prototype.getSprite = function(spriteName){
+Roygbiv.prototype.getSprite = function(spriteName){
   if (mode == 0){
     return;
   }
@@ -15240,7 +15240,7 @@ goldenhorse.prototype.getSprite = function(spriteName){
   return 0;
 }
 
-goldenhorse.prototype.getContainer = function(containerName){
+Roygbiv.prototype.getContainer = function(containerName){
   if (mode == 0){
     return;
   }
@@ -15251,7 +15251,7 @@ goldenhorse.prototype.getContainer = function(containerName){
   return 0;
 }
 
-goldenhorse.prototype.getVirtualKeyboard = function(virtualKeyboardName){
+Roygbiv.prototype.getVirtualKeyboard = function(virtualKeyboardName){
   if (mode == 0){
     return;
   }
@@ -15262,14 +15262,14 @@ goldenhorse.prototype.getVirtualKeyboard = function(virtualKeyboardName){
   return 0;
 }
 
-goldenhorse.prototype.getSpriteMarginX = function(sprite){
+Roygbiv.prototype.getSpriteMarginX = function(sprite){
   if (mode == 0){
     return;
   }
   return sprite.getMarginXPercent();
 }
 
-goldenhorse.prototype.getSpriteMarginY = function(sprite){
+Roygbiv.prototype.getSpriteMarginY = function(sprite){
   if (mode == 0){
     return;
   }
@@ -15277,7 +15277,7 @@ goldenhorse.prototype.getSpriteMarginY = function(sprite){
 }
 
 
-goldenhorse.prototype.hide = function(object, keepPhysics){
+Roygbiv.prototype.hide = function(object, keepPhysics){
   if (mode == 0){
     return;
   }
@@ -15293,7 +15293,7 @@ goldenhorse.prototype.hide = function(object, keepPhysics){
   }
 }
 
-goldenhorse.prototype.show = function(object){
+Roygbiv.prototype.show = function(object){
   if (mode == 0){
     return;
   }
@@ -15304,7 +15304,7 @@ goldenhorse.prototype.show = function(object){
   }
 }
 
-goldenhorse.prototype.applyForce = function(object, force, point){
+Roygbiv.prototype.applyForce = function(object, force, point){
   if (mode == 0){
     return;
   }
@@ -15317,7 +15317,7 @@ goldenhorse.prototype.applyForce = function(object, force, point){
   physicsWorld.applyImpulse(object, REUSABLE_CANNON_VECTOR, REUSABLE_CANNON_VECTOR_2);
 }
 
-goldenhorse.prototype.rotate = function(object, axis, radians){
+Roygbiv.prototype.rotate = function(object, axis, radians){
   if (mode == 0){
     return;
   }
@@ -15339,7 +15339,7 @@ goldenhorse.prototype.rotate = function(object, axis, radians){
   object.handleRotation(axis, radians);
 }
 
-goldenhorse.prototype.rotateAroundXYZ = function(object, x, y, z, radians, axis){
+Roygbiv.prototype.rotateAroundXYZ = function(object, x, y, z, radians, axis){
   if (mode == 0){
     return;
   }
@@ -15377,7 +15377,7 @@ goldenhorse.prototype.rotateAroundXYZ = function(object, x, y, z, radians, axis)
   object.onPositionChange(object.prevPositionVector, object.mesh.position);
 }
 
-goldenhorse.prototype.setPosition = function(obj, x, y, z){
+Roygbiv.prototype.setPosition = function(obj, x, y, z){
   if (mode == 0){
     return;
   }
@@ -15389,7 +15389,7 @@ goldenhorse.prototype.setPosition = function(obj, x, y, z){
   obj.setPosition(x, y, z);
 }
 
-goldenhorse.prototype.setMass = function(object, mass){
+Roygbiv.prototype.setMass = function(object, mass){
   if (mode == 0){
     return;
   }
@@ -15421,7 +15421,7 @@ goldenhorse.prototype.setMass = function(object, mass){
   }
 }
 
-goldenhorse.prototype.translate = function(object, axis, amount){
+Roygbiv.prototype.translate = function(object, axis, amount){
   if (mode == 0){
     return;
   }
@@ -15442,7 +15442,7 @@ goldenhorse.prototype.translate = function(object, axis, amount){
   }
 }
 
-goldenhorse.prototype.opacity = function(object, delta){
+Roygbiv.prototype.opacity = function(object, delta){
   if (mode == 0){
     return;
   }
@@ -15471,7 +15471,7 @@ goldenhorse.prototype.opacity = function(object, delta){
   }
 }
 
-goldenhorse.prototype.setObjectVelocity = function(object, velocityVector, axis){
+Roygbiv.prototype.setObjectVelocity = function(object, velocityVector, axis){
   if (mode == 0){
     return;
   }
@@ -15489,7 +15489,7 @@ goldenhorse.prototype.setObjectVelocity = function(object, velocityVector, axis)
   object.setVelocity(velocityVector);
 }
 
-goldenhorse.prototype.setObjectColor = function(object, colorName, alpha){
+Roygbiv.prototype.setObjectColor = function(object, colorName, alpha){
   if (mode == 0){
     return;
   }
@@ -15504,7 +15504,7 @@ goldenhorse.prototype.setObjectColor = function(object, colorName, alpha){
   object.forceColor(REUSABLE_COLOR.r, REUSABLE_COLOR.g, REUSABLE_COLOR.b, alpha);
 }
 
-goldenhorse.prototype.resetObjectColor = function(object){
+Roygbiv.prototype.resetObjectColor = function(object){
   if (mode == 0){
     return;
   }
@@ -15514,7 +15514,7 @@ goldenhorse.prototype.resetObjectColor = function(object){
   object.resetColor();
 }
 
-goldenhorse.prototype.setRotationPivot = function(rotationPivot){
+Roygbiv.prototype.setRotationPivot = function(rotationPivot){
   if (mode == 0){
     return;
   }
@@ -15522,14 +15522,14 @@ goldenhorse.prototype.setRotationPivot = function(rotationPivot){
   sourceObject.setRotationPivot(rotationPivot);
 }
 
-goldenhorse.prototype.unsetRotationPivot = function(object){
+Roygbiv.prototype.unsetRotationPivot = function(object){
   if (mode == 0){
     return;
   }
   object.unsetRotationPivot();
 }
 
-goldenhorse.prototype.resetObjectVelocity = function(object){
+Roygbiv.prototype.resetObjectVelocity = function(object){
   if (mode == 0){
     return;
   }
@@ -15537,7 +15537,7 @@ goldenhorse.prototype.resetObjectVelocity = function(object){
 }
 
 
-goldenhorse.prototype.setParticleSystemRotation = function(particleSystem, axis, radians){
+Roygbiv.prototype.setParticleSystemRotation = function(particleSystem, axis, radians){
   if (mode == 0){
     return;
   }
@@ -15552,7 +15552,7 @@ goldenhorse.prototype.setParticleSystemRotation = function(particleSystem, axis,
   particleSystem.hasManualRotationSet = true;
 }
 
-goldenhorse.prototype.setParticleSystemQuaternion = function(particleSystem, quatX, quatY, quatZ, quatW){
+Roygbiv.prototype.setParticleSystemQuaternion = function(particleSystem, quatX, quatY, quatZ, quatW){
   if (mode == 0){
     return;
   }
@@ -15560,28 +15560,28 @@ goldenhorse.prototype.setParticleSystemQuaternion = function(particleSystem, qua
   particleSystem.hasManualQuaternionSet = true;
 }
 
-goldenhorse.prototype.stopParticleSystem = function(particleSystem, stopDuration){
+Roygbiv.prototype.stopParticleSystem = function(particleSystem, stopDuration){
   if (mode == 0){
     return;
   }
   particleSystem.stop(stopDuration);
 }
 
-goldenhorse.prototype.startParticleSystem = function(configurations){
+Roygbiv.prototype.startParticleSystem = function(configurations){
   if (mode == 0){
     return;
   }
   configurations.particleSystem.start(configurations);
 }
 
-goldenhorse.prototype.hideParticleSystem = function(particleSystem){
+Roygbiv.prototype.hideParticleSystem = function(particleSystem){
   if (mode == 0){
     return;
   }
   particleSystem.hide();
 }
 
-goldenhorse.prototype.fadeAway = function(particleSystem, coefficient){
+Roygbiv.prototype.fadeAway = function(particleSystem, coefficient){
   if (mode == 0){
     return;
   }
@@ -15592,7 +15592,7 @@ goldenhorse.prototype.fadeAway = function(particleSystem, coefficient){
   }
 }
 
-goldenhorse.prototype.setParticleSystemPosition = function(particleSystem, x, y, z){
+Roygbiv.prototype.setParticleSystemPosition = function(particleSystem, x, y, z){
   if (mode == 0){
     return;
   }
@@ -15600,7 +15600,7 @@ goldenhorse.prototype.setParticleSystemPosition = function(particleSystem, x, y,
   particleSystem.hasManualPositionSet = true;
 }
 
-goldenhorse.prototype.executeForEachParticleSystem = function(psPool, callbackFunction){
+Roygbiv.prototype.executeForEachParticleSystem = function(psPool, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15610,7 +15610,7 @@ goldenhorse.prototype.executeForEachParticleSystem = function(psPool, callbackFu
 }
 
 
-goldenhorse.prototype.startMotionBlur = function(object){
+Roygbiv.prototype.startMotionBlur = function(object){
   if (mode == 0){
     return;
   }
@@ -15618,7 +15618,7 @@ goldenhorse.prototype.startMotionBlur = function(object){
   objectTrail.start();
 }
 
-goldenhorse.prototype.stopMotionBlur = function(object){
+Roygbiv.prototype.stopMotionBlur = function(object){
   if (mode == 0){
     return;
   }
@@ -15627,7 +15627,7 @@ goldenhorse.prototype.stopMotionBlur = function(object){
 }
 
 
-goldenhorse.prototype.selectCrosshair = function(crosshairName){
+Roygbiv.prototype.selectCrosshair = function(crosshairName){
   if (mode == 0){
     return;
   }
@@ -15635,49 +15635,49 @@ goldenhorse.prototype.selectCrosshair = function(crosshairName){
   crosshairHandler.selectCrosshair(crosshair);
 }
 
-goldenhorse.prototype.changeCrosshairColor = function(colorName){
+Roygbiv.prototype.changeCrosshairColor = function(colorName){
   if (mode == 0){
     return;
   }
   crosshairHandler.changeCrosshairColor(colorName);
 }
 
-goldenhorse.prototype.hideCrosshair = function(){
+Roygbiv.prototype.hideCrosshair = function(){
   if (mode == 0){
     return;
   }
   crosshairHandler.hideCrosshair();
 }
 
-goldenhorse.prototype.startCrosshairRotation = function(angularSpeed){
+Roygbiv.prototype.startCrosshairRotation = function(angularSpeed){
   if (mode == 0){
     return;
   }
   crosshairHandler.startCrosshairRotation(angularSpeed);
 }
 
-goldenhorse.prototype.stopCrosshairRotation = function(){
+Roygbiv.prototype.stopCrosshairRotation = function(){
   if (mode == 0){
     return;
   }
   crosshairHandler.stopCrosshairRotation();
 }
 
-goldenhorse.prototype.pauseCrosshairRotation = function(){
+Roygbiv.prototype.pauseCrosshairRotation = function(){
   if (mode == 0){
     return;
   }
   crosshairHandler.pauseCrosshairRotation();
 }
 
-goldenhorse.prototype.expandCrosshair = function(targetSize, delta){
+Roygbiv.prototype.expandCrosshair = function(targetSize, delta){
   if (mode == 0){
     return;
   }
   crosshairHandler.expandCrosshair(targetSize, delta);
 }
 
-goldenhorse.prototype.shrinkCrosshair = function(delta){
+Roygbiv.prototype.shrinkCrosshair = function(delta){
   if (mode == 0){
     return;
   }
@@ -15685,7 +15685,7 @@ goldenhorse.prototype.shrinkCrosshair = function(delta){
 }
 
 
-goldenhorse.prototype.setCollisionListener = function(sourceObject, callbackFunction, timeOffset){
+Roygbiv.prototype.setCollisionListener = function(sourceObject, callbackFunction, timeOffset){
   if (mode == 0){
     return;
   }
@@ -15706,7 +15706,7 @@ goldenhorse.prototype.setCollisionListener = function(sourceObject, callbackFunc
   }
 }
 
-goldenhorse.prototype.removeCollisionListener = function(sourceObject){
+Roygbiv.prototype.removeCollisionListener = function(sourceObject){
   if (mode == 0){
     return;
   }
@@ -15727,21 +15727,21 @@ goldenhorse.prototype.removeCollisionListener = function(sourceObject){
   }
 }
 
-goldenhorse.prototype.setExpireListener = function(sourceObject, callbackFunction){
+Roygbiv.prototype.setExpireListener = function(sourceObject, callbackFunction){
   if (mode == 0){
     return;
   }
   sourceObject.expirationFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeExpireListener = function(sourceObject){
+Roygbiv.prototype.removeExpireListener = function(sourceObject){
   if (mode == 0){
     return;
   }
   delete sourceObject.expirationFunction;
 }
 
-goldenhorse.prototype.setObjectClickListener = function(sourceObject, callbackFunction){
+Roygbiv.prototype.setObjectClickListener = function(sourceObject, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15749,7 +15749,7 @@ goldenhorse.prototype.setObjectClickListener = function(sourceObject, callbackFu
   objectsWithOnClickListeners.set(sourceObject.name, sourceObject);
 }
 
-goldenhorse.prototype.removeObjectClickListener = function(sourceObject){
+Roygbiv.prototype.removeObjectClickListener = function(sourceObject){
   if (mode == 0){
     return;
   }
@@ -15757,133 +15757,133 @@ goldenhorse.prototype.removeObjectClickListener = function(sourceObject){
   objectsWithOnClickListeners.delete(sourceObject.name);
 }
 
-goldenhorse.prototype.setScreenClickListener = function(callbackFunction){
+Roygbiv.prototype.setScreenClickListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenClickCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenClickListener = function(){
+Roygbiv.prototype.removeScreenClickListener = function(){
   if (mode == 0){
     return;
   }
   screenClickCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenMouseDownListener = function(callbackFunction){
+Roygbiv.prototype.setScreenMouseDownListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenMouseDownCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenMouseDownListener = function(){
+Roygbiv.prototype.removeScreenMouseDownListener = function(){
   if (mode == 0){
     return;
   }
   screenMouseDownCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenMouseUpListener = function(callbackFunction){
+Roygbiv.prototype.setScreenMouseUpListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenMouseUpCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenMouseUpListener = function(){
+Roygbiv.prototype.removeScreenMouseUpListener = function(){
   if (mode == 0){
     return;
   }
   screenMouseUpCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenMouseMoveListener = function(callbackFunction){
+Roygbiv.prototype.setScreenMouseMoveListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenMouseMoveCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenMouseMoveListener = function(){
+Roygbiv.prototype.removeScreenMouseMoveListener = function(){
   if (mode == 0){
     return;
   }
   screenMouseMoveCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenPointerLockChangeListener = function(callbackFunction){
+Roygbiv.prototype.setScreenPointerLockChangeListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenPointerLockChangedCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenPointerLockChangeListener = function(){
+Roygbiv.prototype.removeScreenPointerLockChangeListener = function(){
   if (mode == 0){
     return;
   }
   screenPointerLockChangedCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setParticleSystemPoolConsumedListener = function(psPool, callbackFunction){
+Roygbiv.prototype.setParticleSystemPoolConsumedListener = function(psPool, callbackFunction){
   if (mode == 0){
     return;
   }
   psPool.consumedCallback = callbackFunction;
 }
 
-goldenhorse.prototype.removeParticleSystemPoolConsumedListener = function(psPool){
+Roygbiv.prototype.removeParticleSystemPoolConsumedListener = function(psPool){
   if (mode == 0){
     return;
   }
   psPool.consumedCallback = noop;
 }
 
-goldenhorse.prototype.setParticleSystemPoolAvailableListener = function(psPool, callbackFunction){
+Roygbiv.prototype.setParticleSystemPoolAvailableListener = function(psPool, callbackFunction){
   if (mode == 0){
     return;
   }
   psPool.availableCallback = callbackFunction;
 }
 
-goldenhorse.prototype.removeParticleSystemPoolAvailableListener = function(psPool){
+Roygbiv.prototype.removeParticleSystemPoolAvailableListener = function(psPool){
   if (mode == 0){
     return;
   }
   psPool.availableCallback = noop;
 }
 
-goldenhorse.prototype.setFullScreenChangeCallbackFunction = function(callbackFunction){
+Roygbiv.prototype.setFullScreenChangeCallbackFunction = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenFullScreenChangeCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeFullScreenChangeCallbackFunction = function(){
+Roygbiv.prototype.removeFullScreenChangeCallbackFunction = function(){
   if (mode == 0){
     return;
   }
   screenFullScreenChangeCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setFPSDropCallbackFunction = function(callbackFunction){
+Roygbiv.prototype.setFPSDropCallbackFunction = function(callbackFunction){
   if (mode == 0){
     return;
   }
   fpsDropCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeFPSDropCallbackFunction = function(){
+Roygbiv.prototype.removeFPSDropCallbackFunction = function(){
   if (mode == 0){
     return;
   }
   fpsDropCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setPerformanceDropCallbackFunction = function(minFPS, seconds, callbackFunction){
+Roygbiv.prototype.setPerformanceDropCallbackFunction = function(minFPS, seconds, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15891,7 +15891,7 @@ goldenhorse.prototype.setPerformanceDropCallbackFunction = function(minFPS, seco
   fpsHandler.initiatePerformanceDropMonitoring(minFPS, seconds);
 }
 
-goldenhorse.prototype.removePerformanceDropCallbackFunction = function(){
+Roygbiv.prototype.removePerformanceDropCallbackFunction = function(){
   if (mode == 0){
     return;
   }
@@ -15899,7 +15899,7 @@ goldenhorse.prototype.removePerformanceDropCallbackFunction = function(){
   fpsHandler.reset();
 }
 
-goldenhorse.prototype.setUserInactivityCallbackFunction = function(maxTimeInSeconds, callbackFunction){
+Roygbiv.prototype.setUserInactivityCallbackFunction = function(maxTimeInSeconds, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15908,7 +15908,7 @@ goldenhorse.prototype.setUserInactivityCallbackFunction = function(maxTimeInSeco
   userInactivityCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeUserInactivityCallbackFunction = function(){
+Roygbiv.prototype.removeUserInactivityCallbackFunction = function(){
   if (mode == 0){
     return;
   }
@@ -15917,35 +15917,35 @@ goldenhorse.prototype.removeUserInactivityCallbackFunction = function(){
   maxInactiveTime = 0;
 }
 
-goldenhorse.prototype.setScreenKeydownListener = function(callbackFunction){
+Roygbiv.prototype.setScreenKeydownListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenKeydownCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenKeydownListener = function(){
+Roygbiv.prototype.removeScreenKeydownListener = function(){
   if (mode == 0){
     return;
   }
   screenKeydownCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenKeyupListener = function(callbackFunction){
+Roygbiv.prototype.setScreenKeyupListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenKeyupCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenKeyupListener = function(){
+Roygbiv.prototype.removeScreenKeyupListener = function(){
   if (mode == 0){
     return;
   }
   screenKeyupCallbackFunction = noop;
 }
 
-goldenhorse.prototype.onTextClick = function(text, callbackFunction){
+Roygbiv.prototype.onTextClick = function(text, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15953,7 +15953,7 @@ goldenhorse.prototype.onTextClick = function(text, callbackFunction){
   objectsWithOnClickListeners.set(text.name, text);
 }
 
-goldenhorse.prototype.removeTextClickListener = function(text){
+Roygbiv.prototype.removeTextClickListener = function(text){
   if (mode == 0){
     return;
   }
@@ -15961,35 +15961,35 @@ goldenhorse.prototype.removeTextClickListener = function(text){
   objectsWithOnClickListeners.delete(text.name);
 }
 
-goldenhorse.prototype.setScreenMouseWheelListener = function(callbackFunction){
+Roygbiv.prototype.setScreenMouseWheelListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenMouseWheelCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenMouseWheelListener = function(){
+Roygbiv.prototype.removeScreenMouseWheelListener = function(){
   if (mode == 0){
     return;
   }
   screenMouseWheelCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenPinchListener = function(callbackFunction){
+Roygbiv.prototype.setScreenPinchListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenPinchCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenPinchListener = function(){
+Roygbiv.prototype.removeScreenPinchListener = function(){
   if (mode == 0){
     return;
   }
   screenPinchCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setObjectMouseOverListener = function(sourceObject, callbackFunction){
+Roygbiv.prototype.setObjectMouseOverListener = function(sourceObject, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -15997,7 +15997,7 @@ goldenhorse.prototype.setObjectMouseOverListener = function(sourceObject, callba
   objectsWithMouseOverListeners.set(sourceObject.name, sourceObject);
 }
 
-goldenhorse.prototype.removeObjectMouseOverListener = function(sourceObject){
+Roygbiv.prototype.removeObjectMouseOverListener = function(sourceObject){
   if (mode == 0){
     return;
   }
@@ -16005,7 +16005,7 @@ goldenhorse.prototype.removeObjectMouseOverListener = function(sourceObject){
   objectsWithMouseOverListeners.delete(sourceObject.name);
 }
 
-goldenhorse.prototype.setObjectMouseOutListener = function(sourceObject, callbackFunction){
+Roygbiv.prototype.setObjectMouseOutListener = function(sourceObject, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16013,7 +16013,7 @@ goldenhorse.prototype.setObjectMouseOutListener = function(sourceObject, callbac
   objectsWithMouseOutListeners.set(sourceObject.name, sourceObject);
 }
 
-goldenhorse.prototype.removeObjectMouseOutListener = function(sourceObject){
+Roygbiv.prototype.removeObjectMouseOutListener = function(sourceObject){
   if (mode == 0){
     return;
   }
@@ -16021,7 +16021,7 @@ goldenhorse.prototype.removeObjectMouseOutListener = function(sourceObject){
   objectsWithMouseOutListeners.delete(sourceObject.name);
 }
 
-goldenhorse.prototype.onTextMouseOver = function(text, callbackFunction){
+Roygbiv.prototype.onTextMouseOver = function(text, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16029,7 +16029,7 @@ goldenhorse.prototype.onTextMouseOver = function(text, callbackFunction){
   objectsWithMouseOverListeners.set(text.name, text);
 }
 
-goldenhorse.prototype.removeTextMouseOverListener = function(text){
+Roygbiv.prototype.removeTextMouseOverListener = function(text){
   if (mode == 0){
     return;
   }
@@ -16037,7 +16037,7 @@ goldenhorse.prototype.removeTextMouseOverListener = function(text){
   objectsWithMouseOverListeners.delete(text.name);
 }
 
-goldenhorse.prototype.onTextMouseOut = function(text, callbackFunction){
+Roygbiv.prototype.onTextMouseOut = function(text, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16045,7 +16045,7 @@ goldenhorse.prototype.onTextMouseOut = function(text, callbackFunction){
   objectsWithMouseOutListeners.set(text.name, text);
 }
 
-goldenhorse.prototype.removeTextMouseOutListener = function(text){
+Roygbiv.prototype.removeTextMouseOutListener = function(text){
   if (mode == 0){
     return;
   }
@@ -16053,14 +16053,14 @@ goldenhorse.prototype.removeTextMouseOutListener = function(text){
   objectsWithMouseOutListeners.delete(text.name);
 }
 
-goldenhorse.prototype.onObjectPositionThresholdExceeded = function(object, axis, threshold, controlMode, callbackFunction){
+Roygbiv.prototype.onObjectPositionThresholdExceeded = function(object, axis, threshold, controlMode, callbackFunction){
   if (mode == 0){
     return;
   }
   object.setPositionThresholdExceededListener(axis, threshold, controlMode, callbackFunction);
 }
 
-goldenhorse.prototype.removeObjectPositionThresholdExceededListener = function(object){
+Roygbiv.prototype.removeObjectPositionThresholdExceededListener = function(object){
   if (mode == 0){
     return;
   }
@@ -16069,77 +16069,77 @@ goldenhorse.prototype.removeObjectPositionThresholdExceededListener = function(o
   }
 }
 
-goldenhorse.prototype.setScreenDragListener = function(callbackFunction){
+Roygbiv.prototype.setScreenDragListener = function(callbackFunction){
   if (mode == 0){
     return;
   }
   screenDragCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenDragListener = function(){
+Roygbiv.prototype.removeScreenDragListener = function(){
   if (mode == 0){
     return;
   }
   screenDragCallbackFunction = noop;
 }
 
-goldenhorse.prototype.setScreenOrientationChangeListener = function(callbackFunction){
+Roygbiv.prototype.setScreenOrientationChangeListener = function(callbackFunction){
   if (mode == 0 || !isMobile){
     return;
   }
   screenOrientationChangeCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeScreenOrientationChangeListener = function(){
+Roygbiv.prototype.removeScreenOrientationChangeListener = function(){
   if (mode == 0 || !isMobile){
     return;
   }
   screenOrientationChangeCallbackFunction = noop;
 }
 
-goldenhorse.prototype.onAnimationFinished = function(object, animationName, callbackFunction){
+Roygbiv.prototype.onAnimationFinished = function(object, animationName, callbackFunction){
   if (mode ==  0){
     return;
   }
   object.animations[animationName].setFinishCallbackFunction(callbackFunction);
 }
 
-goldenhorse.prototype.removeAnimationFinishListener = function(object, animationName){
+Roygbiv.prototype.removeAnimationFinishListener = function(object, animationName){
   if (mode == 0){
     return;
   }
   object.animations[animationName].finishCallbackFunction = noop;
 }
 
-goldenhorse.prototype.onAreaEnter = function(areaName, callbackFunction){
+Roygbiv.prototype.onAreaEnter = function(areaName, callbackFunction){
   if (mode == 0){
     return;
   }
   areaEnterCallbacks[areaName] = callbackFunction;
 }
 
-goldenhorse.prototype.onAreaExit = function(areaName, callbackFunction){
+Roygbiv.prototype.onAreaExit = function(areaName, callbackFunction){
   if (mode == 0){
     return;
   }
   areaExitCallbacks[areaName] = callbackFunction;
 }
 
-goldenhorse.prototype.removeAreaEnterListener = function(areaName){
+Roygbiv.prototype.removeAreaEnterListener = function(areaName){
   if (mode == 0){
     return;
   }
   delete areaEnterCallbacks[areaName];
 }
 
-goldenhorse.prototype.removeAreaExitListener = function(areaName){
+Roygbiv.prototype.removeAreaExitListener = function(areaName){
   if (mode == 0){
     return;
   }
   delete areaExitCallbacks[areaName];
 }
 
-goldenhorse.prototype.onSpriteClick = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteClick = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16147,7 +16147,7 @@ goldenhorse.prototype.onSpriteClick = function(sprite, callbackFunction){
   objectsWithOnClickListeners.set(sprite.name, sprite);
 }
 
-goldenhorse.prototype.removeSpriteClickListener = function(sprite){
+Roygbiv.prototype.removeSpriteClickListener = function(sprite){
   if (mode == 0){
     return;
   }
@@ -16155,7 +16155,7 @@ goldenhorse.prototype.removeSpriteClickListener = function(sprite){
   objectsWithOnClickListeners.delete(sprite.name);
 }
 
-goldenhorse.prototype.onSpriteMouseOver = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteMouseOver = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16163,7 +16163,7 @@ goldenhorse.prototype.onSpriteMouseOver = function(sprite, callbackFunction){
   objectsWithMouseOverListeners.set(sprite.name, sprite);
 }
 
-goldenhorse.prototype.removeSpriteMouseOverListener = function(sprite){
+Roygbiv.prototype.removeSpriteMouseOverListener = function(sprite){
   if (mode == 0){
     return;
   }
@@ -16171,7 +16171,7 @@ goldenhorse.prototype.removeSpriteMouseOverListener = function(sprite){
   objectsWithMouseOverListeners.delete(sprite.name);
 }
 
-goldenhorse.prototype.onSpriteMouseOut = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteMouseOut = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16179,7 +16179,7 @@ goldenhorse.prototype.onSpriteMouseOut = function(sprite, callbackFunction){
   objectsWithMouseOutListeners.set(sprite.name, sprite);
 }
 
-goldenhorse.prototype.removeSpriteMouseOutListener = function(sprite){
+Roygbiv.prototype.removeSpriteMouseOutListener = function(sprite){
   if (mode == 0){
     return;
   }
@@ -16187,49 +16187,49 @@ goldenhorse.prototype.removeSpriteMouseOutListener = function(sprite){
   objectsWithMouseOutListeners.delete(sprite.name);
 }
 
-goldenhorse.prototype.onSpriteDragStart = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteDragStart = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
   sprite.dragStartCallback = callbackFunction;
 }
 
-goldenhorse.prototype.onSpriteDragStop = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteDragStop = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
   sprite.dragStopCallback = callbackFunction;
 }
 
-goldenhorse.prototype.onSpriteDragging = function(sprite, callbackFunction){
+Roygbiv.prototype.onSpriteDragging = function(sprite, callbackFunction){
   if (mode == 0){
     return;
   }
   sprite.draggingCallback = callbackFunction;
 }
 
-goldenhorse.prototype.removeSpriteDragStartListener = function(sprite){
+Roygbiv.prototype.removeSpriteDragStartListener = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.dragStartCallback = noop;
 }
 
-goldenhorse.prototype.removeSpriteDragStopListener = function(sprite){
+Roygbiv.prototype.removeSpriteDragStopListener = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.dragStopCallback = noop;
 }
 
-goldenhorse.prototype.removeSpriteDraggingListener = function(sprite){
+Roygbiv.prototype.removeSpriteDraggingListener = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.draggingCallback = noop;
 }
 
-goldenhorse.prototype.onContainerClick = function(container, callbackFunction){
+Roygbiv.prototype.onContainerClick = function(container, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16237,7 +16237,7 @@ goldenhorse.prototype.onContainerClick = function(container, callbackFunction){
   objectsWithOnClickListeners.set(container.name, container);
 }
 
-goldenhorse.prototype.removeContainerClickListener = function(container){
+Roygbiv.prototype.removeContainerClickListener = function(container){
   if (mode == 0){
     return;
   }
@@ -16245,7 +16245,7 @@ goldenhorse.prototype.removeContainerClickListener = function(container){
   objectsWithOnClickListeners.delete(container.name);
 }
 
-goldenhorse.prototype.onContainerMouseOver = function(container, callbackFunction){
+Roygbiv.prototype.onContainerMouseOver = function(container, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16253,7 +16253,7 @@ goldenhorse.prototype.onContainerMouseOver = function(container, callbackFunctio
   objectsWithMouseOverListeners.set(container.name, container);
 }
 
-goldenhorse.prototype.removeContainerMouseOverListener = function(container){
+Roygbiv.prototype.removeContainerMouseOverListener = function(container){
   if (mode == 0){
     return;
   }
@@ -16261,7 +16261,7 @@ goldenhorse.prototype.removeContainerMouseOverListener = function(container){
   objectsWithMouseOverListeners.delete(container.name);
 }
 
-goldenhorse.prototype.onContainerMouseOut = function(container, callbackFunction){
+Roygbiv.prototype.onContainerMouseOut = function(container, callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16269,7 +16269,7 @@ goldenhorse.prototype.onContainerMouseOut = function(container, callbackFunction
   objectsWithMouseOutListeners.set(container.name, container);
 }
 
-goldenhorse.prototype.removeContainerMouseOutListener = function(container){
+Roygbiv.prototype.removeContainerMouseOutListener = function(container){
   if (mode == 0){
     return;
   }
@@ -16277,42 +16277,42 @@ goldenhorse.prototype.removeContainerMouseOutListener = function(container){
   objectsWithMouseOutListeners.delete(container.name);
 }
 
-goldenhorse.prototype.onVirtualKeyboardTextChange = function(virtualKeyboard, callbackFunction){
+Roygbiv.prototype.onVirtualKeyboardTextChange = function(virtualKeyboard, callbackFunction){
   if (mode == 0){
     return;
   }
   virtualKeyboard.onTextChangeCallback = callbackFunction;
 }
 
-goldenhorse.prototype.removeVirtualKeyboardTextChangeListener = function(virtualKeyboard){
+Roygbiv.prototype.removeVirtualKeyboardTextChangeListener = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
   virtualKeyboard.onTextChangeCallback = noop;
 }
 
-goldenhorse.prototype.onVirtualKeyboardFlush = function(virtualKeyboard, callbackFunction){
+Roygbiv.prototype.onVirtualKeyboardFlush = function(virtualKeyboard, callbackFunction){
   if (mode == 0){
     return;
   }
   virtualKeyboard.onFlushCallback = callbackFunction;
 }
 
-goldenhorse.prototype.removeVirtualKeyboardFlushListener = function(virtualKeyboard){
+Roygbiv.prototype.removeVirtualKeyboardFlushListener = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
   virtualKeyboard.onFlushCallback = noop;
 }
 
-goldenhorse.prototype.onLocationHashChange = function(callbackFunction){
+Roygbiv.prototype.onLocationHashChange = function(callbackFunction){
   if (mode == 0){
     return;
   }
   hashChangeCallbackFunction = callbackFunction;
 }
 
-goldenhorse.prototype.removeLocationHashChangeListener = function(){
+Roygbiv.prototype.removeLocationHashChangeListener = function(){
   if (mode == 0){
     return;
   }
@@ -16320,7 +16320,7 @@ goldenhorse.prototype.removeLocationHashChangeListener = function(){
 }
 
 
-goldenhorse.prototype.setText = function(textObject, text){
+Roygbiv.prototype.setText = function(textObject, text){
   if (mode == 0){
     return;
   }
@@ -16330,42 +16330,42 @@ goldenhorse.prototype.setText = function(textObject, text){
   }
 }
 
-goldenhorse.prototype.setTextColor = function(text, colorName){
+Roygbiv.prototype.setTextColor = function(text, colorName){
   if (mode == 0){
     return;
   }
   text.setColor(colorName, true);
 }
 
-goldenhorse.prototype.setTextAlpha = function(text, alpha){
+Roygbiv.prototype.setTextAlpha = function(text, alpha){
   if (mode == 0){
     return;
   }
   text.setAlpha(alpha, true);
 }
 
-goldenhorse.prototype.setTextPosition = function(text, x, y, z){
+Roygbiv.prototype.setTextPosition = function(text, x, y, z){
   if (mode == 0){
     return;
   }
   text.setPosition(x, y, z);
 }
 
-goldenhorse.prototype.setTextBackground = function(text, colorName, alpha){
+Roygbiv.prototype.setTextBackground = function(text, colorName, alpha){
   if (mode == 0){
     return;
   }
   text.setBackground(colorName, alpha, true);
 }
 
-goldenhorse.prototype.removeTextBackground = function(text){
+Roygbiv.prototype.removeTextBackground = function(text){
   if (mode == 0){
     return;
   }
   text.removeBackground(true);
 }
 
-goldenhorse.prototype.setTextCenterPosition = function(text, x, y, z){
+Roygbiv.prototype.setTextCenterPosition = function(text, x, y, z){
   if (mode == 0){
     return;
   }
@@ -16373,7 +16373,7 @@ goldenhorse.prototype.setTextCenterPosition = function(text, x, y, z){
   text.mesh.position.set(text.mesh.position.x + (x - centerPos.x), text.mesh.position.y + (y - centerPos.y), text.mesh.position.z + (z - centerPos.z));
 }
 
-goldenhorse.prototype.hideText = function(text){
+Roygbiv.prototype.hideText = function(text){
   if (mode == 0){
     return;
   }
@@ -16382,7 +16382,7 @@ goldenhorse.prototype.hideText = function(text){
   }
 }
 
-goldenhorse.prototype.showText = function(text){
+Roygbiv.prototype.showText = function(text){
   if (mode == 0){
     return;
   }
@@ -16391,14 +16391,14 @@ goldenhorse.prototype.showText = function(text){
   }
 }
 
-goldenhorse.prototype.activateTextInputMode = function(text, cursorSizePercent){
+Roygbiv.prototype.activateTextInputMode = function(text, cursorSizePercent){
   if (mode == 0){
     return;
   }
   text.activateInputMode(cursorSizePercent);
 }
 
-goldenhorse.prototype.deactivateTextInputMode = function(text){
+Roygbiv.prototype.deactivateTextInputMode = function(text){
   if (mode == 0){
     return;
   }
@@ -16406,21 +16406,21 @@ goldenhorse.prototype.deactivateTextInputMode = function(text){
 }
 
 
-goldenhorse.prototype.createFreeControl = function(parameters){
+Roygbiv.prototype.createFreeControl = function(parameters){
   if (mode == 0){
     return;
   }
   return new FreeControls(params);
 }
 
-goldenhorse.prototype.createCustomControl = function(parameters){
+Roygbiv.prototype.createCustomControl = function(parameters){
   if (mode == 0){
     return;
   }
   return new CustomControls(parameters);
 }
 
-goldenhorse.prototype.setActiveControl = function(control){
+Roygbiv.prototype.setActiveControl = function(control){
   if (mode == 0){
     return;
   }
@@ -16435,14 +16435,14 @@ goldenhorse.prototype.setActiveControl = function(control){
   }
 }
 
-goldenhorse.prototype.createFPSControl = function(parameters){
+Roygbiv.prototype.createFPSControl = function(parameters){
   if (mode == 0){
     return;
   }
   return new FPSControls(parameters);
 }
 
-goldenhorse.prototype.createOrbitControl = function(parameters){
+Roygbiv.prototype.createOrbitControl = function(parameters){
   if (mode == 0){
     return;
   }
@@ -16450,7 +16450,7 @@ goldenhorse.prototype.createOrbitControl = function(parameters){
 }
 
 
-goldenhorse.prototype.startAnimation = function(object, animationName){
+Roygbiv.prototype.startAnimation = function(object, animationName){
   if (mode == 0){
     return;
   }
@@ -16459,7 +16459,7 @@ goldenhorse.prototype.startAnimation = function(object, animationName){
   animationHandler.startAnimation(animation);
 }
 
-goldenhorse.prototype.stopAnimation = function(object, animationName){
+Roygbiv.prototype.stopAnimation = function(object, animationName){
   if (mode == 0){
     return;
   }
@@ -16467,7 +16467,7 @@ goldenhorse.prototype.stopAnimation = function(object, animationName){
   animationHandler.forceFinish(animation);
 }
 
-goldenhorse.prototype.freezeAnimationOnFinish = function(object, animationName){
+Roygbiv.prototype.freezeAnimationOnFinish = function(object, animationName){
   if (mode == 0){
     return;
   }
@@ -16475,7 +16475,7 @@ goldenhorse.prototype.freezeAnimationOnFinish = function(object, animationName){
   animationHandler.freezeOnFinish(animation);
 }
 
-goldenhorse.prototype.unfreezeAnimation = function(object, animationName){
+Roygbiv.prototype.unfreezeAnimation = function(object, animationName){
   if (mode == 0){
     return;
   }
@@ -16483,14 +16483,14 @@ goldenhorse.prototype.unfreezeAnimation = function(object, animationName){
   animationHandler.unfreeze(animation);
 }
 
-goldenhorse.prototype.cancelAnimationRewind = function(object, animationName){
+Roygbiv.prototype.cancelAnimationRewind = function(object, animationName){
   if (mode == 0){
     return;
   }
   animationHandler.cancelRewind(object.animations[animationName]);
 }
 
-goldenhorse.prototype.rewindAnimation = function(object, animationName){
+Roygbiv.prototype.rewindAnimation = function(object, animationName){
   if (mode == 0){
     return;
   }
@@ -16498,7 +16498,7 @@ goldenhorse.prototype.rewindAnimation = function(object, animationName){
 }
 
 
-goldenhorse.prototype.showMuzzleFlash = function(muzzleflashName, animationTimeInMS){
+Roygbiv.prototype.showMuzzleFlash = function(muzzleflashName, animationTimeInMS){
   if (mode == 0){
     return;
   }
@@ -16506,7 +16506,7 @@ goldenhorse.prototype.showMuzzleFlash = function(muzzleflashName, animationTimeI
   muzzleFlash.onShow(animationTimeInMS);
 }
 
-goldenhorse.prototype.hideMuzzleFlash = function(muzzleflashName, animationTimeInMS){
+Roygbiv.prototype.hideMuzzleFlash = function(muzzleflashName, animationTimeInMS){
   if (mode == 0){
     return;
   }
@@ -16515,28 +16515,28 @@ goldenhorse.prototype.hideMuzzleFlash = function(muzzleflashName, animationTimeI
 }
 
 
-goldenhorse.prototype.startLightning = function(lightning){
+Roygbiv.prototype.startLightning = function(lightning){
   if (mode == 0){
     return;
   }
   lightning.start();
 }
 
-goldenhorse.prototype.setLightningStartPoint = function(lightning, position){
+Roygbiv.prototype.setLightningStartPoint = function(lightning, position){
   if (mode == 0){
     return;
   }
   lightning.startPoint.set(position.x, position.y, position.z);
 }
 
-goldenhorse.prototype.setLightningEndPoint = function(lightning, position){
+Roygbiv.prototype.setLightningEndPoint = function(lightning, position){
   if (mode == 0){
     return;
   }
   lightning.endPoint.set(position.x, position.y, position.z);
 }
 
-goldenhorse.prototype.stopLightning = function(lightning){
+Roygbiv.prototype.stopLightning = function(lightning){
   if (mode == 0){
     return;
   }
@@ -16544,70 +16544,70 @@ goldenhorse.prototype.stopLightning = function(lightning){
 }
 
 
-goldenhorse.prototype.areSpritesIntersected = function(sprite1, sprite2){
+Roygbiv.prototype.areSpritesIntersected = function(sprite1, sprite2){
   if (mode == 0){
     return;
   }
   return sprite1.intersectionTest(sprite2);
 }
 
-goldenhorse.prototype.setSpriteColor = function(sprite, colorName){
+Roygbiv.prototype.setSpriteColor = function(sprite, colorName){
   if (mode == 0){
     return;
   }
   sprite.setColor(colorName);
 }
 
-goldenhorse.prototype.setSpriteAlpha = function(sprite, alpha){
+Roygbiv.prototype.setSpriteAlpha = function(sprite, alpha){
   if (mode == 0){
     return;
   }
   sprite.setAlpha(alpha);
 }
 
-goldenhorse.prototype.hideSprite = function(sprite){
+Roygbiv.prototype.hideSprite = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.hide();
 }
 
-goldenhorse.prototype.showSprite = function(sprite){
+Roygbiv.prototype.showSprite = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.show();
 }
 
-goldenhorse.prototype.setSpriteMargin = function(sprite, marginPercentX, marginPercentY){
+Roygbiv.prototype.setSpriteMargin = function(sprite, marginPercentX, marginPercentY){
   if (mode == 0){
     return;
   }
   sprite.set2DCoordinates(marginPercentX, marginPercentY);
 }
 
-goldenhorse.prototype.setSpriteRotationAngle = function(sprite, angle){
+Roygbiv.prototype.setSpriteRotationAngle = function(sprite, angle){
   if (mode == 0){
     return;
   }
   sprite.setRotation(angle);
 }
 
-goldenhorse.prototype.enableSpriteDragging = function(sprite){
+Roygbiv.prototype.enableSpriteDragging = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.draggingDisabled = false;
 }
 
-goldenhorse.prototype.disableSpriteDragging = function(sprite){
+Roygbiv.prototype.disableSpriteDragging = function(sprite){
   if (mode == 0){
     return;
   }
   sprite.draggingDisabled = true;
 }
 
-goldenhorse.prototype.mapTextureToSprite = function(sprite, texturePackOrName){
+Roygbiv.prototype.mapTextureToSprite = function(sprite, texturePackOrName){
   if (mode == 0){
     return;
   }
@@ -16619,49 +16619,49 @@ goldenhorse.prototype.mapTextureToSprite = function(sprite, texturePackOrName){
 }
 
 
-goldenhorse.prototype.hideContainerBorder = function(container){
+Roygbiv.prototype.hideContainerBorder = function(container){
   if (mode == 0){
     return;
   }
   container.rectangle.mesh.visible = false;
 }
 
-goldenhorse.prototype.showContainerBorder = function(container){
+Roygbiv.prototype.showContainerBorder = function(container){
   if (mode == 0){
     return;
   }
   container.rectangle.mesh.visible = true;
 }
 
-goldenhorse.prototype.setContainerBorderColor = function(container, colorName){
+Roygbiv.prototype.setContainerBorderColor = function(container, colorName){
   if (mode == 0){
     return;
   }
   container.rectangle.mesh.material.uniforms.color.value.set(colorName);
 }
 
-goldenhorse.prototype.setContainerBackgroundColor = function(container, colorName){
+Roygbiv.prototype.setContainerBackgroundColor = function(container, colorName){
   if (mode == 0){
     return;
   }
   container.backgroundSprite.setColor(colorName);
 }
 
-goldenhorse.prototype.setContainerBackgroundAlpha = function(container, alpha){
+Roygbiv.prototype.setContainerBackgroundAlpha = function(container, alpha){
   if (mode == 0){
     return;
   }
   container.backgroundSprite.setAlpha(alpha);
 }
 
-goldenhorse.prototype.hideContainerBackground = function(container){
+Roygbiv.prototype.hideContainerBackground = function(container){
   if (mode == 0){
     return;
   }
   container.backgroundSprite.mesh.visible = false;
 }
 
-goldenhorse.prototype.showContainerBackground = function(container){
+Roygbiv.prototype.showContainerBackground = function(container){
   if (mode == 0){
     return;
   }
@@ -16669,14 +16669,14 @@ goldenhorse.prototype.showContainerBackground = function(container){
 }
 
 
-goldenhorse.prototype.activateVirtualKeyboard = function(virtualKeyboard){
+Roygbiv.prototype.activateVirtualKeyboard = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
   virtualKeyboard.activate();
 }
 
-goldenhorse.prototype.hideVirtualKeyboard = function(virtualKeyboard){
+Roygbiv.prototype.hideVirtualKeyboard = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
@@ -16686,7 +16686,7 @@ goldenhorse.prototype.hideVirtualKeyboard = function(virtualKeyboard){
   virtualKeyboard.hideVisually();
 }
 
-goldenhorse.prototype.showVirtualKeyboard = function(virtualKeyboard){
+Roygbiv.prototype.showVirtualKeyboard = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
@@ -16696,14 +16696,14 @@ goldenhorse.prototype.showVirtualKeyboard = function(virtualKeyboard){
   virtualKeyboard.showVisually();
 }
 
-goldenhorse.prototype.deactivateVirtualKeyboard = function(virtualKeyboard){
+Roygbiv.prototype.deactivateVirtualKeyboard = function(virtualKeyboard){
   if (mode == 0){
     return;
   }
   virtualKeyboard.deactivate();
 }
 
-goldenhorse.prototype.cancelSpriteDrag = function(){
+Roygbiv.prototype.cancelSpriteDrag = function(){
   if (mode == 0){
     return;
   }
@@ -16715,7 +16715,7 @@ goldenhorse.prototype.cancelSpriteDrag = function(){
 }
 
 
-goldenhorse.prototype.connectToServer = function(onReady, onError){
+Roygbiv.prototype.connectToServer = function(onReady, onError){
   if (mode == 0){
     return;
   }
@@ -16728,7 +16728,7 @@ goldenhorse.prototype.connectToServer = function(onReady, onError){
   });
 }
 
-goldenhorse.prototype.clearServerConnection = function(){
+Roygbiv.prototype.clearServerConnection = function(){
   if (mode == 0){
     return;
   }
@@ -16737,28 +16737,28 @@ goldenhorse.prototype.clearServerConnection = function(){
   }catch(err){}
 }
 
-goldenhorse.prototype.onDisconnectedFromServer = function(callbackFunction){
+Roygbiv.prototype.onDisconnectedFromServer = function(callbackFunction){
   if (mode == 0){
     return;
   }
   Rhubarb.onDisconnectedFromServer(callbackFunction);
 }
 
-goldenhorse.prototype.sendToServer = function(protocolName, valuesByParameterName){
+Roygbiv.prototype.sendToServer = function(protocolName, valuesByParameterName){
   if (mode == 0){
     return;
   }
   Rhubarb.send(protocolName, valuesByParameterName);
 }
 
-goldenhorse.prototype.onReceivedFromServer = function(protocolName, callbackFunction){
+Roygbiv.prototype.onReceivedFromServer = function(protocolName, callbackFunction){
   if (mode == 0){
     return;
   }
   Rhubarb.onReceived(protocolName, callbackFunction);
 }
 
-goldenhorse.prototype.onLatencyUpdated = function(callbackFunction){
+Roygbiv.prototype.onLatencyUpdated = function(callbackFunction){
   if (mode == 0){
     return;
   }
@@ -16766,7 +16766,7 @@ goldenhorse.prototype.onLatencyUpdated = function(callbackFunction){
 }
 
 
-goldenhorse.prototype.startScript = function(scriptName){
+Roygbiv.prototype.startScript = function(scriptName){
   if (mode == 0){
     return;
   }
@@ -16774,7 +16774,7 @@ goldenhorse.prototype.startScript = function(scriptName){
   script.start();
 }
 
-goldenhorse.prototype.stopScript = function(scriptName){
+Roygbiv.prototype.stopScript = function(scriptName){
   if (mode == 0){
     return;
   }
@@ -16783,7 +16783,7 @@ goldenhorse.prototype.stopScript = function(scriptName){
 }
 
 
-goldenhorse.prototype.vector = function(x, y, z){
+Roygbiv.prototype.vector = function(x, y, z){
   if (mode == 0){
     return;
   }
@@ -16806,7 +16806,7 @@ goldenhorse.prototype.vector = function(x, y, z){
   return obj;
 }
 
-goldenhorse.prototype.distance = function(vec1, vec2){
+Roygbiv.prototype.distance = function(vec1, vec2){
   if (mode == 0){
     return;
   }
@@ -16818,7 +16818,7 @@ goldenhorse.prototype.distance = function(vec1, vec2){
   );
 }
 
-goldenhorse.prototype.sub = function(vec1, vec2, targetVector){
+Roygbiv.prototype.sub = function(vec1, vec2, targetVector){
   if (mode == 0){
     return;
   }
@@ -16835,7 +16835,7 @@ goldenhorse.prototype.sub = function(vec1, vec2, targetVector){
   return obj;
 }
 
-goldenhorse.prototype.add = function(vec1, vec2, targetVector){
+Roygbiv.prototype.add = function(vec1, vec2, targetVector){
   if (mode == 0){
     return;
   }
@@ -16852,7 +16852,7 @@ goldenhorse.prototype.add = function(vec1, vec2, targetVector){
   return obj;
 }
 
-goldenhorse.prototype.moveTowards = function(vec1, vec2, amount, targetVector){
+Roygbiv.prototype.moveTowards = function(vec1, vec2, amount, targetVector){
   if (mode == 0){
     return;
   }
@@ -16871,14 +16871,14 @@ goldenhorse.prototype.moveTowards = function(vec1, vec2, amount, targetVector){
   return newVec;
 }
 
-goldenhorse.prototype.color = function(colorName){
+Roygbiv.prototype.color = function(colorName){
   if (mode == 0){
     return;
   }
   return new THREE.Color(colorName.toLowerCase());
 }
 
-goldenhorse.prototype.normalizeVector = function(vector){
+Roygbiv.prototype.normalizeVector = function(vector){
   if (mode == 0){
     return;
   }
@@ -16888,7 +16888,7 @@ goldenhorse.prototype.normalizeVector = function(vector){
   vector.z = vector.z / len;
 }
 
-goldenhorse.prototype.computeQuaternionFromVectors = function(vec1, vec2, targetQuaternion){
+Roygbiv.prototype.computeQuaternionFromVectors = function(vec1, vec2, targetQuaternion){
   if (mode == 0){
     return;
   }
@@ -16907,7 +16907,7 @@ goldenhorse.prototype.computeQuaternionFromVectors = function(vec1, vec2, target
   }
 }
 
-goldenhorse.prototype.multiplyScalar = function(vector, scalar, targetVector){
+Roygbiv.prototype.multiplyScalar = function(vector, scalar, targetVector){
   if (mode == 0){
     return;
   }
@@ -16921,7 +16921,7 @@ goldenhorse.prototype.multiplyScalar = function(vector, scalar, targetVector){
   }
 }
 
-goldenhorse.prototype.setVector = function(vector, x, y, z){
+Roygbiv.prototype.setVector = function(vector, x, y, z){
   if (mode == 0){
     return;
   }
@@ -16931,49 +16931,49 @@ goldenhorse.prototype.setVector = function(vector, x, y, z){
   return vector;
 }
 
-goldenhorse.prototype.quaternion = function(){
+Roygbiv.prototype.quaternion = function(){
   if (mode == 0){
     return;
   }
   return new THREE.Quaternion();
 }
 
-goldenhorse.prototype.requestPointerLock = function(){
+Roygbiv.prototype.requestPointerLock = function(){
   if (mode == 0){
     return;
   }
   pointerLockRequested = true;
 }
 
-goldenhorse.prototype.convertEulerToDegrees = function(eulerAngle){
+Roygbiv.prototype.convertEulerToDegrees = function(eulerAngle){
   if (mode == 0){
     return;
   }
   return ((eulerAngle * 180) / Math.PI);
 }
 
-goldenhorse.prototype.isKeyPressed = function(key){
+Roygbiv.prototype.isKeyPressed = function(key){
   if (mode == 0){
     return;
   }
   return keyboardBuffer[key];
 }
 
-goldenhorse.prototype.setCameraPosition = function(x, y, z){
+Roygbiv.prototype.setCameraPosition = function(x, y, z){
   if (mode == 0){
     return;
   }
   camera.position.set(x, y, z);
 }
 
-goldenhorse.prototype.lookAt = function(x, y, z){
+Roygbiv.prototype.lookAt = function(x, y, z){
   if (mode == 0){
     return;
   }
   camera.lookAt(x, y, z);
 }
 
-goldenhorse.prototype.applyAxisAngle = function(vector, axisVector, angle, targetVector){
+Roygbiv.prototype.applyAxisAngle = function(vector, axisVector, angle, targetVector){
   if (mode == 0){
     return;
   }
@@ -16989,28 +16989,28 @@ goldenhorse.prototype.applyAxisAngle = function(vector, axisVector, angle, targe
   return this.vector(REUSABLE_VECTOR.x, REUSABLE_VECTOR.y, REUSABLE_VECTOR.z);
 }
 
-goldenhorse.prototype.trackObjectPosition = function(sourceObject, targetObject){
+Roygbiv.prototype.trackObjectPosition = function(sourceObject, targetObject){
   if (mode == 0){
     return;
   }
   sourceObject.trackObjectPosition(targetObject);
 }
 
-goldenhorse.prototype.untrackObjectPosition = function(sourceObject){
+Roygbiv.prototype.untrackObjectPosition = function(sourceObject){
   if (mode == 0){
     return;
   }
   sourceObject.untrackObjectPosition();
 }
 
-goldenhorse.prototype.createRotationPivot = function(sourceObject, offsetX, offsetY, offsetZ){
+Roygbiv.prototype.createRotationPivot = function(sourceObject, offsetX, offsetY, offsetZ){
   if (mode == 0){
     return;
   }
   return sourceObject.makePivot(offsetX, offsetY, offsetZ);
 }
 
-goldenhorse.prototype.rotateCamera = function(axis, radians){
+Roygbiv.prototype.rotateCamera = function(axis, radians){
   if (mode == 0){
     return;
   }
@@ -17024,7 +17024,7 @@ goldenhorse.prototype.rotateCamera = function(axis, radians){
   }
 }
 
-goldenhorse.prototype.translateCamera = function(axis, amount){
+Roygbiv.prototype.translateCamera = function(axis, amount){
   if (mode == 0){
     return;
   }
@@ -17038,7 +17038,7 @@ goldenhorse.prototype.translateCamera = function(axis, amount){
   }
 }
 
-goldenhorse.prototype.requestFullScreen = function(){
+Roygbiv.prototype.requestFullScreen = function(){
   if (mode == 0){
     return;
   }
@@ -17048,14 +17048,14 @@ goldenhorse.prototype.requestFullScreen = function(){
   fullScreenRequested = true;
 }
 
-goldenhorse.prototype.isMouseDown = function(){
+Roygbiv.prototype.isMouseDown = function(){
   if (mode == 0){
     return;
   }
   return isMouseDown;
 }
 
-goldenhorse.prototype.intersectionTest = function(fromVector, directionVector, onComplete){
+Roygbiv.prototype.intersectionTest = function(fromVector, directionVector, onComplete){
   if (mode == 0){
     return;
   }
@@ -17064,14 +17064,14 @@ goldenhorse.prototype.intersectionTest = function(fromVector, directionVector, o
   rayCaster.findIntersections(REUSABLE_VECTOR, REUSABLE_VECTOR_2, false, onComplete, null, null);
 }
 
-goldenhorse.prototype.isMobile = function(){
+Roygbiv.prototype.isMobile = function(){
   if (mode == 0){
     return;
   }
   return isMobile;
 }
 
-goldenhorse.prototype.lerp = function(vector1, vector2, amount, targetVector){
+Roygbiv.prototype.lerp = function(vector1, vector2, amount, targetVector){
   if (mode == 0){
     return;
   }
@@ -17084,7 +17084,7 @@ goldenhorse.prototype.lerp = function(vector1, vector2, amount, targetVector){
   return targetVector;
 }
 
-goldenhorse.prototype.pause = function(paused){
+Roygbiv.prototype.pause = function(paused){
   if (mode == 0){
     return;
   }
@@ -17095,7 +17095,7 @@ goldenhorse.prototype.pause = function(paused){
   }
 }
 
-goldenhorse.prototype.executeForEachObject = function(func){
+Roygbiv.prototype.executeForEachObject = function(func){
   if (mode == 0){
     return;
   }
@@ -17107,28 +17107,28 @@ goldenhorse.prototype.executeForEachObject = function(func){
   }
 }
 
-goldenhorse.prototype.getRandomInteger = function(minInclusive, maxInclusive){
+Roygbiv.prototype.getRandomInteger = function(minInclusive, maxInclusive){
   if (mode == 0){
     return;
   }
   return Math.floor(Math.random() * (maxInclusive - minInclusive + 1)) + minInclusive;
 }
 
-goldenhorse.prototype.isAnyFingerTouching = function(){
+Roygbiv.prototype.isAnyFingerTouching = function(){
   if (mode == 0){
     return;
   }
   return touchEventHandler.isThereFingerTouched;
 }
 
-goldenhorse.prototype.getCurrentTouchCount = function(){
+Roygbiv.prototype.getCurrentTouchCount = function(){
   if (mode == 0){
     return;
   }
   return touchEventHandler.currentTouchCount;
 }
 
-goldenhorse.prototype.isOrientationLandscape = function(){
+Roygbiv.prototype.isOrientationLandscape = function(){
   if (mode == 0){
     return;
   }
@@ -17138,77 +17138,77 @@ goldenhorse.prototype.isOrientationLandscape = function(){
   return isOrientationLandscape;
 }
 
-goldenhorse.prototype.executeDelayed = function(func, delayInMS, repeat){
+Roygbiv.prototype.executeDelayed = function(func, delayInMS, repeat){
   if (mode == 0){
     return;
   }
   return delayedExecutionHandler.requestDelayedExecution(delayInMS, func, repeat);
 }
 
-goldenhorse.prototype.stopDelayedExecution = function(delayedExecutionID){
+Roygbiv.prototype.stopDelayedExecution = function(delayedExecutionID){
   if (mode == 0){
     return;
   }
   return delayedExecutionHandler.stopDelayedExecution(delayedExecutionID);
 }
 
-goldenhorse.prototype.setLocationHash = function(hash){
+Roygbiv.prototype.setLocationHash = function(hash){
   if (mode == 0){
     return;
   }
   window.location.hash = hash;
 }
 
-goldenhorse.prototype.changeScene = function(sceneName, readyCallback){
+Roygbiv.prototype.changeScene = function(sceneName, readyCallback){
   if (mode == 0){
     return;
   }
   sceneHandler.changeScene(sceneName, readyCallback);
 }
 
-goldenhorse.prototype.degreeToRadian = function(degree){
+Roygbiv.prototype.degreeToRadian = function(degree){
   if (mode == 0){
     return;
   }
   return (degree * (Math.PI / 180));
 }
 
-goldenhorse.prototype.storeData = function(key, value){
+Roygbiv.prototype.storeData = function(key, value){
   if (mode == 0){
     return;
   }
   localStorage.setItem(key, value);
 }
 
-goldenhorse.prototype.getStoredData = function(key){
+Roygbiv.prototype.getStoredData = function(key){
   if (mode == 0){
     return;
   }
   return localStorage.getItem(key);
 }
 
-goldenhorse.prototype.removeStoredData = function(key){
+Roygbiv.prototype.removeStoredData = function(key){
   if (mode == 0){
     return;
   }
   localStorage.removeItem(key);
 }
 
-goldenhorse.prototype.isDefined = function(element){
+Roygbiv.prototype.isDefined = function(element){
   if (mode == 0){
     return;
   }
   return !(typeof element == UNDEFINED) && !(element == null);
 }
 
-goldenhorse.prototype.loadDynamicTextures = function(dynamicTextureFolderName, textureNamesArray, onLoadedCallback){
+Roygbiv.prototype.loadDynamicTextures = function(dynamicTextureFolderName, textureNamesArray, onLoadedCallback){
   if (mode == 0){
     return;
   }
   new DynamicTextureLoader().loadDynamicTextures(dynamicTextureFolderName, textureNamesArray, onLoadedCallback);
 }
 
-goldenhorse.prototype.applyCustomVelocity = function(axis, velocity, milliseconds){
+Roygbiv.prototype.applyCustomVelocity = function(axis, velocity, milliseconds){
   if (mode == 0){
     return;
   }
@@ -17266,7 +17266,7 @@ WorldBinHandler.prototype.updateObject = function(obj){
     obj.graphicsGroup.updateMatrixWorld();
     obj.updateBoundingBoxes();
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.deleteObjectFromBin(obj.binInfo, obj.name);
@@ -17294,7 +17294,7 @@ WorldBinHandler.prototype.show = function(obj){
       return;
     }
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.insert(obj.boundingBox, obj.name);
@@ -18158,7 +18158,7 @@ Crosshair.prototype.handleResize = function(){
 var BasicMaterial = function(parameters){
   this.isBasicMaterial = true;
   // name
-  this.goldenhorseMaterialName = parameters.name;
+  this.roygbivMaterialName = parameters.name;
   // color
   this.textColor = parameters.color;
   this.color = new THREE.Color(parameters.color);
@@ -18199,7 +18199,7 @@ BasicMaterial.prototype.export = function(){
   exportObj["textColor"] = this.textColor;
   exportObj["materialType"] = "BASIC";
 
-  exportObj.goldenhorseMaterialName = this.goldenhorseMaterialName;
+  exportObj.roygbivMaterialName = this.roygbivMaterialName;
   return exportObj;
 }
 
@@ -20158,7 +20158,7 @@ RayCaster.prototype.refresh = function(){
       objectGroup.updateBoundingBoxes();
     }
     for (var i = 0; i<objectGroup.boundingBoxes.length; i++){
-      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].goldenhorseObjectName, objName);
+      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].roygbivObjectName, objName);
     }
   }
   if (mode == 0){
@@ -21188,8 +21188,8 @@ ModeSwitcher.prototype.switchFromDesignToPreview = function(){
   TOTAL_PARTICLE_COLLISION_LISTEN_COUNT = 0;
   TOTAL_PARTICLE_SYSTEM_COUNT = 0;
   particleCollisionCallbackRequests = new Object();
-  goldenhorse.globals = new Object();
-  $("#cliDivheader").text("goldenhorse 3D Engine - CLI (Preview mode)");
+  ROYGBIV.globals = new Object();
+  $("#cliDivheader").text("ROYGBIV 3D Engine - CLI (Preview mode)");
   mode = 1;
   particleSystemGenerator.handleModeSwitch();
   var that = this;
@@ -21513,7 +21513,7 @@ ModeSwitcher.prototype.switchFromPreviewToDesign = function(){
     canvas.style.visibility = "hidden";
     terminal.disable();
     rayCaster.onReadyCallback = function(){
-      $("#cliDivheader").text("goldenhorse 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
+      $("#cliDivheader").text("ROYGBIV 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
       that.enableTerminal();
       canvas.style.visibility = "";
       terminal.printInfo(Text.SWITCHED_TO_DESIGN_MODE);
@@ -21717,7 +21717,7 @@ var FPSHandler = function(){
   this.frames = 0;
   this.prevTime = 0;
   this.log = false;
-  this.goldenhorseScore = {
+  this.roygbivScore = {
     score: 0, totalTime: 0, counter: 0
   };
 }
@@ -21760,14 +21760,14 @@ FPSHandler.prototype.onUpdate = function(newFPS){
     this.performanceDropCounter = 0;
   }
   this.fps = newFPS;
-  this.goldenhorseScore.totalTime ++;
+  this.roygbivScore.totalTime ++;
   if (newFPS >= 60){
-    this.goldenhorseScore.counter ++;
+    this.roygbivScore.counter ++;
   }else{
-    this.goldenhorseScore.counter = 0;
+    this.roygbivScore.counter = 0;
   }
-  if (this.goldenhorseScore.counter > this.goldenhorseScore.score){
-    this.goldenhorseScore.score = this.goldenhorseScore.counter;
+  if (this.roygbivScore.counter > this.roygbivScore.score){
+    this.roygbivScore.score = this.roygbivScore.counter;
   }
 }
 
@@ -21775,9 +21775,9 @@ FPSHandler.prototype.reset = function(){
   this.performanceDropMinFPS = 0;
   this.performanceDropSeconds = 0;
   this.performanceDropCounter = 0;
-  this.goldenhorseScore.score = 0;
-  this.goldenhorseScore.counter = 0;
-  this.goldenhorseScore.totalTime = 0;
+  this.roygbivScore.score = 0;
+  this.roygbivScore.counter = 0;
+  this.roygbivScore.totalTime = 0;
 }
 
 FPSHandler.prototype.initiatePerformanceDropMonitoring = function(minFPS, seconds){
@@ -23914,10 +23914,10 @@ ResizeEventHandler.prototype.onResize = function(){
   if (isDeployment){
     canvas.oldWidth = (canvas.width / screenResolution) + 'px';
     if (!isDeployment && terminal.isMadeVisible){
-      goldenhorse.terminal(false);
-      goldenhorse.terminal(true);
+      ROYGBIV.terminal(false);
+      ROYGBIV.terminal(true);
       if (!terminal.terminalPromptEnabled){
-        goldenhorse.terminalPrompt(false);
+        ROYGBIV.terminalPrompt(false);
       }
     }
   }
@@ -31662,7 +31662,7 @@ SceneHandler.prototype.changeScene = function(sceneName, readyCallback){
   }
   scene.background.set(this.scenes[this.activeSceneName].backgroundColor);
   if (mode == 0){
-    $("#cliDivheader").text("goldenhorse 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
+    $("#cliDivheader").text("ROYGBIV 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
   }
 }
 

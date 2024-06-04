@@ -4,7 +4,7 @@ var FPSHandler = function(){
   this.frames = 0;
   this.prevTime = 0;
   this.log = false;
-  this.goldenhorseScore = {
+  this.roygbivScore = {
     score: 0, totalTime: 0, counter: 0
   };
 }
@@ -52,16 +52,16 @@ FPSHandler.prototype.onUpdate = function(newFPS){
     this.performanceDropCounter = 0;
   }
   this.fps = newFPS;
-  this.goldenhorseScore.totalTime ++;
+  this.roygbivScore.totalTime ++;
   if (newFPS >= 60){
-    this.goldenhorseScore.counter ++;
+    this.roygbivScore.counter ++;
   }else{
-    this.goldenhorseScore.counter = 0;
+    this.roygbivScore.counter = 0;
   }
-  if (this.goldenhorseScore.counter > this.goldenhorseScore.score){
-    this.goldenhorseScore.score = this.goldenhorseScore.counter;
-    if (goldenhorseScoreUpdateCallbackFunction){
-      goldenhorseScoreUpdateCallbackFunction(this.goldenhorseScore.score);
+  if (this.roygbivScore.counter > this.roygbivScore.score){
+    this.roygbivScore.score = this.roygbivScore.counter;
+    if (roygbivScoreUpdateCallbackFunction){
+      roygbivScoreUpdateCallbackFunction(this.roygbivScore.score);
     }
   }
 }
@@ -70,9 +70,9 @@ FPSHandler.prototype.reset = function(){
   this.performanceDropMinFPS = 0;
   this.performanceDropSeconds = 0;
   this.performanceDropCounter = 0;
-  this.goldenhorseScore.score = 0;
-  this.goldenhorseScore.counter = 0;
-  this.goldenhorseScore.totalTime = 0;
+  this.roygbivScore.score = 0;
+  this.roygbivScore.counter = 0;
+  this.roygbivScore.totalTime = 0;
 }
 
 FPSHandler.prototype.initiatePerformanceDropMonitoring = function(minFPS, seconds){

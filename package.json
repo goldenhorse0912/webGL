@@ -1,5 +1,5 @@
 {
-  "name": "goldenhorse",
+  "name": "roygbiv",
   "version": "1.0.0",
   "description": "A 3D game engine for the Web",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+.git"
+    "url": "git+https://github.com/oguzeroglu/ROYGBIV.git"
   },
   "keywords": [
     "webgl"
@@ -17,9 +17,9 @@
   "author": "Oguz Eroglu",
   "license": "MIT",
   "bugs": {
-    "url": "/issues"
+    "url": "https://github.com/oguzeroglu/ROYGBIV/issues"
   },
-  "homepage": "#readme",
+  "homepage": "https://github.com/oguzeroglu/ROYGBIV#readme",
   "dependencies": {
     "express": "^4.16.4",
     "image-size": "^0.8.3",

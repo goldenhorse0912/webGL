@@ -143,7 +143,7 @@ SteeringHandler.prototype.import = function(exportObj){
       });
       this.jumpDescriptorsBySceneName[sceneName][id] = jumpDescriptor;
       this.usedJumpDescriptorIDs[id] = jumpDescriptor;
-      jumpDescriptor.goldenhorseName = id;
+      jumpDescriptor.roygbivName = id;
     }
   }
 
@@ -752,7 +752,7 @@ SteeringHandler.prototype.addJumpDescriptor = function(id, takeoffMarkedPoint, l
     takeoffPositionSatisfactionRadius: takeoffPositionSatisfactionRadius
   });
 
-  jumpDescriptor.goldenhorseName = id;
+  jumpDescriptor.roygbivName = id;
 
   this.usedJumpDescriptorIDs[id] = jumpDescriptor;
   var jumpDescriptors = this.jumpDescriptorsBySceneName[sceneHandler.getActiveSceneName()];

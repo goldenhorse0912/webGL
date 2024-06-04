@@ -409,7 +409,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'ks':
 
 					// Specular color (color when light is reflected from shiny surface) using RGB values
-					// Discarded by goldenhorse
+					// Discarded by ROYGBIV
 					//params.specular = new THREE.Color().fromArray( value );
 
 					break;
@@ -448,7 +448,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'map_alpha':
 				case 'alpha':
 
-					// Supported by goldenhorse only
+					// Supported by ROYGBIV only
 
 					setMapForType("alphaMap", value);
 
@@ -457,7 +457,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'map_roughness':
 				case 'roughness':
 
-					// Supported by goldenhorse only
+					// Supported by ROYGBIV only
 
 					setMapForType("roughnessMap", value);
 
@@ -466,7 +466,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'map_metalness':
 				case 'metalness':
 
-					// Supported by goldenhorse only
+					// Supported by ROYGBIV only
 
 					setMapForType("metalnessMap", value);
 
@@ -475,7 +475,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'map_ao':
 				case 'ao':
 
-					// Supported by goldenhorse only
+					// Supported by ROYGBIV only
 
 					setMapForType("aoMap", value);
 
@@ -484,7 +484,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'map_emissive':
 				case 'emissive':
 
-					// Supported by goldenhorse only
+					// Supported by ROYGBIV only
 
 					setMapForType("emissiveMap", value);
 
@@ -494,7 +494,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// The specular exponent (defines the focus of the specular highlight)
 					// A high exponent results in a tight, concentrated highlight. Ns values normally range from 0 to 1000.
-					// DISCARDED BY goldenhorse
+					// DISCARDED BY ROYGBIV
 					//params.shininess = parseFloat( value );
 
 					break;
