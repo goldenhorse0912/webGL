@@ -119,7 +119,7 @@ Terminal.prototype.handleAboutCommand = function(){
 		terminal.printHeader(Text.CODER);
 		terminal.printInfo(Text.TREE.replace(Text.PARAM1, "Oğuz Eroğlu - github.com/oguzeroglu"));
 	}else{
-		this.print("by Oğuz Eroğlu - github.com/oguzeroglu", {color: "#bfce72", noNewLine: false});
+		this.print("Golden Horse", {color: "#bfce72", noNewLine: false});
 	}
 }
 

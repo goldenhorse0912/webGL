@@ -7594,7 +7594,7 @@ function startDeployment(){
   appendtoDeploymentConsole(BANNERL4);
   appendtoDeploymentConsole(BANNERL5);
   appendtoDeploymentConsole("");
-  appendtoDeploymentConsole("by Oğuz Eroğlu - github.com/oguzeroglu");
+  appendtoDeploymentConsole("Golden Horse");
   appendtoDeploymentConsole("");
   appendtoDeploymentConsole("");
   if (NO_MOBILE && isMobile){

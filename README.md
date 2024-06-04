@@ -1,8 +1,4 @@
-![](/screen_shots/banner.png?raw=true)
-
-ROYGBIV is a WebGL engine for motivated programmers who do not have the budget for buying fancy 3D models or licensing a popular engine but still want to make 60 FPS web applications for both mobile and desktop. It is being developed by one of such programmers on top of low level THREE.js features for the graphics and CANNON.js for physics. It is named after this [Boards of Canada track](https://www.youtube.com/watch?v=W-GWjzw0GwQ).    
-
-![](/screen_shots/roygbiv.gif?raw=true)   
+Golden Horse
 
 ## Demos  
 * [Villeneuve d'Ascq](https://oguzeroglu.github.io/ROYGBIV/demo/villeneuvedascq2/application.html)  
@@ -16,17 +12,6 @@ ROYGBIV is a WebGL engine for motivated programmers who do not have the budget f
 * [GPU particles showcase](https://oguzeroglu.github.io/ROYGBIV/demo/psShowcase/application.html)   
 * [Online preview of the engine](https://oguzeroglu.github.io/ROYGBIV/roygbiv.html)  
 
-## The current state of the project
-ROYGBIV is still under development and not documented yet. Estimated documentation release date is April 2021.    
-
-### Roadmap
-- [x] Integrated AI engine
-  - [x] Movement layer
-  - [x] Decision layer
-- [ ] Audio support
-- [ ] Plugin support
-- [ ] Test coverage
-- [ ] Documentation
 
 ## How to run?
 

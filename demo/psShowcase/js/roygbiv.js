@@ -7631,7 +7631,7 @@ window.onload = function() {
     appendtoDeploymentConsole("Loading shaders.");
     console.log(
       "%c "+BANNERL1+"\n"+BANNERL2+"\n"+BANNERL3+"\n"+
-      BANNERL4+"\n"+BANNERL5 +"\n"+"by Oğuz Eroğlu - github.com/oguzeroglu",
+      BANNERL4+"\n"+BANNERL5 +"\n"+"Golden Horse",
       "background: black; color: lime"
     );
   }
@@ -7814,7 +7814,7 @@ function startDeployment(){
   appendtoDeploymentConsole(BANNERL4);
   appendtoDeploymentConsole(BANNERL5);
   appendtoDeploymentConsole("");
-  appendtoDeploymentConsole("by Oğuz Eroğlu - github.com/oguzeroglu");
+  appendtoDeploymentConsole("Golden Horse");
   appendtoDeploymentConsole("");
   appendtoDeploymentConsole("");
   if (NO_MOBILE && isMobile){
