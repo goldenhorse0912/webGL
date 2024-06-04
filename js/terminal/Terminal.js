@@ -1,8 +1,8 @@
 var Terminal = function(){
 	this.options = {
 		greetings: "Type help for list of commands.\n",
-		name: "roygbivCLI",
-		prompt: "ROYGBIV> ",
+		name: "goldenhorseCLI",
+		prompt: "goldenhorse> ",
 		wrap: true,
 		keydown: function(e){
 			if (e.keyCode == 9 && !isDeployment){
@@ -115,11 +115,11 @@ Terminal.prototype.handleAboutCommand = function(){
 	this.print(BANNERL5, {color: "white", noNewLine: false});
 	if (!isDeployment){
 		terminal.printHeader(Text.VERSION);
-		terminal.printInfo(Text.TREE.replace(Text.PARAM1, ROYGBIV_ENGINE_VERSION));
+		terminal.printInfo(Text.TREE.replace(Text.PARAM1, goldenhorse_ENGINE_VERSION));
 		terminal.printHeader(Text.CODER);
-		terminal.printInfo(Text.TREE.replace(Text.PARAM1, "Oğuz Eroğlu - github.com/oguzeroglu"));
+		terminal.printInfo(Text.TREE.replace(Text.PARAM1, "Golden Horse - github.com/goldenhorse0912"));
 	}else{
-		this.print("by Oğuz Eroğlu - github.com/oguzeroglu", {color: "#bfce72", noNewLine: false});
+		this.print("by Golden Horse - github.com/goldenhorse0912", {color: "#bfce72", noNewLine: false});
 	}
 }
 
@@ -236,7 +236,7 @@ Terminal.prototype.help = function(commandInfosSorted, commandsSorted, apiMatche
 	if (apiMatchesSorted){
 		for (var i = 0; i<apiMatchesSorted.length; i++){
 			var functionName = apiMatchesSorted[i];
-			var functionExplanaion = Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+functionName.toUpperCase()];
+			var functionExplanaion = Text[Text.goldenhorse_SCRIPTING_API_PREFIX+functionName.toUpperCase()];
 			terminal.print(
 				Text.ONLY_PARAM.replace(
 					Text.PARAM1, functionName+" (API function)"
@@ -518,9 +518,9 @@ Terminal.prototype.autocomplete = function(command){
 				helpString = "[Marked points]: ";
 			break;
 			case commandDescriptor.API_FUNCTION_NAME:
-				for (var i = 0; i < ROYGBIV.functionNames.length; i++){
-					if (ROYGBIV.functionNames[i].startsWith(curEntry)){
-						possibilities.push(ROYGBIV.functionNames[i]);
+				for (var i = 0; i < goldenhorse.functionNames.length; i++){
+					if (goldenhorse.functionNames[i].startsWith(curEntry)){
+						possibilities.push(goldenhorse.functionNames[i]);
 					}
 				}
 				helpString = "[API functions]: ";

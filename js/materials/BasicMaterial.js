@@ -1,7 +1,7 @@
 var BasicMaterial = function(parameters){
   this.isBasicMaterial = true;
   // name
-  this.roygbivMaterialName = parameters.name;
+  this.goldenhorseMaterialName = parameters.name;
   // color
   this.textColor = parameters.color;
   this.color = new THREE.Color(parameters.color);
@@ -42,6 +42,6 @@ BasicMaterial.prototype.export = function(){
   exportObj["textColor"] = this.textColor;
   exportObj["materialType"] = "BASIC";
 
-  exportObj.roygbivMaterialName = this.roygbivMaterialName;
+  exportObj.goldenhorseMaterialName = this.goldenhorseMaterialName;
   return exportObj;
 }

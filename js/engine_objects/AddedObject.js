@@ -738,10 +738,10 @@ AddedObject.prototype.onPositionChange = function(from, to){
 
 AddedObject.prototype.collisionCallback = function(collisionEvent){
   var body = collisionEvent.body;
-  if ((!body.addedObject && !body.roygbivMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
+  if ((!body.addedObject && !body.goldenhorseMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
     return;
   }
-  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.roygbivMassID;
+  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.goldenhorseMassID;
   var contact = collisionEvent.contact;
   var collisionInfo = reusableCollisionInfo.set(
     targetObjectName, contact.bi.position.x + contact.ri.x, contact.bi.position.y + contact.ri.y,
@@ -814,7 +814,7 @@ AddedObject.prototype.exportLightweight = function(){
 AddedObject.prototype.export = function(){
   var exportObject = new Object();
   exportObject["type"] = this.type;
-  exportObject["roygbivMaterialName"] = this.material.roygbivMaterialName;
+  exportObject["goldenhorseMaterialName"] = this.material.goldenhorseMaterialName;
   var exportDestroyedGrids = new Object();
   for (var gridName in this.destroyedGrids){
     exportDestroyedGrids[gridName] = this.destroyedGrids[gridName].export();
@@ -874,23 +874,23 @@ AddedObject.prototype.export = function(){
 
   if (this.hasDiffuseMap()){
     var diffuseMap = this.getDiffuseMap();
-    exportObject["diffuseRoygbivTexturePackName"] = diffuseMap.roygbivTexturePackName;
+    exportObject["diffusegoldenhorseTexturePackName"] = diffuseMap.goldenhorseTexturePackName;
   }
   if (this.hasAlphaMap()){
     var alphaMap = this.getAlphaMap();
-    exportObject["alphaRoygbivTexturePackName"] = alphaMap.roygbivTexturePackName;
+    exportObject["alphagoldenhorseTexturePackName"] = alphaMap.goldenhorseTexturePackName;
   }
   if (this.hasAOMap()){
     var aoMap = this.getAOMap();
-    exportObject["aoRoygbivTexturePackName"] = aoMap.roygbivTexturePackName;
+    exportObject["aogoldenhorseTexturePackName"] = aoMap.goldenhorseTexturePackName;
   }
   if (this.hasEmissiveMap()){
     var emissiveMap = this.getEmissiveMap();
-    exportObject["emissiveRoygbivTexturePackName"] = emissiveMap.roygbivTexturePackName;
+    exportObject["emissivegoldenhorseTexturePackName"] = emissiveMap.goldenhorseTexturePackName;
   }
   if (this.hasDisplacementMap()){
     var displacementMap = this.getDisplacementMap();
-    exportObject["displacementRoygbivTexturePackName"] = displacementMap.roygbivTexturePackName;
+    exportObject["displacementgoldenhorseTexturePackName"] = displacementMap.goldenhorseTexturePackName;
     if (!this.parentObjectName){
       exportObject["displacementScale"] = this.getDisplacementScale();
       exportObject["displacementBias"] = this.getDisplacementBias();
@@ -2166,27 +2166,27 @@ AddedObject.prototype.mapTexturePack = function(texturePack){
   this.resetMaps();
   if (texturePack.hasDiffuse){
     this.mapDiffuse(texturePack);
-    this.getDiffuseMap().roygbivTexturePackName = texturePack.name;
+    this.getDiffuseMap().goldenhorseTexturePackName = texturePack.name;
     this.getDiffuseMap().needsUpdate = true;
   }
   if (texturePack.hasAlpha){
     this.mapAlpha(texturePack);
-    this.getAlphaMap().roygbivTexturePackName = texturePack.name;
+    this.getAlphaMap().goldenhorseTexturePackName = texturePack.name;
     this.getAlphaMap().needsUpdate = true;
   }
   if (texturePack.hasAO){
     this.mapAO(texturePack);
-    this.getAOMap().roygbivTexturePackName = texturePack.name;
+    this.getAOMap().goldenhorseTexturePackName = texturePack.name;
     this.getAOMap().needsUpdate = true;
   }
   if (texturePack.hasEmissive){
     this.mapEmissive(texturePack);
-    this.getEmissiveMap().roygbivTexturePackName = texturePack.name;
+    this.getEmissiveMap().goldenhorseTexturePackName = texturePack.name;
     this.getEmissiveMap().needsUpdate = true;
   }
   if (texturePack.hasHeight && VERTEX_SHADER_TEXTURE_FETCH_SUPPORTED){
     this.mapDisplacement(texturePack);
-    this.getDisplacementMap().roygbivTexturePackName = texturePack.name;
+    this.getDisplacementMap().goldenhorseTexturePackName = texturePack.name;
     this.getDisplacementMap().needsUpdate = true;
   }
   this.associatedTexturePack = texturePack.name;
@@ -2769,8 +2769,8 @@ AddedObject.prototype.isVisibleOnThePreviewScene = function(parentName){
 AddedObject.prototype.isTexturePackUsed = function(texturePackName){
   var textureStack = this.getTextureStack();
   for (var i = 0; i<textureStack.length; i++){
-    if (!(textureStack[i].roygbivTexturePackName == "undefined")){
-      if (textureStack[i].roygbivTexturePackName == texturePackName){
+    if (!(textureStack[i].goldenhorseTexturePackName == "undefined")){
+      if (textureStack[i].goldenhorseTexturePackName == texturePackName){
         return true;
       }
     }
@@ -2900,7 +2900,7 @@ AddedObject.prototype.generateBoundingBoxes = function(parentAry){
   }
   this.vertices = pseudoGeometry.vertices;
   var bb = new THREE.Box3();
-  bb.roygbivObjectName = this.name;
+  bb.goldenhorseObjectName = this.name;
   this.boundingBoxes = [bb];
   if (parentAry){
     parentAry.push(bb);

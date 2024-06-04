@@ -988,9 +988,9 @@ var Text = function(){
   this.DISABLED = "disabled";
   this.INVALID_SCRIPT = "Invalid script (@@2): @@1";
   this.SCRIPT_IS_NOT_VALID = "Script is not valid.";
-  this.ROYGBIV_SCRIPTING_API_PREFIX = "ROYGBIV_SCRIPTING_API_";
+  this.goldenhorse_SCRIPTING_API_PREFIX = "goldenhorse_SCRIPTING_API_";
   this.NO_SUCH_FUNCTION = "No such function.";
-  this.FUNCTIONS_LIST = "ROYGBIV Scripting API functions";
+  this.FUNCTIONS_LIST = "goldenhorse Scripting API functions";
   this.PERFORMANCES = "Performances in ms";
   this.SCRIPT_EXECUTION_TIME = "Script execution time";
   this.CANNOT_ADD_MORE_THAN_TWO_ANIMATION_GROUP_TO_MODEL_INSTANCE = "Cannot add more than two animation groups to a model instance.";
@@ -1092,152 +1092,152 @@ var Text = function(){
   this.FRAME_DROP_STARTED = "Frame-drop recording started.";
   this.DISPLACEMENT_MAP_APPLIED = "Displacement map applied.";
   this.CONFIGURING_AREA = "Configuring area.";
-  this.ROYGBIV_SCRIPTING_API_GETOBJECT = "Returns the object or glued object having the name given as the parameter, or undefined if no such object or glued object is found.";
-  this.ROYGBIV_SCRIPTING_API_GETPARTICLESYSTEM = "Returns the particle system having the name given as the parameter, or zero if no such particle system is found.";
-  this.ROYGBIV_SCRIPTING_API_GETCHILDOBJECT = "Returns a child object having the name given as the second parameter of a glued object given as the first parameter,\nor zero if no such object is found.";
-  this.ROYGBIV_SCRIPTING_API_GETRANDOMCOLOR = "Returns the HTML name of a random color.";
-  this.ROYGBIV_SCRIPTING_API_HIDE = "Hides an object or a glued object, removes it from the scene. Does nothing if the object is already hidden.\nThe additional keepPhysics parameter can be used in order to hide only the graphical representation of the object but\nkeep its physicsal body. The default value of keepPhysics is false.";
-  this.ROYGBIV_SCRIPTING_API_SHOW = "Makes a hidden object or glued object visible. Does nothing if the object is already visible.";
-  this.ROYGBIV_SCRIPTING_API_VECTOR = "Creates a new vector from x, y and z coordinates.";
-  this.ROYGBIV_SCRIPTING_API_DISTANCE = "Returns the distance between two vectors.";
-  this.ROYGBIV_SCRIPTING_API_SUB = "Returns the substraction of two vectors.";
-  this.ROYGBIV_SCRIPTING_API_ADD = "Returns the summation of two vectors.";
-  this.ROYGBIV_SCRIPTING_API_APPLYFORCE = "Applies a physical force to an object or a glued object from a given point.";
-  this.ROYGBIV_SCRIPTING_API_ROTATE = "Rotates an object or a glued object around a given axis by given radians. The parameter axis must be one of ROYGBIV.axes.X,\nROYGBIV.axes.Y or ROYGBIV.axes.Z. Objects are rotated around their own centers, so their positions do not change when rotated\nusing this function. If object has a local rotation mode set, the rotation is performed around it's local axis, it's performed\naround the world axis otherwise.";
-  this.ROYGBIV_SCRIPTING_API_ROTATEAROUNDXYZ = "Rotates an object or a glued object around the given (x, y, z). Unlike the rotate function, the positions of the objects\ncan change when rotated using this function. Note that axis must be one of ROYGBIV.axes.X, ROYGBIV.axes.Y or ROYGBIV.axes.Z.";
-  this.ROYGBIV_SCRIPTING_API_SETPOSITION = "Puts an object or glued object to the specified (x, y, z) coordinate.";
-  this.ROYGBIV_SCRIPTING_API_COLOR = "Creates a new color object from the given HTML color name.";
-  this.ROYGBIV_SCRIPTING_API_SETMASS = "Sets the mass property of an object or a glued object. Objects are considered dynamic if and only if their mass is greater than zero.";
-  this.ROYGBIV_SCRIPTING_API_TRANSLATE = "Translates an object or glued object on the given axis by the given amount.\nAxis must be one of ROYGBIV.axes.X, ROYGBIV.axes.Y or ROYGBIV.axes.Z.";
-  this.ROYGBIV_SCRIPTING_API_GETPOSITION = "Returns the (x, y, z) coordinates of an object, glued object, particle system or a model instance.\nIf a specific axis is specified, only the position on the specified axis is returned.\nNote that axis should be one of ROYGBIV.axes.X, ROYGBIV.axes.Y or ROYGBIV.axes.Z.";
-  this.ROYGBIV_SCRIPTING_API_OPACITY = "Increases/decreases the opacity of given object.";
-  this.ROYGBIV_SCRIPTING_API_GETOPACITY = "Returns the opacity of given object.";
-  this.ROYGBIV_SCRIPTING_API_SETCOLLISIONLISTENER = "Sets a collision listener for an object, glued object or a particle system."+
+  this.goldenhorse_SCRIPTING_API_GETOBJECT = "Returns the object or glued object having the name given as the parameter, or undefined if no such object or glued object is found.";
+  this.goldenhorse_SCRIPTING_API_GETPARTICLESYSTEM = "Returns the particle system having the name given as the parameter, or zero if no such particle system is found.";
+  this.goldenhorse_SCRIPTING_API_GETCHILDOBJECT = "Returns a child object having the name given as the second parameter of a glued object given as the first parameter,\nor zero if no such object is found.";
+  this.goldenhorse_SCRIPTING_API_GETRANDOMCOLOR = "Returns the HTML name of a random color.";
+  this.goldenhorse_SCRIPTING_API_HIDE = "Hides an object or a glued object, removes it from the scene. Does nothing if the object is already hidden.\nThe additional keepPhysics parameter can be used in order to hide only the graphical representation of the object but\nkeep its physicsal body. The default value of keepPhysics is false.";
+  this.goldenhorse_SCRIPTING_API_SHOW = "Makes a hidden object or glued object visible. Does nothing if the object is already visible.";
+  this.goldenhorse_SCRIPTING_API_VECTOR = "Creates a new vector from x, y and z coordinates.";
+  this.goldenhorse_SCRIPTING_API_DISTANCE = "Returns the distance between two vectors.";
+  this.goldenhorse_SCRIPTING_API_SUB = "Returns the substraction of two vectors.";
+  this.goldenhorse_SCRIPTING_API_ADD = "Returns the summation of two vectors.";
+  this.goldenhorse_SCRIPTING_API_APPLYFORCE = "Applies a physical force to an object or a glued object from a given point.";
+  this.goldenhorse_SCRIPTING_API_ROTATE = "Rotates an object or a glued object around a given axis by given radians. The parameter axis must be one of goldenhorse.axes.X,\ngoldenhorse.axes.Y or goldenhorse.axes.Z. Objects are rotated around their own centers, so their positions do not change when rotated\nusing this function. If object has a local rotation mode set, the rotation is performed around it's local axis, it's performed\naround the world axis otherwise.";
+  this.goldenhorse_SCRIPTING_API_ROTATEAROUNDXYZ = "Rotates an object or a glued object around the given (x, y, z). Unlike the rotate function, the positions of the objects\ncan change when rotated using this function. Note that axis must be one of goldenhorse.axes.X, goldenhorse.axes.Y or goldenhorse.axes.Z.";
+  this.goldenhorse_SCRIPTING_API_SETPOSITION = "Puts an object or glued object to the specified (x, y, z) coordinate.";
+  this.goldenhorse_SCRIPTING_API_COLOR = "Creates a new color object from the given HTML color name.";
+  this.goldenhorse_SCRIPTING_API_SETMASS = "Sets the mass property of an object or a glued object. Objects are considered dynamic if and only if their mass is greater than zero.";
+  this.goldenhorse_SCRIPTING_API_TRANSLATE = "Translates an object or glued object on the given axis by the given amount.\nAxis must be one of goldenhorse.axes.X, goldenhorse.axes.Y or goldenhorse.axes.Z.";
+  this.goldenhorse_SCRIPTING_API_GETPOSITION = "Returns the (x, y, z) coordinates of an object, glued object, particle system or a model instance.\nIf a specific axis is specified, only the position on the specified axis is returned.\nNote that axis should be one of goldenhorse.axes.X, goldenhorse.axes.Y or goldenhorse.axes.Z.";
+  this.goldenhorse_SCRIPTING_API_OPACITY = "Increases/decreases the opacity of given object.";
+  this.goldenhorse_SCRIPTING_API_GETOPACITY = "Returns the opacity of given object.";
+  this.goldenhorse_SCRIPTING_API_SETCOLLISIONLISTENER = "Sets a collision listener for an object, glued object or a particle system."+
                                                     "Callback function given as the second parameter is\nfired with a CollisionInfo instance when the sourceObject is collided with other objects or glued objects of the scene.\n"+
                                                     "The additional timeOffset parameter can be used for particle systems to pre-calculate future collisions. This can help to\nprevent visual errors of collisions of rather fast particle systems.";
-  this.ROYGBIV_SCRIPTING_API_REMOVECOLLISIONLISTENER = "Removes collision listeners of an object, glued object or a particle system.";
-  this.ROYGBIV_SCRIPTING_API_SETPARTICLESYSTEMROTATION = "Sets the rotation of a particle system around given axis. Note that axis must be one of ROYGBIV.axes.X, ROYGBIV.axes.Y\nor ROYGBIV.axes.Z.";
-  this.ROYGBIV_SCRIPTING_API_SETPARTICLESYSTEMQUATERNION = "Sets the quaternion of given particle system.";
-  this.ROYGBIV_SCRIPTING_API_GETMARKEDPOSITION = "Returns (x,y,z) coordinates of a point marked using the mark command.";
-  this.ROYGBIV_SCRIPTING_API_SETEXPIRELISTENER = "Sets an expiration listener for a particle system. The parameter callbackFunction is executed when sourceObject is expired.\nThe name of the particle system is passed to the callbackFunction as a parameter.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEEXPIRELISTENER = "Removes the expiration listener function of a particle system.";
-  this.ROYGBIV_SCRIPTING_API_NORMALIZEVECTOR = "Normalizes the vector given in the parameter. Note that this function modifies directly the parameter and returns nothing.";
-  this.ROYGBIV_SCRIPTING_API_COMPUTEQUATERNIONFROMVECTORS = "Returns the quaternion between two vectors.";
-  this.ROYGBIV_SCRIPTING_API_MULTIPLYSCALAR = "Multiplies a vector by a scalar.";
-  this.ROYGBIV_SCRIPTING_API_GETPARTICLESYSTEMVELOCITYATTIME = "Calcualtes and returns the velocity vector of a particle system at given time. For particles with circular motion, this function returns\nthe angular velocity at given time.";
-  this.ROYGBIV_SCRIPTING_API_STOPPARTICLESYSTEM = "Stops the motion of a particle system. This can be useful for smooth after collision effects of particle systems as it lets particles\nto dissapear smoothly. The particle system is killed after stopDuration seconds.";
-  this.ROYGBIV_SCRIPTING_API_STARTPARTICLESYSTEM = "Starts a particle system after its creation. Configurations are:\n"+
+  this.goldenhorse_SCRIPTING_API_REMOVECOLLISIONLISTENER = "Removes collision listeners of an object, glued object or a particle system.";
+  this.goldenhorse_SCRIPTING_API_SETPARTICLESYSTEMROTATION = "Sets the rotation of a particle system around given axis. Note that axis must be one of goldenhorse.axes.X, goldenhorse.axes.Y\nor goldenhorse.axes.Z.";
+  this.goldenhorse_SCRIPTING_API_SETPARTICLESYSTEMQUATERNION = "Sets the quaternion of given particle system.";
+  this.goldenhorse_SCRIPTING_API_GETMARKEDPOSITION = "Returns (x,y,z) coordinates of a point marked using the mark command.";
+  this.goldenhorse_SCRIPTING_API_SETEXPIRELISTENER = "Sets an expiration listener for a particle system. The parameter callbackFunction is executed when sourceObject is expired.\nThe name of the particle system is passed to the callbackFunction as a parameter.";
+  this.goldenhorse_SCRIPTING_API_REMOVEEXPIRELISTENER = "Removes the expiration listener function of a particle system.";
+  this.goldenhorse_SCRIPTING_API_NORMALIZEVECTOR = "Normalizes the vector given in the parameter. Note that this function modifies directly the parameter and returns nothing.";
+  this.goldenhorse_SCRIPTING_API_COMPUTEQUATERNIONFROMVECTORS = "Returns the quaternion between two vectors.";
+  this.goldenhorse_SCRIPTING_API_MULTIPLYSCALAR = "Multiplies a vector by a scalar.";
+  this.goldenhorse_SCRIPTING_API_GETPARTICLESYSTEMVELOCITYATTIME = "Calcualtes and returns the velocity vector of a particle system at given time. For particles with circular motion, this function returns\nthe angular velocity at given time.";
+  this.goldenhorse_SCRIPTING_API_STOPPARTICLESYSTEM = "Stops the motion of a particle system. This can be useful for smooth after collision effects of particle systems as it lets particles\nto dissapear smoothly. The particle system is killed after stopDuration seconds.";
+  this.goldenhorse_SCRIPTING_API_STARTPARTICLESYSTEM = "Starts a particle system after its creation. Configurations are:\n"+
                                                      "particleSystem: The particle system to start. (mandatory)\n"+
                                                      "startPosition: The initial position vector of the particle system. (optional)\n"+
                                                      "startVelocity: The initial velocity vector of the particle system. (optional)\n"+
                                                      "startAcceleration: The initial acceleration vector of the particle system. (optional)\n"+
-                                                     "startQuaternion: The initial quaternion of the particle system. Use ROYGBIV.computeQuaternionFromVectors (optional)\n"+
+                                                     "startQuaternion: The initial quaternion of the particle system. Use goldenhorse.computeQuaternionFromVectors (optional)\n"+
                                                      "maxCameraDistance: This parameter can be used for particle systems being shot from FPS weapons to visually adjust their scales.\nIf set, the scale of the particle system is set to [distance_to_camera] / maxCameraDistance while the distance to camera is\nless than maxCameraDistance.";
-  this.ROYGBIV_SCRIPTING_API_HIDEPARTICLESYSTEM = "Makes a particle system invisible.";
-  this.ROYGBIV_SCRIPTING_API_GETCAMERADIRECTION = "Returns the direction vector of the camera.";
-  this.ROYGBIV_SCRIPTING_API_GETCAMERAPOSITION = "Returns the position of the camera.";
-  this.ROYGBIV_SCRIPTING_API_GETPARTICLESYSTEMPOOL = "Finds a particle system pool by name and returns it.";
-  this.ROYGBIV_SCRIPTING_API_GETPARTICLESYSTEMFROMPOOL = "Returns an available particle system from the pool, or false if there is not an available particle system inside the pool.\nThe particle systems become available when hidden or expired.";
-  this.ROYGBIV_SCRIPTING_API_SETVECTOR = "Set the x, y, z components of a vector.";
-  this.ROYGBIV_SCRIPTING_API_QUATERNION = "Returns a new THREE.Quaternion instance.";
-  this.ROYGBIV_SCRIPTING_API_FADEAWAY = "Makes the particles of given particle system smaller on each frame. Greater the coefficient, faster the particles fade away.\nThis can be used for smoke like particle systems to make them dissapear smoothly.";
-   this.ROYGBIV_SCRIPTING_API_SELECTCROSSHAIR = "Selects a crosshair. Only the selected crosshair is visible on the screen.";
-   this.ROYGBIV_SCRIPTING_API_CHANGECROSSHAIRCOLOR = "Changes the color of the selected crosshair.";
-   this.ROYGBIV_SCRIPTING_API_HIDECROSSHAIR = "Destroys the selected crosshair. selectCrosshair function should be used after this function\nin order to put a crosshair on the screen.";
-   this.ROYGBIV_SCRIPTING_API_STARTCROSSHAIRROTATION = "Starts rotation effect of the selected crosshair.";
-   this.ROYGBIV_SCRIPTING_API_STOPCROSSHAIRROTATION = "Stops rotation effect of the selected crosshair.";
-   this.ROYGBIV_SCRIPTING_API_PAUSECROSSHAIRROTATION = "Pauses rotation effect of the selected crosshair. startCrosshairRotation function can be used to continue the rotation effect.";
-   this.ROYGBIV_SCRIPTING_API_EXPANDCROSSHAIR = "Expands a crosshair. This can be used while shooting or walking for fps games. The crosshair expands by delta while\nits size is less than targetSize on each frame. This function is designed to be called inside onmousedown or onkeydown like events.";
-   this.ROYGBIV_SCRIPTING_API_SHRINKCROSSHAIR = "Shrinks a crosshair. This can be used after calling the expandCrosshair function. The crosshair shrinks by delta while its size is\ngreater than its initial size. This function is designed to be called inside onmouseup or onkeyup like events.";
-   this.ROYGBIV_SCRIPTING_API_SETPARTICLESYSTEMPOSITION = "Sets the position of a particle system. This function is designed for magic circle like particle systems which may follow players.\nThis function should not be used for particle systems with collision callbacks or particle systems with defined motions in general.";
-   this.ROYGBIV_SCRIPTING_API_STARTMOTIONBLUR = "Starts the motion blur effect of an object.";
-   this.ROYGBIV_SCRIPTING_API_STOPMOTIONBLUR = "Stops the motion blur effect of an object. The effect can be restarted using the startMotionBlur command.";
-   this.ROYGBIV_SCRIPTING_API_SETOBJECTVELOCITY = "Sets the velocity of an object or a glued object. The object must be a dynamic object (mass > 0) in order to have a velocity.\nIf optional axis parameter is used velocity on only given axis is set. Note that axis must be one of ROYGBIV.axes.X,\nROYGBIV.axes.Y or ROYGBIV.axes.Z.";
-   this.ROYGBIV_SCRIPTING_API_SETOBJECTCLICKLISTENER = "Sets a click listener for an object or an object group. The callbackFunction is executed with\nx, y, z coordinates of the clicked point. The callbackFunction is bound to object (this = object inside the function).";
-   this.ROYGBIV_SCRIPTING_API_REMOVEOBJECTCLICKLISTENER = "Removes the click listener of an object or an object group.";
-   this.ROYGBIV_SCRIPTING_API_SETOBJECTCOLOR = "Modifies the color and alpha value of an object or an object group.";
-   this.ROYGBIV_SCRIPTING_API_RESETOBJECTCOLOR = "Resets the color and alpha value of an object or an object group.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENCLICKLISTENER = "Sets a click listener for the screen. The callbackFunction is executed with x, y coordinates when clicked on the screen.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENCLICKLISTENER = "Removes the click listener of screen.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENMOUSEDOWNLISTENER = "Sets a mouse down listener for screen. The callbackFunction is executed with x, y coordinates when mouse-downed on the screen.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENMOUSEDOWNLISTENER = "Removes the mouse down listener of screen.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENMOUSEUPLISTENER = "Sets mouse up listener for screen. The callbackFunction is executed with x, y coordinates when mouse-upped on the screen.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENMOUSEUPLISTENER = "Removes mouse up listener for screen.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENMOUSEMOVELISTENER = "Sets mouse move listener for screen. The callbackFunction is executed with x, y coordinates and dX, dY values when\nmouse moves on the screen.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENMOUSEMOVELISTENER = "Removes mouse move listener for screen.";
-   this.ROYGBIV_SCRIPTING_API_REQUESTPOINTERLOCK = "Requests pointer lock from window on the next click.";
-   this.ROYGBIV_SCRIPTING_API_CONVERTEULERTODEGREES = "Returns the degree equivalent of an Euler angle.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENPOINTERLOCKCHANGELISTENER = "Sets a callback function for Pointer Lock API status changes. The callbackFunction is executed with isPointerLocked parameter.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENPOINTERLOCKCHANGELISTENER = "Removes the Pointer Lock change listener for the screen.";
-   this.ROYGBIV_SCRIPTING_API_SETPARTICLESYSTEMPOOLCONSUMEDLISTENER = "Sets a listener for particle system pool consumption. The callbackFunction is executed wheren there is no available\nparticle system left inside the pool.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEPARTICLESYSTEMPOOLCONSUMEDLISTENER = "Removes the consumption listener of a particle system pool.";
-   this.ROYGBIV_SCRIPTING_API_SETPARTICLESYSTEMPOOLAVAILABLELISTENER = "Sets an availability listener for a particle system pool. The callbackFunction is executed when there is at least\none available particle system inside the pool again.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEPARTICLESYSTEMPOOLAVAILABLELISTENER = "Removes the availablity listener for a particle system pool.";
-   this.ROYGBIV_SCRIPTING_API_ISKEYPRESSED = "Returns whether the given key is pressed or not. See the keyCodeToChar variable for possible key names.";
-   this.ROYGBIV_SCRIPTING_API_SETCAMERAPOSITION = "Sets the position of the camera.";
-   this.ROYGBIV_SCRIPTING_API_LOOKAT = "Makes the camera look at specific position.";
-   this.ROYGBIV_SCRIPTING_API_APPLYAXISANGLE = "Rotates the vector around an axis by given angle.";
-   this.ROYGBIV_SCRIPTING_API_TRACKOBJECTPOSITION = "Makes sourceObject keep its relative position to targetObject.";
-   this.ROYGBIV_SCRIPTING_API_UNTRACKOBJECTPOSITION = "Stops tracking an objects position for an object.";
-   this.ROYGBIV_SCRIPTING_API_CREATEROTATIONPIVOT = "Creates and returns a rotation pivot for an object. This function is not optimized for the runtime. Use this function before\nsetRotationPivot API on initialization. Instead of ROYGBIV.rotate API that works on world axes, this function may be used with\n0 offset parameters to achieve local rotation for objects.";
-   this.ROYGBIV_SCRIPTING_API_SETROTATIONPIVOT = "Sets a rotation pivot for an object created with createRotationPivot API.";
-   this.ROYGBIV_SCRIPTING_API_UNSETROTATIONPIVOT = "Unsets a rotation pivot point for an object set with setRotationPivot API.";
-   this.ROYGBIV_SCRIPTING_API_ROTATECAMERA = "Rotates the camera around its axis by given radians. Note that axis must be one of ROYGBIV.axes.X, ROYGBIV.axes.Y\nor ROYGBIV.axes.Z.";
-   this.ROYGBIV_SCRIPTING_API_TRANSLATECAMERA = "Translates the camera along given axis by given amount. Note that axis must be one of ROYGBIV.axes.X, ROYGBIV.axes.Y\nor ROYGBIV.axes.Z.";
-   this.ROYGBIV_SCRIPTING_API_REQUESTFULLSCREEN = "Goes to full screen mode. on the next mouse click. Does nothing if the screen is already in full screen mode.";
-   this.ROYGBIV_SCRIPTING_API_SETFULLSCREENCHANGECALLBACKFUNCTION = "Sets a callback function for fullscreen change API. The callbackFunction is executed with isFullScreenOn\nboolean parameter when the fullscreen status is changed.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEFULLSCREENCHANGECALLBACKFUNCTION = "Removes the fullscreen change listener.";
-   this.ROYGBIV_SCRIPTING_API_ISMOUSEDOWN = "Returns true if the mouse is pressed, false otherwise.";
-   this.ROYGBIV_SCRIPTING_API_INTERSECTIONTEST = "Finds the first intersected object on a ray. The onComplete callback function is executed with x, y, z and objectName parameters.\nIf there's no intersection, the objectName is set to null. If the web workers not supported, the onComplete is executed immediately."
-   this.ROYGBIV_SCRIPTING_API_GETENDPOINT = "Gets an end point of an object. The axis may be one of:\nROYGBIV.endpoints.MINUS_X\nROYGBIV.endpoints.MINUS_Y\nROYGBIV.endpoints.MINUS_Z\nROYGBIV.endpoints.PLUS_X\nROYGBIV.endpoints.PLUS_Y\nROYGBIV.endpoints.PLUS_Z\n\nNote that object groups do not support this function but child objects do. This function may be useful in cases where\nfor example a particle system needs to be started from the tip point of an object.";
-   this.ROYGBIV_SCRIPTING_API_ISMOBILE = "Returns if the current client is a mobile client.";
-   this.ROYGBIV_SCRIPTING_API_LERP = "Linearly interpolate between vector1 and vector2. The result is vector1 if amount = 0 and vector2 if amount = 1.";
-   this.ROYGBIV_SCRIPTING_API_RESETOBJECTVELOCITY = "Resets the velocity and angular velocity of an object.";
-   this.ROYGBIV_SCRIPTING_API_SETFPSDROPCALLBACKFUNCTION = "Sets a callback function for FPS drops. The callbackFunction is executed with dropAmount parameter if the FPS is\nless than 60 for given second. The dropAmount is calculated using this formula: (60 - [current_fps])";
-   this.ROYGBIV_SCRIPTING_API_REMOVEFPSDROPCALLBACKFUNCTION = "Removes the callback function for FPS drops.";
-   this.ROYGBIV_SCRIPTING_API_SETPERFORMANCEDROPCALLBACKFUNCTION = "Sets a callback function for performance drops. The callbackFunction is executed if the FPS is under [minFPS] for [seconds] seconds.\nThe callbackFunction is automatically removed after the execution, so use this function again if needed after\nthe execution of the callbackFunction.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEPERFORMANCEDROPCALLBACKFUNCTION = "Removes the callback function for performance drops.";
-   this.ROYGBIV_SCRIPTING_API_GETVIEWPORT = "Returns the current viewport object having startX, startY, width and height parameters.\nDo not modify the values of the returned object.";
-   this.ROYGBIV_SCRIPTING_API_SETUSERINACTIVITYCALLBACKFUNCTION = "Sets a callback function for user inactivity. The callbackFunction is executed if the user does not move or press the mouse or\npress a key for more than maxTimeInSeconds seconds. The callbackFunction is reset after the execution so use this function again\nto create a new inactivity listener.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEUSERINACTIVITYCALLBACKFUNCTION = "Removes the user inactivity callback function.";
-   this.ROYGBIV_SCRIPTING_API_PAUSE = "Pauses/unpauses rendering. Note that once the rendering is paused the scripts also pause so in order to unpause the rendering,\nuse callback functions such as ROYGBIV.setScreenClickListener or ROYGBIV.setScreenPointerLockChangeListener.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENKEYDOWNLISTENER = "Sets a keydown listener. The callbackFunction is executed with the pressedChar parameter. See the values of keyCodeToChar\nvariable for possible pressedChar parameters.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENKEYDOWNLISTENER = "Removes the keydown listener.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENKEYUPLISTENER = "Sets a keyup listener. The callbackFunction is executed with the uppedChar parameter. See the values of keyCodeToChar\nvariable for possible uppedChar parameters.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENKEYUPLISTENER = "Removes the keyup listener.";
-   this.ROYGBIV_SCRIPTING_API_GETTEXT = "Returns a text object or 0 if the text does not exist.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXT = "Sets a text to a text object.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXTCOLOR = "Sets the color of a text. colorName can be a color name like red or an hex string like #afef54.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXTALPHA = "Sets the alpha of a text.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXTPOSITION = "Sets the position of a text object. If text is 2D only x and y parameters are necessary representing the marginX and marginY.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXTBACKGROUND = "Sets the background color/alpha of a text object.";
-   this.ROYGBIV_SCRIPTING_API_REMOVETEXTBACKGROUND = "Removes the background of a text object.";
-   this.ROYGBIV_SCRIPTING_API_ONTEXTCLICK = "Sets a click listener for a text object. The callbackFunction is executed with textName parameter when the text object is clicked.";
-   this.ROYGBIV_SCRIPTING_API_REMOVETEXTCLICKLISTENER = "Removes the click listener of a text object.";
-   this.ROYGBIV_SCRIPTING_API_SETTEXTCENTERPOSITION = "Puts the center of the given text object to given x, y, z coordinates.";
-   this.ROYGBIV_SCRIPTING_API_HIDETEXT = "Makes the given text object invisible. Does nothing if the text is already invisible.";
-   this.ROYGBIV_SCRIPTING_API_SHOWTEXT = "Makes the given text object visible. Does nothing if the text is already visible.";
-   this.ROYGBIV_SCRIPTING_API_GETFPS = "Returns the current FPS";
-   this.ROYGBIV_SCRIPTING_API_EXECUTEFOREACHOBJECT = "Executes the given function for each object and object group. The func paremter is executed with\nobject and objectName parameters.";
-   this.ROYGBIV_SCRIPTING_API_GETRANDOMINTEGER = "Returns a random integer in range [minInclusive, maxInclusive]";
-   this.ROYGBIV_SCRIPTING_API_ISANYFINGERTOUCHING = "For mobile devices, returns true if there is any finger touching to the screen.";
-   this.ROYGBIV_SCRIPTING_API_GETCURRENTTOUCHCOUNT = "For mobile devices, returns the amount of fingers touching to the screen.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENMOUSEWHEELLISTENER = "Sets a mouse wheel listener. The callbackFunction is executed with deltaX and deltaY parameters when a mousewheel event is triggered.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENMOUSEWHEELLISTENER = "Removes the listener for mousewheel events.";
-   this.ROYGBIV_SCRIPTING_API_SETSCREENPINCHLISTENER = "For mobile devices, sets a pinch zoom gesture listener. The callbackFunction is executed with delta parameter\nthat represents the variation of the distance between two fingers.";
-   this.ROYGBIV_SCRIPTING_API_REMOVESCREENPINCHLISTENER = "Removes the listener for pinch gesture.";
-   this.ROYGBIV_SCRIPTING_API_SETOBJECTMOUSEOVERLISTENER = "Sets a mouseover listener for an object or an object group. The callbackFunction is executed with x, y, z coordinates of mouse.\nThe callbackFunction is bound to object (this = object inside the function).";
-   this.ROYGBIV_SCRIPTING_API_REMOVEOBJECTMOUSEOVERLISTENER = "Removes the mouseover listener of an object or an object group.";
-   this.ROYGBIV_SCRIPTING_API_SETOBJECTMOUSEOUTLISTENER = "Sets a mouseout listener for an object or an object group. The callbackFunction is bound to object (this = object inside the function).";
-   this.ROYGBIV_SCRIPTING_API_REMOVEOBJECTMOUSEOUTLISTENER = "Removes the mouseout listener of an object or an object group.";
-   this.ROYGBIV_SCRIPTING_API_ONTEXTMOUSEOVER = "Sets a mouseover listener for a text. The callbackFunction is bound to text (this = text inside the function).";
-   this.ROYGBIV_SCRIPTING_API_REMOVETEXTMOUSEOVERLISTENER = "Removes the mouseover listener of a text.";
-   this.ROYGBIV_SCRIPTING_API_ONTEXTMOUSEOUT = "Sets a mouseout listener for a text. The callbackFunction is bound to text (this = text inside the function).";
-   this.ROYGBIV_SCRIPTING_API_REMOVETEXTMOUSEOUTLISTENER = "Removes the mouseout listener of a text.";
-   this.ROYGBIV_SCRIPTING_API_ONOBJECTPOSITIONTHRESHOLDEXCEEDED = "Sets a listener for an object detecting the position threshold passage for given axis. If controlMode = 1 the callbackFunction\nis executed when object.position[axis] > threshold, if controlMode = 2 the callbackFunction is executed when\nobject.position[axis] < threshold. The callbackFunction is bound to object (this = object inside the function)."+
+  this.goldenhorse_SCRIPTING_API_HIDEPARTICLESYSTEM = "Makes a particle system invisible.";
+  this.goldenhorse_SCRIPTING_API_GETCAMERADIRECTION = "Returns the direction vector of the camera.";
+  this.goldenhorse_SCRIPTING_API_GETCAMERAPOSITION = "Returns the position of the camera.";
+  this.goldenhorse_SCRIPTING_API_GETPARTICLESYSTEMPOOL = "Finds a particle system pool by name and returns it.";
+  this.goldenhorse_SCRIPTING_API_GETPARTICLESYSTEMFROMPOOL = "Returns an available particle system from the pool, or false if there is not an available particle system inside the pool.\nThe particle systems become available when hidden or expired.";
+  this.goldenhorse_SCRIPTING_API_SETVECTOR = "Set the x, y, z components of a vector.";
+  this.goldenhorse_SCRIPTING_API_QUATERNION = "Returns a new THREE.Quaternion instance.";
+  this.goldenhorse_SCRIPTING_API_FADEAWAY = "Makes the particles of given particle system smaller on each frame. Greater the coefficient, faster the particles fade away.\nThis can be used for smoke like particle systems to make them dissapear smoothly.";
+   this.goldenhorse_SCRIPTING_API_SELECTCROSSHAIR = "Selects a crosshair. Only the selected crosshair is visible on the screen.";
+   this.goldenhorse_SCRIPTING_API_CHANGECROSSHAIRCOLOR = "Changes the color of the selected crosshair.";
+   this.goldenhorse_SCRIPTING_API_HIDECROSSHAIR = "Destroys the selected crosshair. selectCrosshair function should be used after this function\nin order to put a crosshair on the screen.";
+   this.goldenhorse_SCRIPTING_API_STARTCROSSHAIRROTATION = "Starts rotation effect of the selected crosshair.";
+   this.goldenhorse_SCRIPTING_API_STOPCROSSHAIRROTATION = "Stops rotation effect of the selected crosshair.";
+   this.goldenhorse_SCRIPTING_API_PAUSECROSSHAIRROTATION = "Pauses rotation effect of the selected crosshair. startCrosshairRotation function can be used to continue the rotation effect.";
+   this.goldenhorse_SCRIPTING_API_EXPANDCROSSHAIR = "Expands a crosshair. This can be used while shooting or walking for fps games. The crosshair expands by delta while\nits size is less than targetSize on each frame. This function is designed to be called inside onmousedown or onkeydown like events.";
+   this.goldenhorse_SCRIPTING_API_SHRINKCROSSHAIR = "Shrinks a crosshair. This can be used after calling the expandCrosshair function. The crosshair shrinks by delta while its size is\ngreater than its initial size. This function is designed to be called inside onmouseup or onkeyup like events.";
+   this.goldenhorse_SCRIPTING_API_SETPARTICLESYSTEMPOSITION = "Sets the position of a particle system. This function is designed for magic circle like particle systems which may follow players.\nThis function should not be used for particle systems with collision callbacks or particle systems with defined motions in general.";
+   this.goldenhorse_SCRIPTING_API_STARTMOTIONBLUR = "Starts the motion blur effect of an object.";
+   this.goldenhorse_SCRIPTING_API_STOPMOTIONBLUR = "Stops the motion blur effect of an object. The effect can be restarted using the startMotionBlur command.";
+   this.goldenhorse_SCRIPTING_API_SETOBJECTVELOCITY = "Sets the velocity of an object or a glued object. The object must be a dynamic object (mass > 0) in order to have a velocity.\nIf optional axis parameter is used velocity on only given axis is set. Note that axis must be one of goldenhorse.axes.X,\ngoldenhorse.axes.Y or goldenhorse.axes.Z.";
+   this.goldenhorse_SCRIPTING_API_SETOBJECTCLICKLISTENER = "Sets a click listener for an object or an object group. The callbackFunction is executed with\nx, y, z coordinates of the clicked point. The callbackFunction is bound to object (this = object inside the function).";
+   this.goldenhorse_SCRIPTING_API_REMOVEOBJECTCLICKLISTENER = "Removes the click listener of an object or an object group.";
+   this.goldenhorse_SCRIPTING_API_SETOBJECTCOLOR = "Modifies the color and alpha value of an object or an object group.";
+   this.goldenhorse_SCRIPTING_API_RESETOBJECTCOLOR = "Resets the color and alpha value of an object or an object group.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENCLICKLISTENER = "Sets a click listener for the screen. The callbackFunction is executed with x, y coordinates when clicked on the screen.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENCLICKLISTENER = "Removes the click listener of screen.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENMOUSEDOWNLISTENER = "Sets a mouse down listener for screen. The callbackFunction is executed with x, y coordinates when mouse-downed on the screen.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENMOUSEDOWNLISTENER = "Removes the mouse down listener of screen.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENMOUSEUPLISTENER = "Sets mouse up listener for screen. The callbackFunction is executed with x, y coordinates when mouse-upped on the screen.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENMOUSEUPLISTENER = "Removes mouse up listener for screen.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENMOUSEMOVELISTENER = "Sets mouse move listener for screen. The callbackFunction is executed with x, y coordinates and dX, dY values when\nmouse moves on the screen.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENMOUSEMOVELISTENER = "Removes mouse move listener for screen.";
+   this.goldenhorse_SCRIPTING_API_REQUESTPOINTERLOCK = "Requests pointer lock from window on the next click.";
+   this.goldenhorse_SCRIPTING_API_CONVERTEULERTODEGREES = "Returns the degree equivalent of an Euler angle.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENPOINTERLOCKCHANGELISTENER = "Sets a callback function for Pointer Lock API status changes. The callbackFunction is executed with isPointerLocked parameter.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENPOINTERLOCKCHANGELISTENER = "Removes the Pointer Lock change listener for the screen.";
+   this.goldenhorse_SCRIPTING_API_SETPARTICLESYSTEMPOOLCONSUMEDLISTENER = "Sets a listener for particle system pool consumption. The callbackFunction is executed wheren there is no available\nparticle system left inside the pool.";
+   this.goldenhorse_SCRIPTING_API_REMOVEPARTICLESYSTEMPOOLCONSUMEDLISTENER = "Removes the consumption listener of a particle system pool.";
+   this.goldenhorse_SCRIPTING_API_SETPARTICLESYSTEMPOOLAVAILABLELISTENER = "Sets an availability listener for a particle system pool. The callbackFunction is executed when there is at least\none available particle system inside the pool again.";
+   this.goldenhorse_SCRIPTING_API_REMOVEPARTICLESYSTEMPOOLAVAILABLELISTENER = "Removes the availablity listener for a particle system pool.";
+   this.goldenhorse_SCRIPTING_API_ISKEYPRESSED = "Returns whether the given key is pressed or not. See the keyCodeToChar variable for possible key names.";
+   this.goldenhorse_SCRIPTING_API_SETCAMERAPOSITION = "Sets the position of the camera.";
+   this.goldenhorse_SCRIPTING_API_LOOKAT = "Makes the camera look at specific position.";
+   this.goldenhorse_SCRIPTING_API_APPLYAXISANGLE = "Rotates the vector around an axis by given angle.";
+   this.goldenhorse_SCRIPTING_API_TRACKOBJECTPOSITION = "Makes sourceObject keep its relative position to targetObject.";
+   this.goldenhorse_SCRIPTING_API_UNTRACKOBJECTPOSITION = "Stops tracking an objects position for an object.";
+   this.goldenhorse_SCRIPTING_API_CREATEROTATIONPIVOT = "Creates and returns a rotation pivot for an object. This function is not optimized for the runtime. Use this function before\nsetRotationPivot API on initialization. Instead of goldenhorse.rotate API that works on world axes, this function may be used with\n0 offset parameters to achieve local rotation for objects.";
+   this.goldenhorse_SCRIPTING_API_SETROTATIONPIVOT = "Sets a rotation pivot for an object created with createRotationPivot API.";
+   this.goldenhorse_SCRIPTING_API_UNSETROTATIONPIVOT = "Unsets a rotation pivot point for an object set with setRotationPivot API.";
+   this.goldenhorse_SCRIPTING_API_ROTATECAMERA = "Rotates the camera around its axis by given radians. Note that axis must be one of goldenhorse.axes.X, goldenhorse.axes.Y\nor goldenhorse.axes.Z.";
+   this.goldenhorse_SCRIPTING_API_TRANSLATECAMERA = "Translates the camera along given axis by given amount. Note that axis must be one of goldenhorse.axes.X, goldenhorse.axes.Y\nor goldenhorse.axes.Z.";
+   this.goldenhorse_SCRIPTING_API_REQUESTFULLSCREEN = "Goes to full screen mode. on the next mouse click. Does nothing if the screen is already in full screen mode.";
+   this.goldenhorse_SCRIPTING_API_SETFULLSCREENCHANGECALLBACKFUNCTION = "Sets a callback function for fullscreen change API. The callbackFunction is executed with isFullScreenOn\nboolean parameter when the fullscreen status is changed.";
+   this.goldenhorse_SCRIPTING_API_REMOVEFULLSCREENCHANGECALLBACKFUNCTION = "Removes the fullscreen change listener.";
+   this.goldenhorse_SCRIPTING_API_ISMOUSEDOWN = "Returns true if the mouse is pressed, false otherwise.";
+   this.goldenhorse_SCRIPTING_API_INTERSECTIONTEST = "Finds the first intersected object on a ray. The onComplete callback function is executed with x, y, z and objectName parameters.\nIf there's no intersection, the objectName is set to null. If the web workers not supported, the onComplete is executed immediately."
+   this.goldenhorse_SCRIPTING_API_GETENDPOINT = "Gets an end point of an object. The axis may be one of:\ngoldenhorse.endpoints.MINUS_X\ngoldenhorse.endpoints.MINUS_Y\ngoldenhorse.endpoints.MINUS_Z\ngoldenhorse.endpoints.PLUS_X\ngoldenhorse.endpoints.PLUS_Y\ngoldenhorse.endpoints.PLUS_Z\n\nNote that object groups do not support this function but child objects do. This function may be useful in cases where\nfor example a particle system needs to be started from the tip point of an object.";
+   this.goldenhorse_SCRIPTING_API_ISMOBILE = "Returns if the current client is a mobile client.";
+   this.goldenhorse_SCRIPTING_API_LERP = "Linearly interpolate between vector1 and vector2. The result is vector1 if amount = 0 and vector2 if amount = 1.";
+   this.goldenhorse_SCRIPTING_API_RESETOBJECTVELOCITY = "Resets the velocity and angular velocity of an object.";
+   this.goldenhorse_SCRIPTING_API_SETFPSDROPCALLBACKFUNCTION = "Sets a callback function for FPS drops. The callbackFunction is executed with dropAmount parameter if the FPS is\nless than 60 for given second. The dropAmount is calculated using this formula: (60 - [current_fps])";
+   this.goldenhorse_SCRIPTING_API_REMOVEFPSDROPCALLBACKFUNCTION = "Removes the callback function for FPS drops.";
+   this.goldenhorse_SCRIPTING_API_SETPERFORMANCEDROPCALLBACKFUNCTION = "Sets a callback function for performance drops. The callbackFunction is executed if the FPS is under [minFPS] for [seconds] seconds.\nThe callbackFunction is automatically removed after the execution, so use this function again if needed after\nthe execution of the callbackFunction.";
+   this.goldenhorse_SCRIPTING_API_REMOVEPERFORMANCEDROPCALLBACKFUNCTION = "Removes the callback function for performance drops.";
+   this.goldenhorse_SCRIPTING_API_GETVIEWPORT = "Returns the current viewport object having startX, startY, width and height parameters.\nDo not modify the values of the returned object.";
+   this.goldenhorse_SCRIPTING_API_SETUSERINACTIVITYCALLBACKFUNCTION = "Sets a callback function for user inactivity. The callbackFunction is executed if the user does not move or press the mouse or\npress a key for more than maxTimeInSeconds seconds. The callbackFunction is reset after the execution so use this function again\nto create a new inactivity listener.";
+   this.goldenhorse_SCRIPTING_API_REMOVEUSERINACTIVITYCALLBACKFUNCTION = "Removes the user inactivity callback function.";
+   this.goldenhorse_SCRIPTING_API_PAUSE = "Pauses/unpauses rendering. Note that once the rendering is paused the scripts also pause so in order to unpause the rendering,\nuse callback functions such as goldenhorse.setScreenClickListener or goldenhorse.setScreenPointerLockChangeListener.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENKEYDOWNLISTENER = "Sets a keydown listener. The callbackFunction is executed with the pressedChar parameter. See the values of keyCodeToChar\nvariable for possible pressedChar parameters.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENKEYDOWNLISTENER = "Removes the keydown listener.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENKEYUPLISTENER = "Sets a keyup listener. The callbackFunction is executed with the uppedChar parameter. See the values of keyCodeToChar\nvariable for possible uppedChar parameters.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENKEYUPLISTENER = "Removes the keyup listener.";
+   this.goldenhorse_SCRIPTING_API_GETTEXT = "Returns a text object or 0 if the text does not exist.";
+   this.goldenhorse_SCRIPTING_API_SETTEXT = "Sets a text to a text object.";
+   this.goldenhorse_SCRIPTING_API_SETTEXTCOLOR = "Sets the color of a text. colorName can be a color name like red or an hex string like #afef54.";
+   this.goldenhorse_SCRIPTING_API_SETTEXTALPHA = "Sets the alpha of a text.";
+   this.goldenhorse_SCRIPTING_API_SETTEXTPOSITION = "Sets the position of a text object. If text is 2D only x and y parameters are necessary representing the marginX and marginY.";
+   this.goldenhorse_SCRIPTING_API_SETTEXTBACKGROUND = "Sets the background color/alpha of a text object.";
+   this.goldenhorse_SCRIPTING_API_REMOVETEXTBACKGROUND = "Removes the background of a text object.";
+   this.goldenhorse_SCRIPTING_API_ONTEXTCLICK = "Sets a click listener for a text object. The callbackFunction is executed with textName parameter when the text object is clicked.";
+   this.goldenhorse_SCRIPTING_API_REMOVETEXTCLICKLISTENER = "Removes the click listener of a text object.";
+   this.goldenhorse_SCRIPTING_API_SETTEXTCENTERPOSITION = "Puts the center of the given text object to given x, y, z coordinates.";
+   this.goldenhorse_SCRIPTING_API_HIDETEXT = "Makes the given text object invisible. Does nothing if the text is already invisible.";
+   this.goldenhorse_SCRIPTING_API_SHOWTEXT = "Makes the given text object visible. Does nothing if the text is already visible.";
+   this.goldenhorse_SCRIPTING_API_GETFPS = "Returns the current FPS";
+   this.goldenhorse_SCRIPTING_API_EXECUTEFOREACHOBJECT = "Executes the given function for each object and object group. The func paremter is executed with\nobject and objectName parameters.";
+   this.goldenhorse_SCRIPTING_API_GETRANDOMINTEGER = "Returns a random integer in range [minInclusive, maxInclusive]";
+   this.goldenhorse_SCRIPTING_API_ISANYFINGERTOUCHING = "For mobile devices, returns true if there is any finger touching to the screen.";
+   this.goldenhorse_SCRIPTING_API_GETCURRENTTOUCHCOUNT = "For mobile devices, returns the amount of fingers touching to the screen.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENMOUSEWHEELLISTENER = "Sets a mouse wheel listener. The callbackFunction is executed with deltaX and deltaY parameters when a mousewheel event is triggered.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENMOUSEWHEELLISTENER = "Removes the listener for mousewheel events.";
+   this.goldenhorse_SCRIPTING_API_SETSCREENPINCHLISTENER = "For mobile devices, sets a pinch zoom gesture listener. The callbackFunction is executed with delta parameter\nthat represents the variation of the distance between two fingers.";
+   this.goldenhorse_SCRIPTING_API_REMOVESCREENPINCHLISTENER = "Removes the listener for pinch gesture.";
+   this.goldenhorse_SCRIPTING_API_SETOBJECTMOUSEOVERLISTENER = "Sets a mouseover listener for an object or an object group. The callbackFunction is executed with x, y, z coordinates of mouse.\nThe callbackFunction is bound to object (this = object inside the function).";
+   this.goldenhorse_SCRIPTING_API_REMOVEOBJECTMOUSEOVERLISTENER = "Removes the mouseover listener of an object or an object group.";
+   this.goldenhorse_SCRIPTING_API_SETOBJECTMOUSEOUTLISTENER = "Sets a mouseout listener for an object or an object group. The callbackFunction is bound to object (this = object inside the function).";
+   this.goldenhorse_SCRIPTING_API_REMOVEOBJECTMOUSEOUTLISTENER = "Removes the mouseout listener of an object or an object group.";
+   this.goldenhorse_SCRIPTING_API_ONTEXTMOUSEOVER = "Sets a mouseover listener for a text. The callbackFunction is bound to text (this = text inside the function).";
+   this.goldenhorse_SCRIPTING_API_REMOVETEXTMOUSEOVERLISTENER = "Removes the mouseover listener of a text.";
+   this.goldenhorse_SCRIPTING_API_ONTEXTMOUSEOUT = "Sets a mouseout listener for a text. The callbackFunction is bound to text (this = text inside the function).";
+   this.goldenhorse_SCRIPTING_API_REMOVETEXTMOUSEOUTLISTENER = "Removes the mouseout listener of a text.";
+   this.goldenhorse_SCRIPTING_API_ONOBJECTPOSITIONTHRESHOLDEXCEEDED = "Sets a listener for an object detecting the position threshold passage for given axis. If controlMode = 1 the callbackFunction\nis executed when object.position[axis] > threshold, if controlMode = 2 the callbackFunction is executed when\nobject.position[axis] < threshold. The callbackFunction is bound to object (this = object inside the function)."+
                                                                   "This API\nmay be used to restart position of objects that went out of bounds of the scene by falling down etc.";
-   this.ROYGBIV_SCRIPTING_API_REMOVEOBJECTPOSITIONTHRESHOLDEXCEEDEDLISTENER = "Removes the position threshold passage listener for an object. Does nothing if the object does not have such listener.";
-   this.ROYGBIV_SCRIPTING_API_CREATEFREECONTROL = "Creates a new FreeControl implementation where the camera can freely move inside the scene for both desktop and mobile devices.\nThe controls are:\n" +
+   this.goldenhorse_SCRIPTING_API_REMOVEOBJECTPOSITIONTHRESHOLDEXCEEDEDLISTENER = "Removes the position threshold passage listener for an object. Does nothing if the object does not have such listener.";
+   this.goldenhorse_SCRIPTING_API_CREATEFREECONTROL = "Creates a new FreeControl implementation where the camera can freely move inside the scene for both desktop and mobile devices.\nThe controls are:\n" +
                                                   "WSAD or ZQSD (French keyboard): Translate on plane XZ\n" +
                                                   "E - Space: Translate on axis Y\n" +
                                                   "Arrow keys or touch (mobile): Look around\n" +
@@ -1252,7 +1252,7 @@ var Text = function(){
                                                   "swipeSpeed (optional): Rotation speed for look with touch events on mobile. Default is 0.002.\n"+
                                                   "mouseDragSpeed (optional): Rotation speed for mouse drag events on desktop devices. Default is 15.\n"+
                                                   "requestFullScreen (optional): If true, fullscreen mode is requested automatically. Default is false.";
-  this.ROYGBIV_SCRIPTING_API_CREATECUSTOMCONTROL = "Creates a CustomControl implementation. This API may be used to create custom controls by filling the related event handlers.\nParameters are:\n"+
+  this.goldenhorse_SCRIPTING_API_CREATECUSTOMCONTROL = "Creates a CustomControl implementation. This API may be used to create custom controls by filling the related event handlers.\nParameters are:\n"+
                                                  "onClick (optional): Function to be executed with the click event when the user clicks. Default value is noop.\n"+
                                                  "onTap (optional): Function to be executed with the touch event when the user taps (mobile). Default value is noop.\n"+
                                                  "onSwipe (optional): Function to be executed with x, y, diffX and diffY parameters when the user moves their finger on the screen (mobile).\nDefault value is noop.\n"+
@@ -1268,8 +1268,8 @@ var Text = function(){
                                                  "onFullScreenChange (optional): Function to be executed with the isFullScreen parameter when the fullscreen status of the screen is\nchanged. Default value is noop.\n"+
                                                  "onDrag (optional): Function to be executed with x, y, movementX, movementY parameters when the user performs a moue drag operation.\nDefault value is noop.\n"+
                                                  "onUpdate (optional): Function to be executed on each frame. Default value is noop.";
- this.ROYGBIV_SCRIPTING_API_SETACTIVECONTROL = "Sets the active control.";
- this.ROYGBIV_SCRIPTING_API_CREATEFPSCONTROL = "Creates a new FPSControls object to be used in First Person Shooter games for both desktop and mobile devices. FPSControls automatically\nhandles the PointerLock as well. The controls are:\n"+
+ this.goldenhorse_SCRIPTING_API_SETACTIVECONTROL = "Sets the active control.";
+ this.goldenhorse_SCRIPTING_API_CREATEFPSCONTROL = "Creates a new FPSControls object to be used in First Person Shooter games for both desktop and mobile devices. FPSControls automatically\nhandles the PointerLock as well. The controls are:\n"+
                                               "For desktop:\n"+
                                               "WSAD/ZQSD (French keyboard) / Arrow Keys: Move\n"+
                                               "Mouse: Look\n"+
@@ -1308,9 +1308,9 @@ var Text = function(){
                                               "yOffset (optional): The offset value between the camera Y coordinate and the player body object Y coordinate. This may be used\nin order to place the camera below or above the player body object. Default value is 0.\n" +
                                               "onUpdate (optional): Function to be executed on each frame. Default value is noop.";
 
-  this.ROYGBIV_SCRIPTING_API_SETSCREENDRAGLISTENER = "Sets a mouse drag listener for the screen. The callbackFunction is executed with x, y, movementX and movementY parameters.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESCREENDRAGLISTENER = "Removes the screen drag listener.";
-  this.ROYGBIV_SCRIPTING_API_CREATEORBITCONTROL = "Creates a new OrbitControl object. Using the OrbitControl, camera can orbit around a specified point by looking at it on each frame.\nCamera can move freely around the surface of an imaginary sphere. Controls are:\n"+
+  this.goldenhorse_SCRIPTING_API_SETSCREENDRAGLISTENER = "Sets a mouse drag listener for the screen. The callbackFunction is executed with x, y, movementX and movementY parameters.";
+  this.goldenhorse_SCRIPTING_API_REMOVESCREENDRAGLISTENER = "Removes the screen drag listener.";
+  this.goldenhorse_SCRIPTING_API_CREATEORBITCONTROL = "Creates a new OrbitControl object. Using the OrbitControl, camera can orbit around a specified point by looking at it on each frame.\nCamera can move freely around the surface of an imaginary sphere. Controls are:\n"+
                                                   "For desktop:\n"+
                                                   "Mouse wheel/Mouse drag: Rotate\n"+
                                                   "Right/Left/D/A/Q: Rotate\n"+
@@ -1335,203 +1335,203 @@ var Text = function(){
                                                   "requestFullScreen (optional): If true the FullScreen mode is requested if the screen is not on full screen. Orbit Controls API\nalso automatically re-requests the FullScreen mode every time after the user cancels the FullScreen. Default value is false.\n" +
                                                   "onUpdate (optional): A function that is executed on each frame (optional).\n" +
                                                   "multiPivotModelInstance (optional): A ModelInstance, allowing users to change the pivot point on double click.";
-  this.ROYGBIV_SCRIPTING_API_ISORIENTATIONLANDSCAPE = "For mobile devices returns if the orientation is landscape for mobile devices. Returns false for desktop devices";
-  this.ROYGBIV_SCRIPTING_API_SETSCREENORIENTATIONCHANGELISTENER = "Sets a listener for orientation change events. For mobile devices, the callbackFunction is executed with isLandscape parameter\nwhen the orientation is changed.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESCREENORIENTATIONCHANGELISTENER = "Removes the listener for orientation change events.";
-  this.ROYGBIV_SCRIPTING_API_EXECUTEFOREACHPARTICLESYSTEM = "Runs the provided function for each particle system of given particle system pool. The callbackFunction is executed with\nparticleSystem and particleSystemName parameters.";
-  this.ROYGBIV_SCRIPTING_API_STARTSCRIPT = "Starts a script. To get scripts use this format as scriptName:\n"+
+  this.goldenhorse_SCRIPTING_API_ISORIENTATIONLANDSCAPE = "For mobile devices returns if the orientation is landscape for mobile devices. Returns false for desktop devices";
+  this.goldenhorse_SCRIPTING_API_SETSCREENORIENTATIONCHANGELISTENER = "Sets a listener for orientation change events. For mobile devices, the callbackFunction is executed with isLandscape parameter\nwhen the orientation is changed.";
+  this.goldenhorse_SCRIPTING_API_REMOVESCREENORIENTATIONCHANGELISTENER = "Removes the listener for orientation change events.";
+  this.goldenhorse_SCRIPTING_API_EXECUTEFOREACHPARTICLESYSTEM = "Runs the provided function for each particle system of given particle system pool. The callbackFunction is executed with\nparticleSystem and particleSystemName parameters.";
+  this.goldenhorse_SCRIPTING_API_STARTSCRIPT = "Starts a script. To get scripts use this format as scriptName:\n"+
                                            "parentdir1_parentdir2_....._parentdirX_scriptFileName\n"+
                                            "For example in order to get a script under the scripts/ root folder example.js, the scriptName parameter should be example. However,\nto get a script under scripts/testFolder/test.js, the scriptName parameter should be testFolder_test.";
-  this.ROYGBIV_SCRIPTING_API_STOPSCRIPT = "Stops a script. The scriptName parameter is explained with startScript API.";
-  this.ROYGBIV_SCRIPTING_API_STARTANIMATION = "Starts an animation of given object, object group, text, sprite, container or model instance.";
-  this.ROYGBIV_SCRIPTING_API_STOPANIMATION = "Stops an animation of given object, object group, text, sprite, container or model instance.";
-  this.ROYGBIV_SCRIPTING_API_ONANIMATIONFINISHED = "Sets a finish listener for an animation of given object, object group, text, sprite, container or model instance.\nFor repeating animations the callbackFunction is executed before each repeat. For rewinding animations the callbackFunction\nis executed when he rewind is finished.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEANIMATIONFINISHLISTENER = "Removes the finish listener for an animation of given object, object group, text, sprite, container or model instance.";
-  this.ROYGBIV_SCRIPTING_API_SHOWMUZZLEFLASH = "Shows a muzzle flash. This function may be called each time a FPS weapon is shooting. The optional animationTimeInMS\nparameter can be used to start the muzzle flash with a scale animation. This can be useful for flame-like muzzle flashes.";
-  this.ROYGBIV_SCRIPTING_API_EXECUTEDELAYED = "Runs a function after delayInMS milliseconds. If the repeat parameter is set to true runs the function in every delayInMS milliseconds.\nThis function returns a delayedExecutionID. This ID may provided to stopDelayedExecution API\nin order to stop a function to get executed. Note that the IDs are recycled after a delayed execution is completed.";
-  this.ROYGBIV_SCRIPTING_API_STOPDELAYEDEXECUTION = "Stops a function to get executed with executeDelayed API. The delayedExecutionID parameter should be the return value of\nexecuteDelayed API. This API returns true if a function is found associated with the provided delayedExecutionID parameter,\nreturns false otherwise.";
-  this.ROYGBIV_SCRIPTING_API_CHANGESCENE = "Changes the active scene. The readyCallback function is executed when the new scene is ready.";
-  this.ROYGBIV_SCRIPTING_API_GETACTIVESCENENAME = "Returns the active scene name.";
-  this.ROYGBIV_SCRIPTING_API_FREEZEANIMATIONONFINISH = "Makes an animation freeze on finish. This can be used for certain weapon animations where the weapon starts shooting\nafter going to a certain position/rotation. Use unfreezeAnimation API to undo this. Note that this function should be\nused after starting an animation.";
-  this.ROYGBIV_SCRIPTING_API_UNFREEZEANIMATION = "Unfreezes an animation started with freezeOnFinish parameter set to true.";
-  this.ROYGBIV_SCRIPTING_API_HIDEMUZZLEFLASH = "Hides a muzzle flash. This function may be called inside onStoppedShooting callback of a FPS control. The optional\nanimationTimeInMS parameter can be used to hide the muzzle flash with a scale animation. This can be useful for\nflame-like muzzle flashes.";
-  this.ROYGBIV_SCRIPTING_API_GETANIMATIONSTATE = "Returns the animation state. The animation state can be these global enums:\n"+
+  this.goldenhorse_SCRIPTING_API_STOPSCRIPT = "Stops a script. The scriptName parameter is explained with startScript API.";
+  this.goldenhorse_SCRIPTING_API_STARTANIMATION = "Starts an animation of given object, object group, text, sprite, container or model instance.";
+  this.goldenhorse_SCRIPTING_API_STOPANIMATION = "Stops an animation of given object, object group, text, sprite, container or model instance.";
+  this.goldenhorse_SCRIPTING_API_ONANIMATIONFINISHED = "Sets a finish listener for an animation of given object, object group, text, sprite, container or model instance.\nFor repeating animations the callbackFunction is executed before each repeat. For rewinding animations the callbackFunction\nis executed when he rewind is finished.";
+  this.goldenhorse_SCRIPTING_API_REMOVEANIMATIONFINISHLISTENER = "Removes the finish listener for an animation of given object, object group, text, sprite, container or model instance.";
+  this.goldenhorse_SCRIPTING_API_SHOWMUZZLEFLASH = "Shows a muzzle flash. This function may be called each time a FPS weapon is shooting. The optional animationTimeInMS\nparameter can be used to start the muzzle flash with a scale animation. This can be useful for flame-like muzzle flashes.";
+  this.goldenhorse_SCRIPTING_API_EXECUTEDELAYED = "Runs a function after delayInMS milliseconds. If the repeat parameter is set to true runs the function in every delayInMS milliseconds.\nThis function returns a delayedExecutionID. This ID may provided to stopDelayedExecution API\nin order to stop a function to get executed. Note that the IDs are recycled after a delayed execution is completed.";
+  this.goldenhorse_SCRIPTING_API_STOPDELAYEDEXECUTION = "Stops a function to get executed with executeDelayed API. The delayedExecutionID parameter should be the return value of\nexecuteDelayed API. This API returns true if a function is found associated with the provided delayedExecutionID parameter,\nreturns false otherwise.";
+  this.goldenhorse_SCRIPTING_API_CHANGESCENE = "Changes the active scene. The readyCallback function is executed when the new scene is ready.";
+  this.goldenhorse_SCRIPTING_API_GETACTIVESCENENAME = "Returns the active scene name.";
+  this.goldenhorse_SCRIPTING_API_FREEZEANIMATIONONFINISH = "Makes an animation freeze on finish. This can be used for certain weapon animations where the weapon starts shooting\nafter going to a certain position/rotation. Use unfreezeAnimation API to undo this. Note that this function should be\nused after starting an animation.";
+  this.goldenhorse_SCRIPTING_API_UNFREEZEANIMATION = "Unfreezes an animation started with freezeOnFinish parameter set to true.";
+  this.goldenhorse_SCRIPTING_API_HIDEMUZZLEFLASH = "Hides a muzzle flash. This function may be called inside onStoppedShooting callback of a FPS control. The optional\nanimationTimeInMS parameter can be used to hide the muzzle flash with a scale animation. This can be useful for\nflame-like muzzle flashes.";
+  this.goldenhorse_SCRIPTING_API_GETANIMATIONSTATE = "Returns the animation state. The animation state can be these global enums:\n"+
                                                  "ANIMATION_STATE_NOT_RUNNING (0)\n"+
                                                  "ANIMATION_STATE_RUNNING (1)\n"+
                                                  "ANIMATION_STATE_FROZEN (2)\n"+
                                                  "ANIMATION_STATE_REWINDING (3)";
-  this.ROYGBIV_SCRIPTING_API_CANCELANIMATIONREWIND = "Sets the state of an animation to ANIMATION_STATE_RUNNING for animations that are in ANIMATION_STATE_REWINDING state.";
-  this.ROYGBIV_SCRIPTING_API_REWINDANIMATION = "Sets the state of an animation to ANIMATION_STATE_REWINDING for animations that are in ANIMATION_STATE_RUNNING state.\nFor animations in ANIMATION_STATE_FROZEN state, use unfreezeAnimation API instead of this.";
-  this.ROYGBIV_SCRIPTING_API_GETLIGHTNING = "Returns a lightning object or 0 if lightning does not exist.";
-  this.ROYGBIV_SCRIPTING_API_STARTLIGHTNING = "Starts a lightning. Does nothing if the lightning is already started.";
-  this.ROYGBIV_SCRIPTING_API_SETLIGHTNINGSTARTPOINT = "Sets the start point of a lightning.";
-  this.ROYGBIV_SCRIPTING_API_SETLIGHTNINGENDPOINT = "Sets the end point of a lightning.";
-  this.ROYGBIV_SCRIPTING_API_STOPLIGHTNING = "Stops a lightning. Does nothing if the lightning is already stopped.";
-  this.ROYGBIV_SCRIPTING_API_ONAREAENTER = "Executes the callbackFunction with exitedAreaName parameter when the camera enters into given area.\nThe exitedAreaName is the name of the previous area that the camera was in.";
-  this.ROYGBIV_SCRIPTING_API_ONAREAEXIT = "Executes the callbackFunction with enteredAreaName parameter when the camera exits from given area.\nThe enteredAreaName is the name of the area that the camera entered into.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEAREAENTERLISTENER = "Removes the area enter listener for given area name.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEAREAEXITLISTENER = "Removes the area exit listener for given area name.";
-  this.ROYGBIV_SCRIPTING_API_GETSPRITE = "Returns a sprite object or 0 if sprite does not exist.";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITECLICK = "Sets a sprite click listener. The callbackFunction is executed when the sprite is clicked.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITECLICKLISTENER = "Removes the click listener of a sprite object.";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITEMOUSEOVER = "Sets a mouse over listener for a sprite.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITEMOUSEOVERLISTENER = "Removes the mouseover listener of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITEMOUSEOUT = "Sets a mouseout listener for a sprite.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITEMOUSEOUTLISTENER = "Removes the mouseout listener of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITEDRAGSTART = "Sets a drag start listener for a sprite. The callbackFunction is executed with diffX and diffY\nparameters when a drag is initiated on a draggable sprite.";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITEDRAGSTOP = "Sets a drag stop listener for a sprite. The callbackFunction is executed when a user stops dragging a sprite (mouseup/touchend).";
-  this.ROYGBIV_SCRIPTING_API_ONSPRITEDRAGGING = "Sets a dragging listener for a sprite. The callbackFunction is executed each time a sprite is relocated while being dragged.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITEDRAGSTARTLISTENER = "Removes the drag start listener of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITEDRAGSTOPLISTENER = "Removes the drag stop listener of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESPRITEDRAGGINGLISTENER = "Removes the dragging listener of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_ARESPRITESINTERSECTED = "Returns if two sprites are intersected.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITECOLOR = "Sets the color of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITEALPHA = "Sets the alpha of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_HIDESPRITE = "Hides a sprite. Does nothing if the sprite is already hidden.";
-  this.ROYGBIV_SCRIPTING_API_SHOWSPRITE = "Shows a sprite. Does nothing if the sprite is already visible.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITEMARGIN = "Sets the margin of a sprite.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITEROTATIONANGLE = "Sets the rotation of a sprite. Angle is expected to be between [0, 360].";
-  this.ROYGBIV_SCRIPTING_API_ENABLESPRITEDRAGGING = "Enables dragging for draggable sprites. Dragging is initially enabled for draggable sprites.";
-  this.ROYGBIV_SCRIPTING_API_DISABLESPRITEDRAGGING = "Disables dragging for draggable sprites. Dragging is initially enabled for draggable sprites.";
-  this.ROYGBIV_SCRIPTING_API_DEGREETORADIAN = "Converts degrees to radians.";
-  this.ROYGBIV_SCRIPTING_API_GETCONTAINER = "Returns a container or 0 if container does not exist.";
-  this.ROYGBIV_SCRIPTING_API_ONCONTAINERCLICK = "Sets a click listener for a container. The callbackFunction is executed when the container is clicked.";
-  this.ROYGBIV_SCRIPTING_API_REMOVECONTAINERCLICKLISTENER = "Removes the click listener of a container.";
-  this.ROYGBIV_SCRIPTING_API_ONCONTAINERMOUSEOVER = "Sets a mouse over listener for a container. The callbackFunction is executed when the mouse is moved over a container.";
-  this.ROYGBIV_SCRIPTING_API_REMOVECONTAINERMOUSEOVERLISTENER = "Removes the mouse over listener for a container.";
-  this.ROYGBIV_SCRIPTING_API_ONCONTAINERMOUSEOUT = "Sets a mouse out listener for a container. The callbackFunction is executed when the mouse is moved out from a container.";
-  this.ROYGBIV_SCRIPTING_API_REMOVECONTAINERMOUSEOUTLISTENER = "Removes the mouse out listener for a container.";
-  this.ROYGBIV_SCRIPTING_API_HIDECONTAINERBORDER = "Hides the border of a container.";
-  this.ROYGBIV_SCRIPTING_API_SHOWCONTAINERBORDER = "Shows the border of a container.";
-  this.ROYGBIV_SCRIPTING_API_SETCONTAINERBORDERCOLOR = "Sets the border color of a container.";
-  this.ROYGBIV_SCRIPTING_API_SETCONTAINERBACKGROUNDCOLOR = "Sets the background color of a container.";
-  this.ROYGBIV_SCRIPTING_API_SETCONTAINERBACKGROUNDALPHA = "Sets the alpha value of the background of a container.";
-  this.ROYGBIV_SCRIPTING_API_HIDECONTAINERBACKGROUND = "Hides the background of a container.";
-  this.ROYGBIV_SCRIPTING_API_SHOWCONTAINERBACKGROUND = "Shows the background of a container.";
-  this.ROYGBIV_SCRIPTING_API_GETVIRTUALKEYBOARD = "Returns a virtual keyboard or 0 if virtual keyboard does not exist.";
-  this.ROYGBIV_SCRIPTING_API_ACTIVATEVIRTUALKEYBOARD = "Activates a virtual keyboard.";
-  this.ROYGBIV_SCRIPTING_API_ONVIRTUALKEYBOARDTEXTCHANGE = "Sets a text change listener to a virtual keyboard. The callbackFunction is executed with newText parameter\neverytime a text of a virtual keyboard is changed.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEVIRTUALKEYBOARDTEXTCHANGELISTENER = "Removes the text change listener from a virtual keyboard.";
-  this.ROYGBIV_SCRIPTING_API_ONVIRTUALKEYBOARDFLUSH = "Sets a flush listener to a virtual keyboard. The callbackFunction is executed with flushedText parameter\nwhen the user presses on the OK button of a virtual keyboard.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEVIRTUALKEYBOARDFLUSHLISTENER = "Removes the flush listener from a virtual keyboard.";
-  this.ROYGBIV_SCRIPTING_API_HIDEVIRTUALKEYBOARD = "Hides a virtual keyboard. Does nothing if the virtual keyboard if already hidden.";
-  this.ROYGBIV_SCRIPTING_API_SHOWVIRTUALKEYBOARD = "Shows a virtual keyboard. Does nothing if the virtual keyboard is already visible.";
-  this.ROYGBIV_SCRIPTING_API_DEACTIVATEVIRTUALKEYBOARD = "Deactivates a virtual keyboard. Does nothing if the virtual keyboard is already not active.";
-  this.ROYGBIV_SCRIPTING_API_ACTIVATETEXTINPUTMODE = "Activates the input mode for a 2D text. Does nothing if the text is already in input mode.\nThe optional cursorSizePercent parameter can be used to adjust the cursor size\n(cursorSize = charSize * cursorSizePercent / 100)";
-  this.ROYGBIV_SCRIPTING_API_DEACTIVATETEXTINPUTMODE = "Deactivates the input mode for a 2D text. Does nothing if the text is already deactivated from input mode.";
-  this.ROYGBIV_SCRIPTING_API_MAPTEXTURETOSPRITE = "Maps a texture pack to given sprite. The texturePackOrName parameter can be the name of a tetxure pack\nor the texture pack itself if loaded with loadDynamicTextures API.";
-  this.ROYGBIV_SCRIPTING_API_SETLOCATIONHASH = "Sets a hash to window.location. This can be used to track changes when the user presses on back button.";
-  this.ROYGBIV_SCRIPTING_API_ONLOCATIONHASHCHANGE = "Sets a location hash change listener. The callbackFunction is executed with the newHash parameter when the location hash changes.";
-  this.ROYGBIV_SCRIPTING_API_REMOVELOCATIONHASHCHANGELISTENER = "Removes the location hash change listener.";
-  this.ROYGBIV_SCRIPTING_API_STOREDATA = "Stores data using localStorage API.";
-  this.ROYGBIV_SCRIPTING_API_GETSTOREDDATA = "Gets stored data using localStorage API.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESTOREDDATA = "Removes stored data using localStorage API.";
-  this.ROYGBIV_SCRIPTING_API_ISDEFINED = "Checks if given element is defined.";
-  this.ROYGBIV_SCRIPTING_API_CANCELSPRITEDRAG = "Cancels sprite dragging if there is an active sprite dragging.";
-  this.ROYGBIV_SCRIPTING_API_GETSPRITEMARGINX = "Returns the marginX value of given sprite.";
-  this.ROYGBIV_SCRIPTING_API_GETSPRITEMARGINY = "Returns the marginY value of given sprite.";
-  this.ROYGBIV_SCRIPTING_API_LOADDYNAMICTEXTURES = "Loads given textures inside provided dynamic texture folder. onLoadedCallback is executed with results parameter\nwhen the loading process is finished. This results parameter holds either a texture pack object as element\nif the texture could be loaded, or false if not. The order of elements of results parameter and textureNamesArray\nare the same." +
-                                                   " ROYGBIV engine automatically takes care of caching, so a texture is not loaded twice from the same path.\n" +
-                                                   "If png, jpg or jpeg file extensions are provided in the texture name, ROYGBIV tries to load non compressed textures.\nIf no extension is provided a compressed texture is loaded in case the dynamic texture folder is created with noCompress parameter\nset to false. The default format is png if no extension is provided.";
-  this.ROYGBIV_SCRIPTING_API_CONNECTTOSERVER = "Connects to a game server, the URL of which is set by setWSServerURL CLI command. The server and the client interacts through\nRhubarb protocol definition files, the path of which is set by setProtocolDefinition CLI command. onReady callback parameter is\nexecuted when the connection is established. onError is executed with errorReason parameter in case there is an error\nestablishing the connection.";
-  this.ROYGBIV_SCRIPTING_API_CLEARSERVERCONNECTION = "Disconnects from server and clears Rhubarb context. Does nothing if not connected to server.";
-  this.ROYGBIV_SCRIPTING_API_ONDISCONNECTEDFROMSERVER = "Sets a listener for server connection status. The callbackFunction is executed when the connection between\nthe server and the client is lost. If client needs to try reconnecting, ROYGBIV.clearServerConnection API\nneeds to be used before ROYGBIV.connectFromServer.";
-  this.ROYGBIV_SCRIPTING_API_SENDTOSERVER = "Sends a message from the server. protocolName is the protocol name defined in protocol definition file.\nvaluesByParameterName is an object containing values to be send by protocol parameter names.\nRead https://github.com/oguzeroglu/Rhubarb/wiki/API-reference#send for more info.";
-  this.ROYGBIV_SCRIPTING_API_ONRECEIVEDFROMSERVER = "Listens to server for given protocol and executes callbackFunction when a message received. The callbackFunction is executed\nwith getter parameter. getter is a function which expects a protocol parameter name as input and returns received value\nfor that parameter. Read https://github.com/oguzeroglu/Rhubarb/wiki/API-reference#onReceived for more info.";
-  this.ROYGBIV_SCRIPTING_API_ONLATENCYUPDATED = "Listens for latency between the server and the client. The callbackFunction is executed with newLatency (in ms) parameter when the latency is updated.";
-  this.ROYGBIV_SCRIPTING_API_APPLYCUSTOMVELOCITY = "Applies velocity to FPS controls for given milliseconds. This can be useful for Valve Ricochet kind of games where\nthe player is manually accelerated with jump pads.";
-  this.ROYGBIV_SCRIPTING_API_MAPAREAPOSITIONTOAREA = "Converts a 3D vector within source area into another vector in target area maintanining the ratio.";
-  this.ROYGBIV_SCRIPTING_API_CREATEVECTORPOOL = "Returns a vector pool to store reusable vectors. Use getFromVectorPool API to get the vector object.";
-  this.ROYGBIV_SCRIPTING_API_GETFROMVECTORPOOL = "Returns a vector from a vector pool create with createVectorPool API.";
-  this.ROYGBIV_SCRIPTING_API_GETDYNAMICLIGHT = "Returns a dynamic light or 0 if dynamic light does not exist.";
-  this.ROYGBIV_SCRIPTING_API_UPDATELIGHTSTRENGTH = "Updates the strength of a dynamic light.";
-  this.ROYGBIV_SCRIPTING_API_UPDATELIGHTCOLOR = "Updates the color of a dynamic light.";
-  this.ROYGBIV_SCRIPTING_API_UPDATELIGHTDIRECTION = "Updates the direction of a dynamic light.";
-  this.ROYGBIV_SCRIPTING_API_UPDATELIGHTPOSITION = "Updates the position of a dynamic light.";
-  this.ROYGBIV_SCRIPTING_API_ATTACHPOINTLIGHTTOOBJECT = "Places a point light into the position of given object each frame.";
-  this.ROYGBIV_SCRIPTING_API_SETSTEERINGBEHAVIOR = "Sets the steering behavior of given object.";
-  this.ROYGBIV_SCRIPTING_API_STOPSTEERABLE = "Stops a steerable.";
-  this.ROYGBIV_SCRIPTING_API_SETSTEERABLETARGETPOSITION = "Sets a target position of a steerable. Target position is consumed by these steering behaviors:\n" +
+  this.goldenhorse_SCRIPTING_API_CANCELANIMATIONREWIND = "Sets the state of an animation to ANIMATION_STATE_RUNNING for animations that are in ANIMATION_STATE_REWINDING state.";
+  this.goldenhorse_SCRIPTING_API_REWINDANIMATION = "Sets the state of an animation to ANIMATION_STATE_REWINDING for animations that are in ANIMATION_STATE_RUNNING state.\nFor animations in ANIMATION_STATE_FROZEN state, use unfreezeAnimation API instead of this.";
+  this.goldenhorse_SCRIPTING_API_GETLIGHTNING = "Returns a lightning object or 0 if lightning does not exist.";
+  this.goldenhorse_SCRIPTING_API_STARTLIGHTNING = "Starts a lightning. Does nothing if the lightning is already started.";
+  this.goldenhorse_SCRIPTING_API_SETLIGHTNINGSTARTPOINT = "Sets the start point of a lightning.";
+  this.goldenhorse_SCRIPTING_API_SETLIGHTNINGENDPOINT = "Sets the end point of a lightning.";
+  this.goldenhorse_SCRIPTING_API_STOPLIGHTNING = "Stops a lightning. Does nothing if the lightning is already stopped.";
+  this.goldenhorse_SCRIPTING_API_ONAREAENTER = "Executes the callbackFunction with exitedAreaName parameter when the camera enters into given area.\nThe exitedAreaName is the name of the previous area that the camera was in.";
+  this.goldenhorse_SCRIPTING_API_ONAREAEXIT = "Executes the callbackFunction with enteredAreaName parameter when the camera exits from given area.\nThe enteredAreaName is the name of the area that the camera entered into.";
+  this.goldenhorse_SCRIPTING_API_REMOVEAREAENTERLISTENER = "Removes the area enter listener for given area name.";
+  this.goldenhorse_SCRIPTING_API_REMOVEAREAEXITLISTENER = "Removes the area exit listener for given area name.";
+  this.goldenhorse_SCRIPTING_API_GETSPRITE = "Returns a sprite object or 0 if sprite does not exist.";
+  this.goldenhorse_SCRIPTING_API_ONSPRITECLICK = "Sets a sprite click listener. The callbackFunction is executed when the sprite is clicked.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITECLICKLISTENER = "Removes the click listener of a sprite object.";
+  this.goldenhorse_SCRIPTING_API_ONSPRITEMOUSEOVER = "Sets a mouse over listener for a sprite.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITEMOUSEOVERLISTENER = "Removes the mouseover listener of a sprite.";
+  this.goldenhorse_SCRIPTING_API_ONSPRITEMOUSEOUT = "Sets a mouseout listener for a sprite.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITEMOUSEOUTLISTENER = "Removes the mouseout listener of a sprite.";
+  this.goldenhorse_SCRIPTING_API_ONSPRITEDRAGSTART = "Sets a drag start listener for a sprite. The callbackFunction is executed with diffX and diffY\nparameters when a drag is initiated on a draggable sprite.";
+  this.goldenhorse_SCRIPTING_API_ONSPRITEDRAGSTOP = "Sets a drag stop listener for a sprite. The callbackFunction is executed when a user stops dragging a sprite (mouseup/touchend).";
+  this.goldenhorse_SCRIPTING_API_ONSPRITEDRAGGING = "Sets a dragging listener for a sprite. The callbackFunction is executed each time a sprite is relocated while being dragged.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITEDRAGSTARTLISTENER = "Removes the drag start listener of a sprite.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITEDRAGSTOPLISTENER = "Removes the drag stop listener of a sprite.";
+  this.goldenhorse_SCRIPTING_API_REMOVESPRITEDRAGGINGLISTENER = "Removes the dragging listener of a sprite.";
+  this.goldenhorse_SCRIPTING_API_ARESPRITESINTERSECTED = "Returns if two sprites are intersected.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITECOLOR = "Sets the color of a sprite.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITEALPHA = "Sets the alpha of a sprite.";
+  this.goldenhorse_SCRIPTING_API_HIDESPRITE = "Hides a sprite. Does nothing if the sprite is already hidden.";
+  this.goldenhorse_SCRIPTING_API_SHOWSPRITE = "Shows a sprite. Does nothing if the sprite is already visible.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITEMARGIN = "Sets the margin of a sprite.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITEROTATIONANGLE = "Sets the rotation of a sprite. Angle is expected to be between [0, 360].";
+  this.goldenhorse_SCRIPTING_API_ENABLESPRITEDRAGGING = "Enables dragging for draggable sprites. Dragging is initially enabled for draggable sprites.";
+  this.goldenhorse_SCRIPTING_API_DISABLESPRITEDRAGGING = "Disables dragging for draggable sprites. Dragging is initially enabled for draggable sprites.";
+  this.goldenhorse_SCRIPTING_API_DEGREETORADIAN = "Converts degrees to radians.";
+  this.goldenhorse_SCRIPTING_API_GETCONTAINER = "Returns a container or 0 if container does not exist.";
+  this.goldenhorse_SCRIPTING_API_ONCONTAINERCLICK = "Sets a click listener for a container. The callbackFunction is executed when the container is clicked.";
+  this.goldenhorse_SCRIPTING_API_REMOVECONTAINERCLICKLISTENER = "Removes the click listener of a container.";
+  this.goldenhorse_SCRIPTING_API_ONCONTAINERMOUSEOVER = "Sets a mouse over listener for a container. The callbackFunction is executed when the mouse is moved over a container.";
+  this.goldenhorse_SCRIPTING_API_REMOVECONTAINERMOUSEOVERLISTENER = "Removes the mouse over listener for a container.";
+  this.goldenhorse_SCRIPTING_API_ONCONTAINERMOUSEOUT = "Sets a mouse out listener for a container. The callbackFunction is executed when the mouse is moved out from a container.";
+  this.goldenhorse_SCRIPTING_API_REMOVECONTAINERMOUSEOUTLISTENER = "Removes the mouse out listener for a container.";
+  this.goldenhorse_SCRIPTING_API_HIDECONTAINERBORDER = "Hides the border of a container.";
+  this.goldenhorse_SCRIPTING_API_SHOWCONTAINERBORDER = "Shows the border of a container.";
+  this.goldenhorse_SCRIPTING_API_SETCONTAINERBORDERCOLOR = "Sets the border color of a container.";
+  this.goldenhorse_SCRIPTING_API_SETCONTAINERBACKGROUNDCOLOR = "Sets the background color of a container.";
+  this.goldenhorse_SCRIPTING_API_SETCONTAINERBACKGROUNDALPHA = "Sets the alpha value of the background of a container.";
+  this.goldenhorse_SCRIPTING_API_HIDECONTAINERBACKGROUND = "Hides the background of a container.";
+  this.goldenhorse_SCRIPTING_API_SHOWCONTAINERBACKGROUND = "Shows the background of a container.";
+  this.goldenhorse_SCRIPTING_API_GETVIRTUALKEYBOARD = "Returns a virtual keyboard or 0 if virtual keyboard does not exist.";
+  this.goldenhorse_SCRIPTING_API_ACTIVATEVIRTUALKEYBOARD = "Activates a virtual keyboard.";
+  this.goldenhorse_SCRIPTING_API_ONVIRTUALKEYBOARDTEXTCHANGE = "Sets a text change listener to a virtual keyboard. The callbackFunction is executed with newText parameter\neverytime a text of a virtual keyboard is changed.";
+  this.goldenhorse_SCRIPTING_API_REMOVEVIRTUALKEYBOARDTEXTCHANGELISTENER = "Removes the text change listener from a virtual keyboard.";
+  this.goldenhorse_SCRIPTING_API_ONVIRTUALKEYBOARDFLUSH = "Sets a flush listener to a virtual keyboard. The callbackFunction is executed with flushedText parameter\nwhen the user presses on the OK button of a virtual keyboard.";
+  this.goldenhorse_SCRIPTING_API_REMOVEVIRTUALKEYBOARDFLUSHLISTENER = "Removes the flush listener from a virtual keyboard.";
+  this.goldenhorse_SCRIPTING_API_HIDEVIRTUALKEYBOARD = "Hides a virtual keyboard. Does nothing if the virtual keyboard if already hidden.";
+  this.goldenhorse_SCRIPTING_API_SHOWVIRTUALKEYBOARD = "Shows a virtual keyboard. Does nothing if the virtual keyboard is already visible.";
+  this.goldenhorse_SCRIPTING_API_DEACTIVATEVIRTUALKEYBOARD = "Deactivates a virtual keyboard. Does nothing if the virtual keyboard is already not active.";
+  this.goldenhorse_SCRIPTING_API_ACTIVATETEXTINPUTMODE = "Activates the input mode for a 2D text. Does nothing if the text is already in input mode.\nThe optional cursorSizePercent parameter can be used to adjust the cursor size\n(cursorSize = charSize * cursorSizePercent / 100)";
+  this.goldenhorse_SCRIPTING_API_DEACTIVATETEXTINPUTMODE = "Deactivates the input mode for a 2D text. Does nothing if the text is already deactivated from input mode.";
+  this.goldenhorse_SCRIPTING_API_MAPTEXTURETOSPRITE = "Maps a texture pack to given sprite. The texturePackOrName parameter can be the name of a tetxure pack\nor the texture pack itself if loaded with loadDynamicTextures API.";
+  this.goldenhorse_SCRIPTING_API_SETLOCATIONHASH = "Sets a hash to window.location. This can be used to track changes when the user presses on back button.";
+  this.goldenhorse_SCRIPTING_API_ONLOCATIONHASHCHANGE = "Sets a location hash change listener. The callbackFunction is executed with the newHash parameter when the location hash changes.";
+  this.goldenhorse_SCRIPTING_API_REMOVELOCATIONHASHCHANGELISTENER = "Removes the location hash change listener.";
+  this.goldenhorse_SCRIPTING_API_STOREDATA = "Stores data using localStorage API.";
+  this.goldenhorse_SCRIPTING_API_GETSTOREDDATA = "Gets stored data using localStorage API.";
+  this.goldenhorse_SCRIPTING_API_REMOVESTOREDDATA = "Removes stored data using localStorage API.";
+  this.goldenhorse_SCRIPTING_API_ISDEFINED = "Checks if given element is defined.";
+  this.goldenhorse_SCRIPTING_API_CANCELSPRITEDRAG = "Cancels sprite dragging if there is an active sprite dragging.";
+  this.goldenhorse_SCRIPTING_API_GETSPRITEMARGINX = "Returns the marginX value of given sprite.";
+  this.goldenhorse_SCRIPTING_API_GETSPRITEMARGINY = "Returns the marginY value of given sprite.";
+  this.goldenhorse_SCRIPTING_API_LOADDYNAMICTEXTURES = "Loads given textures inside provided dynamic texture folder. onLoadedCallback is executed with results parameter\nwhen the loading process is finished. This results parameter holds either a texture pack object as element\nif the texture could be loaded, or false if not. The order of elements of results parameter and textureNamesArray\nare the same." +
+                                                   " goldenhorse engine automatically takes care of caching, so a texture is not loaded twice from the same path.\n" +
+                                                   "If png, jpg or jpeg file extensions are provided in the texture name, goldenhorse tries to load non compressed textures.\nIf no extension is provided a compressed texture is loaded in case the dynamic texture folder is created with noCompress parameter\nset to false. The default format is png if no extension is provided.";
+  this.goldenhorse_SCRIPTING_API_CONNECTTOSERVER = "Connects to a game server, the URL of which is set by setWSServerURL CLI command. The server and the client interacts through\nRhubarb protocol definition files, the path of which is set by setProtocolDefinition CLI command. onReady callback parameter is\nexecuted when the connection is established. onError is executed with errorReason parameter in case there is an error\nestablishing the connection.";
+  this.goldenhorse_SCRIPTING_API_CLEARSERVERCONNECTION = "Disconnects from server and clears Rhubarb context. Does nothing if not connected to server.";
+  this.goldenhorse_SCRIPTING_API_ONDISCONNECTEDFROMSERVER = "Sets a listener for server connection status. The callbackFunction is executed when the connection between\nthe server and the client is lost. If client needs to try reconnecting, goldenhorse.clearServerConnection API\nneeds to be used before goldenhorse.connectFromServer.";
+  this.goldenhorse_SCRIPTING_API_SENDTOSERVER = "Sends a message from the server. protocolName is the protocol name defined in protocol definition file.\nvaluesByParameterName is an object containing values to be send by protocol parameter names.\nRead https://github.com/goldenhorse0912/Rhubarb/wiki/API-reference#send for more info.";
+  this.goldenhorse_SCRIPTING_API_ONRECEIVEDFROMSERVER = "Listens to server for given protocol and executes callbackFunction when a message received. The callbackFunction is executed\nwith getter parameter. getter is a function which expects a protocol parameter name as input and returns received value\nfor that parameter. Read https://github.com/goldenhorse0912/Rhubarb/wiki/API-reference#onReceived for more info.";
+  this.goldenhorse_SCRIPTING_API_ONLATENCYUPDATED = "Listens for latency between the server and the client. The callbackFunction is executed with newLatency (in ms) parameter when the latency is updated.";
+  this.goldenhorse_SCRIPTING_API_APPLYCUSTOMVELOCITY = "Applies velocity to FPS controls for given milliseconds. This can be useful for Valve Ricochet kind of games where\nthe player is manually accelerated with jump pads.";
+  this.goldenhorse_SCRIPTING_API_MAPAREAPOSITIONTOAREA = "Converts a 3D vector within source area into another vector in target area maintanining the ratio.";
+  this.goldenhorse_SCRIPTING_API_CREATEVECTORPOOL = "Returns a vector pool to store reusable vectors. Use getFromVectorPool API to get the vector object.";
+  this.goldenhorse_SCRIPTING_API_GETFROMVECTORPOOL = "Returns a vector from a vector pool create with createVectorPool API.";
+  this.goldenhorse_SCRIPTING_API_GETDYNAMICLIGHT = "Returns a dynamic light or 0 if dynamic light does not exist.";
+  this.goldenhorse_SCRIPTING_API_UPDATELIGHTSTRENGTH = "Updates the strength of a dynamic light.";
+  this.goldenhorse_SCRIPTING_API_UPDATELIGHTCOLOR = "Updates the color of a dynamic light.";
+  this.goldenhorse_SCRIPTING_API_UPDATELIGHTDIRECTION = "Updates the direction of a dynamic light.";
+  this.goldenhorse_SCRIPTING_API_UPDATELIGHTPOSITION = "Updates the position of a dynamic light.";
+  this.goldenhorse_SCRIPTING_API_ATTACHPOINTLIGHTTOOBJECT = "Places a point light into the position of given object each frame.";
+  this.goldenhorse_SCRIPTING_API_SETSTEERINGBEHAVIOR = "Sets the steering behavior of given object.";
+  this.goldenhorse_SCRIPTING_API_STOPSTEERABLE = "Stops a steerable.";
+  this.goldenhorse_SCRIPTING_API_SETSTEERABLETARGETPOSITION = "Sets a target position of a steerable. Target position is consumed by these steering behaviors:\n" +
                                                           "    * Seek\n" +
                                                           "    * Flee\n" +
                                                           "    * Arrive";
-  this.ROYGBIV_SCRIPTING_API_UNSETSTEERABLETARGETPOSITION = "Unsets a target position of a steerable set via setSteerableTargetPosition API.";
-  this.ROYGBIV_SCRIPTING_API_SETSTEERABLELOOKTARGET = "Makes a steerable gradually look at given target position.";
-  this.ROYGBIV_SCRIPTING_API_GETASTAR = "Returns an AStar object or 0 if AStar does not exist.";
-  this.ROYGBIV_SCRIPTING_API_FINDSHORTESTPATH = "Calculates the shortest path between given points. This API returns nothing as it automatically pipes\nthe resulting path to the PathFollowingBehavior, if the behavior is constructed with given AStar object.\nSo use this API together with the PathFollowingBehavior.\nIf there's no nearby graph vertex of given vectors, this API does not calculate any path. In that case,\nincreasing the world bin size might help." +
+  this.goldenhorse_SCRIPTING_API_UNSETSTEERABLETARGETPOSITION = "Unsets a target position of a steerable set via setSteerableTargetPosition API.";
+  this.goldenhorse_SCRIPTING_API_SETSTEERABLELOOKTARGET = "Makes a steerable gradually look at given target position.";
+  this.goldenhorse_SCRIPTING_API_GETASTAR = "Returns an AStar object or 0 if AStar does not exist.";
+  this.goldenhorse_SCRIPTING_API_FINDSHORTESTPATH = "Calculates the shortest path between given points. This API returns nothing as it automatically pipes\nthe resulting path to the PathFollowingBehavior, if the behavior is constructed with given AStar object.\nSo use this API together with the PathFollowingBehavior.\nIf there's no nearby graph vertex of given vectors, this API does not calculate any path. In that case,\nincreasing the world bin size might help." +
                                                 "\nOptional preventObjects parameter containing an array of added objects/object groups may be passed\nin order to try to compute a path that is not blocked by these entities.";
-  this.ROYGBIV_SCRIPTING_API_HIDEFROM = "Makes a steerable represented as hidingObject hide from another steerable represented as targetObject.\nThis API should be used with HideBehavior.";
-  this.ROYGBIV_SCRIPTING_API_STOPHIDING = "Makes a steerable stop hiding from other entities. It makes sense to use this API with HideBehavior,\nafter using hideFrom API.";
-  this.ROYGBIV_SCRIPTING_API_PURSUE = "Makes a steerable represented by pursuingObject chase another steerable represented by targetObject.\nThis API should be used with PursueBehavior.";
-  this.ROYGBIV_SCRIPTING_API_EVADE = "Makes a steerable represented by evadingObject evade another steerable represented by targetObject.\nThis API should be used with EvadeBehavior.";
-  this.ROYGBIV_SCRIPTING_API_STOPPURSUING = "Makes a steerable stop pursuing other steerables. It makes sense to use this API with PursueBehavior,\nafter using pursue API.";
-  this.ROYGBIV_SCRIPTING_API_STOPEVADING = "Makes a steerable stop evading other steerables. It makes sense to use this API with EvadeBehavior,\nafter using evade API.";
-  this.ROYGBIV_SCRIPTING_API_GETJUMPDESCRIPTOR = "Returns a JumpDescriptor object or 0 if JumpDescriptor does not exist.";
-  this.ROYGBIV_SCRIPTING_API_JUMP = "Makes a steerable manually jump. toTakeoffBehaviorName parameter represents the steering behavior used until the steerable reaches\nto the takeoff point. completeCallback function is executed when the jump is completed. When a jump is completed, a steering behavior\nneeds to be set to the steerable in order to continue the movement. Note that this API returns false if the jump\ndescribed by the jumpDescriptor is not achievable by given steerable, true otherwise.";
-  this.ROYGBIV_SCRIPTING_API_SETPATHFINISHLISTENER = "Sets a path finish listener for PathFollowingBehavior of given steerable object. The callbackFunction is executed\nwhen the path of given PathFollowingBehavior is consumed.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEPATHFINISHLISTENER = "Removes a path finish listener for PathFollowingBehavior of given steerable object.";
-  this.ROYGBIV_SCRIPTING_API_SETOBJECTMOUSEMOVELISTENER = "Sets a mouse move listener for given object. The callbackFunction is executed with x, y, z parameters every frame\nthe mouse is on given object.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEOBJECTMOUSEMOVELISTENER = "Removes the mouse move listener from given object.";
-  this.ROYGBIV_SCRIPTING_API_STARTALLANIMATIONS = "Starts all animations of given object, object group, text, sprite, container or model instance.";
-  this.ROYGBIV_SCRIPTING_API_SETPOSITIONCHANGELISTENER = "Sets a position change listener to given object or object group. The callbackFunction is executed with\nx, y, z coordinates everytime the position of the object changes.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEPOSITIONCHANGELISTENER = "Removes a position change listener from given object.";
-  this.ROYGBIV_SCRIPTING_API_EXECUTEFOREACHWAYPOINT = "Executes func parameter with x, y, z coordinates for each waypoint of the path of given AStar object.\nNote that paths of AStar objects are reconstructed after finding the shortest distance, either manually\nor automatically by RandomPathBehavior.";
-  this.ROYGBIV_SCRIPTING_API_ONSCENEEXIT = "Sets an exit callback function for given scene. The callback function is executed before the scene changes.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESCENEEXITLISTENER = "Removes a scene exit listener for given scene.";
-  this.ROYGBIV_SCRIPTING_API_SETSTEERABLELOOKDIRECTION = "Sets the look direction of given steerable. Unlike setSteerableLookTarget API which eventually makes a steerable\ngradually look at given target depending on the lookSpeed of the steerable, this API immediately modifies the look\ndirection.";
-  this.ROYGBIV_SCRIPTING_API_GETSTEERABLELOOKDIRECTION = "Fills the targetVector with the look direction of given steerable object and returns it.";
-  this.ROYGBIV_SCRIPTING_API_SETOBJECTROTATIONMODE = "Sets the rotation mode of given object. rotationMode parameter may be either ROYGBIV.rotationModes.LOCAL or ROYGBIV.rotationModes.WORLD.\nLocal rotation mode indicates objects rotating around their own local axis unlike the world axis.";
-  this.ROYGBIV_SCRIPTING_API_RESETOBJECTROTATION = "Resets all the rotations applied to given object.";
-  this.ROYGBIV_SCRIPTING_API_RESETRANDOMPATHBEHAVIOR = "Ensures the RandomPathBehavior tries to start from the closest graph vertex to given steerable. This API may be useful\nwhen the random path behavior of object is changed to some other behavior before the object reaches to the destination vertex,\nand then the random path behavior is activated again. If given behavior is a blended or a priority steering behavior,\nthe child random path behaviors are reset.";
-  this.ROYGBIV_SCRIPTING_API_GETKNOWLEDGE = "Returns a Knowledge or 0 if Knowledge of given name does not exist.";
-  this.ROYGBIV_SCRIPTING_API_GETDECISIONTREE = "Returns a DecisionTree or 0 if DecisionTree of given name does not exist.";
-  this.ROYGBIV_SCRIPTING_API_UPDATEINFORMATION = "Updates an information inside given knowledge.";
-  this.ROYGBIV_SCRIPTING_API_MAKEDECISION = "Returns the decision result of given decision tree.";
-  this.ROYGBIV_SCRIPTING_API_GETSTATEMACHINE = "Returns a StateMachine or 0 if StateMachine of given name does not exist.";
-  this.ROYGBIV_SCRIPTING_API_ONSTATEENTRY = "Sets a state change listener for given state machine and given state. The callback function is executed\nwithout any parameters when the active state of given state machine is changed to given state.";
-  this.ROYGBIV_SCRIPTING_API_REMOVESTATEENTRYLISTENER = "Removes a state entry listener for given state machine.";
-  this.ROYGBIV_SCRIPTING_API_RESETSTATEMACHINE = "Resets given state machine by setting the current state to the entry state.";
-  this.ROYGBIV_SCRIPTING_API_ACTIVATESTATEMACHINE = "Activates a state machine for updates. Note that state machines are deactivated by default.";
-  this.ROYGBIV_SCRIPTING_API_DEACTIVATESTATEMACHINE = "Deactivates a state machine for updates. Note that state machines are deactivated by default.";
-  this.ROYGBIV_SCRIPTING_API_RESETKNOWLEDGE = "Resets a knowledge setting each information to their initial value.";
-  this.ROYGBIV_SCRIPTING_API_GETCHILDSTATEMACHINE = "Returns a child state machine of given state machine or 0 if the child does not exist. This API is esepcially useful for\ncloned state machines for accessing to their children in order to add state change listeners to them.";
-  this.ROYGBIV_SCRIPTING_API_CREATEPATHFOLLOWINGCONTROL = "Creates a new PathFollowingControl object. In this control, camera automatically follows a given array of marked points while\nallowing users to view around via mouse drag or touch swipe. Note that this API automatically requests pointer lock. Configurations are:\n" +
+  this.goldenhorse_SCRIPTING_API_HIDEFROM = "Makes a steerable represented as hidingObject hide from another steerable represented as targetObject.\nThis API should be used with HideBehavior.";
+  this.goldenhorse_SCRIPTING_API_STOPHIDING = "Makes a steerable stop hiding from other entities. It makes sense to use this API with HideBehavior,\nafter using hideFrom API.";
+  this.goldenhorse_SCRIPTING_API_PURSUE = "Makes a steerable represented by pursuingObject chase another steerable represented by targetObject.\nThis API should be used with PursueBehavior.";
+  this.goldenhorse_SCRIPTING_API_EVADE = "Makes a steerable represented by evadingObject evade another steerable represented by targetObject.\nThis API should be used with EvadeBehavior.";
+  this.goldenhorse_SCRIPTING_API_STOPPURSUING = "Makes a steerable stop pursuing other steerables. It makes sense to use this API with PursueBehavior,\nafter using pursue API.";
+  this.goldenhorse_SCRIPTING_API_STOPEVADING = "Makes a steerable stop evading other steerables. It makes sense to use this API with EvadeBehavior,\nafter using evade API.";
+  this.goldenhorse_SCRIPTING_API_GETJUMPDESCRIPTOR = "Returns a JumpDescriptor object or 0 if JumpDescriptor does not exist.";
+  this.goldenhorse_SCRIPTING_API_JUMP = "Makes a steerable manually jump. toTakeoffBehaviorName parameter represents the steering behavior used until the steerable reaches\nto the takeoff point. completeCallback function is executed when the jump is completed. When a jump is completed, a steering behavior\nneeds to be set to the steerable in order to continue the movement. Note that this API returns false if the jump\ndescribed by the jumpDescriptor is not achievable by given steerable, true otherwise.";
+  this.goldenhorse_SCRIPTING_API_SETPATHFINISHLISTENER = "Sets a path finish listener for PathFollowingBehavior of given steerable object. The callbackFunction is executed\nwhen the path of given PathFollowingBehavior is consumed.";
+  this.goldenhorse_SCRIPTING_API_REMOVEPATHFINISHLISTENER = "Removes a path finish listener for PathFollowingBehavior of given steerable object.";
+  this.goldenhorse_SCRIPTING_API_SETOBJECTMOUSEMOVELISTENER = "Sets a mouse move listener for given object. The callbackFunction is executed with x, y, z parameters every frame\nthe mouse is on given object.";
+  this.goldenhorse_SCRIPTING_API_REMOVEOBJECTMOUSEMOVELISTENER = "Removes the mouse move listener from given object.";
+  this.goldenhorse_SCRIPTING_API_STARTALLANIMATIONS = "Starts all animations of given object, object group, text, sprite, container or model instance.";
+  this.goldenhorse_SCRIPTING_API_SETPOSITIONCHANGELISTENER = "Sets a position change listener to given object or object group. The callbackFunction is executed with\nx, y, z coordinates everytime the position of the object changes.";
+  this.goldenhorse_SCRIPTING_API_REMOVEPOSITIONCHANGELISTENER = "Removes a position change listener from given object.";
+  this.goldenhorse_SCRIPTING_API_EXECUTEFOREACHWAYPOINT = "Executes func parameter with x, y, z coordinates for each waypoint of the path of given AStar object.\nNote that paths of AStar objects are reconstructed after finding the shortest distance, either manually\nor automatically by RandomPathBehavior.";
+  this.goldenhorse_SCRIPTING_API_ONSCENEEXIT = "Sets an exit callback function for given scene. The callback function is executed before the scene changes.";
+  this.goldenhorse_SCRIPTING_API_REMOVESCENEEXITLISTENER = "Removes a scene exit listener for given scene.";
+  this.goldenhorse_SCRIPTING_API_SETSTEERABLELOOKDIRECTION = "Sets the look direction of given steerable. Unlike setSteerableLookTarget API which eventually makes a steerable\ngradually look at given target depending on the lookSpeed of the steerable, this API immediately modifies the look\ndirection.";
+  this.goldenhorse_SCRIPTING_API_GETSTEERABLELOOKDIRECTION = "Fills the targetVector with the look direction of given steerable object and returns it.";
+  this.goldenhorse_SCRIPTING_API_SETOBJECTROTATIONMODE = "Sets the rotation mode of given object. rotationMode parameter may be either goldenhorse.rotationModes.LOCAL or goldenhorse.rotationModes.WORLD.\nLocal rotation mode indicates objects rotating around their own local axis unlike the world axis.";
+  this.goldenhorse_SCRIPTING_API_RESETOBJECTROTATION = "Resets all the rotations applied to given object.";
+  this.goldenhorse_SCRIPTING_API_RESETRANDOMPATHBEHAVIOR = "Ensures the RandomPathBehavior tries to start from the closest graph vertex to given steerable. This API may be useful\nwhen the random path behavior of object is changed to some other behavior before the object reaches to the destination vertex,\nand then the random path behavior is activated again. If given behavior is a blended or a priority steering behavior,\nthe child random path behaviors are reset.";
+  this.goldenhorse_SCRIPTING_API_GETKNOWLEDGE = "Returns a Knowledge or 0 if Knowledge of given name does not exist.";
+  this.goldenhorse_SCRIPTING_API_GETDECISIONTREE = "Returns a DecisionTree or 0 if DecisionTree of given name does not exist.";
+  this.goldenhorse_SCRIPTING_API_UPDATEINFORMATION = "Updates an information inside given knowledge.";
+  this.goldenhorse_SCRIPTING_API_MAKEDECISION = "Returns the decision result of given decision tree.";
+  this.goldenhorse_SCRIPTING_API_GETSTATEMACHINE = "Returns a StateMachine or 0 if StateMachine of given name does not exist.";
+  this.goldenhorse_SCRIPTING_API_ONSTATEENTRY = "Sets a state change listener for given state machine and given state. The callback function is executed\nwithout any parameters when the active state of given state machine is changed to given state.";
+  this.goldenhorse_SCRIPTING_API_REMOVESTATEENTRYLISTENER = "Removes a state entry listener for given state machine.";
+  this.goldenhorse_SCRIPTING_API_RESETSTATEMACHINE = "Resets given state machine by setting the current state to the entry state.";
+  this.goldenhorse_SCRIPTING_API_ACTIVATESTATEMACHINE = "Activates a state machine for updates. Note that state machines are deactivated by default.";
+  this.goldenhorse_SCRIPTING_API_DEACTIVATESTATEMACHINE = "Deactivates a state machine for updates. Note that state machines are deactivated by default.";
+  this.goldenhorse_SCRIPTING_API_RESETKNOWLEDGE = "Resets a knowledge setting each information to their initial value.";
+  this.goldenhorse_SCRIPTING_API_GETCHILDSTATEMACHINE = "Returns a child state machine of given state machine or 0 if the child does not exist. This API is esepcially useful for\ncloned state machines for accessing to their children in order to add state change listeners to them.";
+  this.goldenhorse_SCRIPTING_API_CREATEPATHFOLLOWINGCONTROL = "Creates a new PathFollowingControl object. In this control, camera automatically follows a given array of marked points while\nallowing users to view around via mouse drag or touch swipe. Note that this API automatically requests pointer lock. Configurations are:\n" +
                                                           "markedPointNames (mandatory): An array of marked point names defining a path.\n" +
                                                           "interpolationSpeed (optional): A number between 0 and 1 indicating the camera speed. Default value is 0.001\n" +
                                                           "restart (optional): A boolean value indicating whether the movement should restart when the path is consumed. Default value is false.\n" +
                                                           "onFinished (optional): A callback function executed when the path is consumed. Note that this function is not executed if\nrestart parameter is on.\n" +
                                                           "mouseSpeed (optional): The mouse speed for desktop devices. Default value is 0.002.\n" +
                                                           "swipeSpeed (optional): The touch swipe speed for mobile devices. Default value is 0.002."
-  this.ROYGBIV_SCRIPTING_API_GETCLIENTDETAILS = "Returns an object of client details. Included fields are:\n" +
+  this.goldenhorse_SCRIPTING_API_GETCLIENTDETAILS = "Returns an object of client details. Included fields are:\n" +
                                                 "isMobile: Whether the device is mobile or not\n" +
                                                 "isIOS: Whether the device is an IOS device or not\n" +
-                                                "isWebGLFriendly: Whether the device is WebGL friendly or not. ROYGBIV decides if a device is WebGL friendly by comparing\nMAX_VERTEX_UNIFORM_VECTORS to 1024\n" +
+                                                "isWebGLFriendly: Whether the device is WebGL friendly or not. goldenhorse decides if a device is WebGL friendly by comparing\nMAX_VERTEX_UNIFORM_VECTORS to 1024\n" +
                                                 "astcSupported: Whether the ASTC format is supported or not\n" +
                                                 "s3tcSupported: Whether the S3TC format is supported or not\n" +
                                                 "pvrtcSupported: Whether the PVRTC format is supported or not\n" +
                                                 "highPrecisionSupported: Whether HIGHP is supported in shaders or not\n" +
                                                 "browser: The browser name. Can be one of: Opera, Chrome, Safari, Firefox, IE or Unknown. Good luck if it's IE"
-  this.ROYGBIV_SCRIPTING_API_ONROYGBIVSCOREUPDATED = "Executes the callback function with newScore parameter everytime the ROYGBIV score of the project is updated.\nROYGBIV score represents the amount of consecutive seconds without a frame drop.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEROYGBIVSCOREUPDATELISTENER = "Removes the ROYGBIV score update listener set via onROYGBIVScoreUpdated API.";
-  this.ROYGBIV_SCRIPTING_API_HIDECONTAINER = "Hides a container and its children. Does nothing if the container is already hidden.";
-  this.ROYGBIV_SCRIPTING_API_SHOWCONTAINER = "Shows a container and its children. Does nothing if the container is already shown.";
-  this.ROYGBIV_SCRIPTING_API_GETCURRENTAREA = "Returns the name of current area in which the camera is.";
-  this.ROYGBIV_SCRIPTING_API_BOUNDINGBOXINTERSECTIONTEST = "Performs an intersection test with the bounding boxes of given objects or object groups and returns true if they intersect\nwith each other, false otherwise.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITEWIDTH = "Sets the width of given sprite.";
-  this.ROYGBIV_SCRIPTING_API_SETSPRITEHEIGHT = "Sets the height of given sprite.";
-  this.ROYGBIV_SCRIPTING_API_CANCELPOINTERLOCKREQUESTS = "Cancels existing pointer lock requests.";
-  this.ROYGBIV_SCRIPTING_API_MAKEOBJECTLOOKAT = "Rotates an object and makes it look at given (x, y, z) coordinate.";
-  this.ROYGBIV_SCRIPTING_API_VECTORLENGTH = "Calculates and returns the length of given vector.";
-  this.ROYGBIV_SCRIPTING_API_VECTORLENGTHSQUARE = "Calcualtes and returns the square of the length of given vector.";
-  this.ROYGBIV_SCRIPTING_API_GETOBJECTVELOCITY = "Returns the velocity of given object.";
-  this.ROYGBIV_SCRIPTING_API_GETMODELINSTANCE = "Returns a ModelInstance or 0 if ModelInstance of given name does not exist.";
-  this.ROYGBIV_SCRIPTING_API_GETMAXTEXTURESIZE = "Returns the max texture size the client device supports.";
-  this.ROYGBIV_SCRIPTING_API_MAPTEXTURESTOMODELINSTANCE = "Maps given textures to a model instance. texturesObj is an object having:\n" +
+  this.goldenhorse_SCRIPTING_API_ONgoldenhorseSCOREUPDATED = "Executes the callback function with newScore parameter everytime the goldenhorse score of the project is updated.\ngoldenhorse score represents the amount of consecutive seconds without a frame drop.";
+  this.goldenhorse_SCRIPTING_API_REMOVEgoldenhorseSCOREUPDATELISTENER = "Removes the goldenhorse score update listener set via ongoldenhorseScoreUpdated API.";
+  this.goldenhorse_SCRIPTING_API_HIDECONTAINER = "Hides a container and its children. Does nothing if the container is already hidden.";
+  this.goldenhorse_SCRIPTING_API_SHOWCONTAINER = "Shows a container and its children. Does nothing if the container is already shown.";
+  this.goldenhorse_SCRIPTING_API_GETCURRENTAREA = "Returns the name of current area in which the camera is.";
+  this.goldenhorse_SCRIPTING_API_BOUNDINGBOXINTERSECTIONTEST = "Performs an intersection test with the bounding boxes of given objects or object groups and returns true if they intersect\nwith each other, false otherwise.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITEWIDTH = "Sets the width of given sprite.";
+  this.goldenhorse_SCRIPTING_API_SETSPRITEHEIGHT = "Sets the height of given sprite.";
+  this.goldenhorse_SCRIPTING_API_CANCELPOINTERLOCKREQUESTS = "Cancels existing pointer lock requests.";
+  this.goldenhorse_SCRIPTING_API_MAKEOBJECTLOOKAT = "Rotates an object and makes it look at given (x, y, z) coordinate.";
+  this.goldenhorse_SCRIPTING_API_VECTORLENGTH = "Calculates and returns the length of given vector.";
+  this.goldenhorse_SCRIPTING_API_VECTORLENGTHSQUARE = "Calcualtes and returns the square of the length of given vector.";
+  this.goldenhorse_SCRIPTING_API_GETOBJECTVELOCITY = "Returns the velocity of given object.";
+  this.goldenhorse_SCRIPTING_API_GETMODELINSTANCE = "Returns a ModelInstance or 0 if ModelInstance of given name does not exist.";
+  this.goldenhorse_SCRIPTING_API_GETMAXTEXTURESIZE = "Returns the max texture size the client device supports.";
+  this.goldenhorse_SCRIPTING_API_MAPTEXTURESTOMODELINSTANCE = "Maps given textures to a model instance. texturesObj is an object having:\n" +
                                                           "keys -> texture IDs of models instance\n" +
                                                           "values -> texture pack objects obtained via loadDynamicTextures API\n" +
                                                           "Textures IDs of a model instance may be obtained from the GUI by clicking on a model instance in the design mode\nand looking under the Textures folder.";
-  this.ROYGBIV_SCRIPTING_API_SETPIXELRATIO = "Sets the pixel ratio of the WebGL renderer. More the pixelRatio better the rendering quality however worse the performance.\nUse this with caution, especially for fullscreen apps.";
-  this.ROYGBIV_SCRIPTING_API_CREATEDOMELEMENT = "Creates and returns a new DOM element of given type (span, div etc.). Supported properties are:\n" +
+  this.goldenhorse_SCRIPTING_API_SETPIXELRATIO = "Sets the pixel ratio of the WebGL renderer. More the pixelRatio better the rendering quality however worse the performance.\nUse this with caution, especially for fullscreen apps.";
+  this.goldenhorse_SCRIPTING_API_CREATEDOMELEMENT = "Creates and returns a new DOM element of given type (span, div etc.). Supported properties are:\n" +
                                                 "* width (in pixels). Default is 50.\n" +
                                                 "* height (in pixels). Default is 50.\n" +
                                                 "* backgroundColor. Default is white.\n" +
@@ -1539,26 +1539,26 @@ var Text = function(){
                                                 "* centerYPercent. Default is 0.\n" +
                                                 "* borderRadiusPercent. Default is none.\n" +
                                                 "* opacity. Default is 1.";
-  this.ROYGBIV_SCRIPTING_API_SETDOMELEMENTPOSITION = "Sets the center position of given DOM element created via createDOMElement scripting API.";
-  this.ROYGBIV_SCRIPTING_API_SETDOMELEMENTBACKGROUNDCOLOR = "Sets the background color of given DOM element created via createDOMElement scripting API.";
-  this.ROYGBIV_SCRIPTING_API_SETDOMELEMENTOPACITY = "Sets the opacity of given DOM element created via createDOMElement scripting API.";
-  this.ROYGBIV_SCRIPTING_API_SETDOMELEMENTSIZE = "Sets the size in pixels of given DOM element created via createDOMElement scripting API.";
-  this.ROYGBIV_SCRIPTING_API_ONDOMELEMENTMOUSEOVER = "Sets a mouse over listener for given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_ONDOMELEMENTMOUSEOUT = "Sets a mouse out listener for given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_ONDOMELEMENTCLICK = "Sets a click listener for given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEDOMELEMENTCLICKLISTENER = "Removes a click listener from given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEDOMELEMENTMOUSEOVERLISTENER = "Removes a mouse over listener from given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_REMOVEDOMELEMENTMOUSEOUTLISTENER = "Removes a mouse out listener from given DOMElement.";
-  this.ROYGBIV_SCRIPTING_API_ISARSUPPORTED = "Returns if AR is supported in current client device.";
-  this.ROYGBIV_SCRIPTING_API_STARTAUGMENTEDREALITY = "Opens AR view for given model instance and AR model name. See README of models folder for more details.";
-  this.ROYGBIV_SCRIPTING_API_SETMODELINSTANCECOLOR = "Changes the material color of give child of a model instance. The color of all children are set if\nthe childName parameter is set to null. Color values need to be in [0, 1] range.";
-  this.ROYGBIV_SCRIPTING_API_ALIGN3DPOSITION = "Aligns the position of a DOM element to given 3D position on each frame.";
-  this.ROYGBIV_SCRIPTING_API_UNALIGN3DPOSITION = "Stops aligning the position of a DOM element. This may be used after align3DPosition API.";
-  this.ROYGBIV_SCRIPTING_API_SETMODELINSTANCETEXTURETRANSFORM = "Sets texture transformation (offsetX, offsetY, repeatX and repeatY) properties for specified child of given model instance.\nNote that these values are used only if the model instance has a custom texture mapped.";
-  this.ROYGBIV_SCRIPTING_API_SETMODELINSTANCECLICKLISTENER = "Sets a click listener for a model instance.\nThe callbackFunction is executed with x, y, z coordinates of the clicked point. The callbackFunction is bound to object\n(this = object inside the function).";
-  this.ROYGBIV_SCRIPTING_API_REMOVEMODELINSTANCECLICKLISTENER = "Removes the click listener of a model instance.";
-  this.ROYGBIV_SCRIPTING_API_FOREACHCHILD = "Executes callbackFunction with childName parameter for each child of model instance.";
-  this.ROYGBIV_SCRIPTING_API_CREATEEVENTEMITTER = "Creates and returns a new EventEmitter containing following methods:\n" +
+  this.goldenhorse_SCRIPTING_API_SETDOMELEMENTPOSITION = "Sets the center position of given DOM element created via createDOMElement scripting API.";
+  this.goldenhorse_SCRIPTING_API_SETDOMELEMENTBACKGROUNDCOLOR = "Sets the background color of given DOM element created via createDOMElement scripting API.";
+  this.goldenhorse_SCRIPTING_API_SETDOMELEMENTOPACITY = "Sets the opacity of given DOM element created via createDOMElement scripting API.";
+  this.goldenhorse_SCRIPTING_API_SETDOMELEMENTSIZE = "Sets the size in pixels of given DOM element created via createDOMElement scripting API.";
+  this.goldenhorse_SCRIPTING_API_ONDOMELEMENTMOUSEOVER = "Sets a mouse over listener for given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_ONDOMELEMENTMOUSEOUT = "Sets a mouse out listener for given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_ONDOMELEMENTCLICK = "Sets a click listener for given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_REMOVEDOMELEMENTCLICKLISTENER = "Removes a click listener from given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_REMOVEDOMELEMENTMOUSEOVERLISTENER = "Removes a mouse over listener from given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_REMOVEDOMELEMENTMOUSEOUTLISTENER = "Removes a mouse out listener from given DOMElement.";
+  this.goldenhorse_SCRIPTING_API_ISARSUPPORTED = "Returns if AR is supported in current client device.";
+  this.goldenhorse_SCRIPTING_API_STARTAUGMENTEDREALITY = "Opens AR view for given model instance and AR model name. See README of models folder for more details.";
+  this.goldenhorse_SCRIPTING_API_SETMODELINSTANCECOLOR = "Changes the material color of give child of a model instance. The color of all children are set if\nthe childName parameter is set to null. Color values need to be in [0, 1] range.";
+  this.goldenhorse_SCRIPTING_API_ALIGN3DPOSITION = "Aligns the position of a DOM element to given 3D position on each frame.";
+  this.goldenhorse_SCRIPTING_API_UNALIGN3DPOSITION = "Stops aligning the position of a DOM element. This may be used after align3DPosition API.";
+  this.goldenhorse_SCRIPTING_API_SETMODELINSTANCETEXTURETRANSFORM = "Sets texture transformation (offsetX, offsetY, repeatX and repeatY) properties for specified child of given model instance.\nNote that these values are used only if the model instance has a custom texture mapped.";
+  this.goldenhorse_SCRIPTING_API_SETMODELINSTANCECLICKLISTENER = "Sets a click listener for a model instance.\nThe callbackFunction is executed with x, y, z coordinates of the clicked point. The callbackFunction is bound to object\n(this = object inside the function).";
+  this.goldenhorse_SCRIPTING_API_REMOVEMODELINSTANCECLICKLISTENER = "Removes the click listener of a model instance.";
+  this.goldenhorse_SCRIPTING_API_FOREACHCHILD = "Executes callbackFunction with childName parameter for each child of model instance.";
+  this.goldenhorse_SCRIPTING_API_CREATEEVENTEMITTER = "Creates and returns a new EventEmitter containing following methods:\n" +
                                                   "on(eventKey, callbackFunction): Listens for an event and executes the\n" +
                                                   "callback function with the emitted data when the event is emitted. This\n" +
                                                   "method returns an id which is used in off method.\n" +

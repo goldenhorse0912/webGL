@@ -4,7 +4,7 @@ var ObjectExportImportHandler = function(){
 
 ObjectExportImportHandler.prototype.exportParticleSystem = function(obj){
   var context = {
-    isROYGBIVParticleSystemExport: true,
+    isgoldenhorseParticleSystemExport: true,
     isParticleSystem: true,
     export: obj.export()
   };
@@ -50,8 +50,8 @@ ObjectExportImportHandler.prototype.exportAddedObject = function(obj){
     isAddedObject: true,
     export: objExport,
   };
-  if (materials[obj.material.roygbivMaterialName]){
-    context.material = materials[obj.material.roygbivMaterialName].export();
+  if (materials[obj.material.goldenhorseMaterialName]){
+    context.material = materials[obj.material.goldenhorseMaterialName].export();
   }
   if (texturePacks[obj.associatedTexturePack]){
     context.texturePack = texturePacks[obj.associatedTexturePack].export();
@@ -81,7 +81,7 @@ ObjectExportImportHandler.prototype.exportObject = function(obj){
     context = this.exportObjectGroup(obj);
   }
   return {
-    isROYGBIVObjectExport: true,
+    isgoldenhorseObjectExport: true,
     context: context
   };
 }
@@ -148,7 +148,7 @@ ObjectExportImportHandler.prototype.importAddedObjectBody = function(objName, co
   var importHandler = new ImportHandler();
   var objExport = context.export;
   if (meta.materialName){
-    objExport.roygbivMaterialName = meta.materialName;
+    objExport.goldenhorseMaterialName = meta.materialName;
   }
   var pseudo = new Object();
   pseudo.addedObjects = new Object();
@@ -252,7 +252,7 @@ ObjectExportImportHandler.prototype.importAddedObject = function(objName, contex
     pseudo.materials = new Object();
     pseudo.materials[generatedMaterialName] = materialExport;
     importHandler.importMaterials(pseudo);
-    materials[generatedMaterialName].roygbivMaterialName = generatedMaterialName;
+    materials[generatedMaterialName].goldenhorseMaterialName = generatedMaterialName;
   }
   if (texturePackExport){
     this.handleTexturePack(texturePackExport, function(generatedTPName){

@@ -45,7 +45,7 @@ WorldBinHandler.prototype.updateObject = function(obj){
     obj.graphicsGroup.updateMatrixWorld();
     obj.updateBoundingBoxes();
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.deleteObjectFromBin(obj.binInfo, obj.name);
@@ -69,7 +69,7 @@ WorldBinHandler.prototype.show = function(obj){
       return;
     }
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.insert(obj.boundingBox, obj.name);

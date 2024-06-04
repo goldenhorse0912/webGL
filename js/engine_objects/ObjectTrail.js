@@ -13,7 +13,7 @@ var ObjectTrail = function(configurations){
     geometry = this.object.getNormalGeometry();
     var color = this.object.material.color;
     for (var i = 0; i<geometry.faces.length; i++){
-      geometry.faces[i].roygbivObjectName = this.object.name;
+      geometry.faces[i].goldenhorseObjectName = this.object.name;
       if (this.object.hasEmissiveMap()){
         geometry.faces[i].faceEmissiveIntensity = this.object.getEmissiveIntensity();
         geometry.faces[i].faceEmissiveColor = this.object.getEmissiveColor().clone();
@@ -43,7 +43,7 @@ var ObjectTrail = function(configurations){
     for (var i = 0; i<geometry.faces.length; i++){
       var mi = geometry.faces[i].materialIndex;
       var objName = miMap[mi];
-      geometry.faces[i].roygbivObjectName = objName;
+      geometry.faces[i].goldenhorseObjectName = objName;
       var childObj = this.object.group[objName];
       if (childObj.hasEmissiveMap()){
         geometry.faces[i].faceEmissiveIntensity = childObj.getEmissiveIntensity() * this.object.getEmissiveIntensity();
@@ -147,7 +147,7 @@ var ObjectTrail = function(configurations){
     }
 
 
-    var objName = face.roygbivObjectName;
+    var objName = face.goldenhorseObjectName;
     var obj;
     if (this.isAddedObject){
       obj = addedObjects[objName];

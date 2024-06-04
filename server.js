@@ -31,7 +31,7 @@ app.use(bodyParser.raw({type: 'application/octet-stream', limit : '500mb'}));
 
 app.get("/", function(req, res){
   console.log("[*] A new request received.");
-	res.sendFile(__dirname + "/roygbiv.html");
+	res.sendFile(__dirname + "/goldenhorse.html");
 });
 
 app.post("/build", function(req, res){
@@ -44,11 +44,11 @@ app.post("/build", function(req, res){
     }
 
     var engineScriptsConcatted = readEngineScripts(req.body.projectName, req.body.author, req.body.ENABLE_ANTIALIAS, req.body.modules, req.body.bootscreenFolderName, req.body.disabledShaderInfo);
-    var roygbivPath = "deploy/"+req.body.projectName+"/js/roygbiv.js";
-    fs.writeFileSync(roygbivPath, handleScripts(req.body, engineScriptsConcatted));
-    minify(roygbivPath).then(function(minified){
-      fs.unlinkSync(roygbivPath);
-      fs.writeFileSync(roygbivPath, minified);
+    var goldenhorsePath = "deploy/"+req.body.projectName+"/js/goldenhorse.js";
+    fs.writeFileSync(goldenhorsePath, handleScripts(req.body, engineScriptsConcatted));
+    minify(goldenhorsePath).then(function(minified){
+      fs.unlinkSync(goldenhorsePath);
+      fs.writeFileSync(goldenhorsePath, minified);
       fs.writeFileSync("deploy/"+req.body.projectName+"/js/application.json", JSON.stringify(req.body));
       copyAssets(req.body);
       copyWorkers(req.body);
@@ -700,7 +700,7 @@ function copyAssets(application){
   fs.unlinkSync("deploy/"+application.projectName+"/third_party_licenses/LICENSE_DATGUI");
   console.log("[*] Copied third party licenses.");
   copyFileSync("LICENSE", "deploy/"+application.projectName+"/");
-  console.log("[*] Copied ROYGBIV license.");
+  console.log("[*] Copied goldenhorse license.");
   for (var texturePackName in application.texturePacks){
     var dirName = application.texturePacks[texturePackName].directoryName;
     fs.readdirSync("texture_packs").forEach(file => {
@@ -832,7 +832,7 @@ function generateDeployDirectory(projectName, application){
 
 function readEngineScripts(projectName, author, enableAntialias, modules, bootscreenFolderName, disabledShaderInfo){
   var content = "";
-  var htmlContent = fs.readFileSync("roygbiv.html", "utf8");
+  var htmlContent = fs.readFileSync("goldenhorse.html", "utf8");
   htmlContent = htmlContent.replace("three.js", "three.min.js");
   var htmlContentSplitted = htmlContent.split("\n");
 
@@ -916,12 +916,12 @@ function readEngineScripts(projectName, author, enableAntialias, modules, bootsc
 
         console.log("[*] isDeployment flag injected into globalVariables.");
       }
-      if (scriptPath.includes("Roygbiv.js")){
-        var roygbivJSSplitted = scriptContent.split("\n");
+      if (scriptPath.includes("goldenhorse.js")){
+        var goldenhorseJSSplitted = scriptContent.split("\n");
         var commentsFiltered = "";
-        for (var i2 = 0; i2<roygbivJSSplitted.length; i2++){
-          if (!roygbivJSSplitted[i2].startsWith("//") && !roygbivJSSplitted[i2].trim().startsWith("preConditions")){
-            commentsFiltered += roygbivJSSplitted[i2] + "\n";
+        for (var i2 = 0; i2<goldenhorseJSSplitted.length; i2++){
+          if (!goldenhorseJSSplitted[i2].startsWith("//") && !goldenhorseJSSplitted[i2].trim().startsWith("preConditions")){
+            commentsFiltered += goldenhorseJSSplitted[i2] + "\n";
           }
         }
         scriptContent = commentsFiltered;

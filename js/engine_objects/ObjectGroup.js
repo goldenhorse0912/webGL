@@ -982,7 +982,7 @@ ObjectGroup.prototype.handleRenderSide = function(val){
 }
 
 ObjectGroup.prototype.textureCompare = function(txt1, txt2){
-  if (txt1.roygbivTexturePackName != txt2.roygbivTexturePackName){
+  if (txt1.goldenhorseTexturePackName != txt2.goldenhorseTexturePackName){
     return false;
   }
   if (txt1.offset.x != txt2.offset.x || txt1.offset.y != txt2.offset.y){
@@ -2507,10 +2507,10 @@ ObjectGroup.prototype.glue = function(simplifiedChildrenPhysicsBodies){
 
 ObjectGroup.prototype.collisionCallback = function(collisionEvent){
   var body = collisionEvent.body;
-  if ((!body.addedObject && !body.roygbivMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
+  if ((!body.addedObject && !body.goldenhorseMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
     return;
   }
-  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.roygbivMassID;
+  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.goldenhorseMassID;
   var contact = collisionEvent.contact;
   var collisionInfo = reusableCollisionInfo.set(
     targetObjectName, contact.bi.position.x + contact.ri.x, contact.bi.position.y + contact.ri.y,
@@ -2949,7 +2949,7 @@ ObjectGroup.prototype.exportLightweight = function(){
   }
   for (var i = 0; i<this.boundingBoxes.length; i++){
     exportObj.boundingBoxes.push({
-      roygbivObjectName: this.boundingBoxes[i].roygbivObjectName,
+      goldenhorseObjectName: this.boundingBoxes[i].goldenhorseObjectName,
       boundingBox: this.boundingBoxes[i]
     });
   }

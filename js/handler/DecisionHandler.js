@@ -214,7 +214,7 @@ DecisionHandler.prototype.onAfterSceneChange = function(){
 }
 
 DecisionHandler.prototype.resetKnowledge = function(knowledge){
-  var initialData = this.initialKnowledgeData[knowledge.registeredSceneName][knowledge.roygbivName];
+  var initialData = this.initialKnowledgeData[knowledge.registeredSceneName][knowledge.goldenhorseName];
   knowledge._booleanMap = JSON.parse(JSON.stringify(initialData.boolean));
   knowledge._numericalMap = JSON.parse(JSON.stringify(initialData.numerical));
   knowledge._vectorMap = JSON.parse(JSON.stringify(initialData.vector));
@@ -871,7 +871,7 @@ DecisionHandler.prototype.getInformationFromKnowledge = function(knowledgeName, 
 }
 
 DecisionHandler.prototype.updateInformation = function(knowledge, informationName, newValue){
-  var informationType = this.informationTypesByKnowledgeName[knowledge.roygbivName][informationName];
+  var informationType = this.informationTypesByKnowledgeName[knowledge.goldenhorseName][informationName];
 
   if (informationType == decisionHandler.informationTypes.BOOLEAN){
     knowledge.updateBooleanInformation(informationName, newValue);
@@ -895,7 +895,7 @@ DecisionHandler.prototype.cloneKnowledge = function(cloneName, refName){
   this.knowledgesBySceneName[sceneHandler.getActiveSceneName()][cloneName] = clone;
   this.informationTypesByKnowledgeName[cloneName] = JSON.parse(JSON.stringify(this.informationTypesByKnowledgeName[refName]));
 
-  clone.roygbivName = cloneName;
+  clone.goldenhorseName = cloneName;
   clone.registeredSceneName = sceneHandler.getActiveSceneName();
   return true;
 }
@@ -918,7 +918,7 @@ DecisionHandler.prototype.createKnowledge = function(knowledgeName, overrideScen
   this.knowledgesBySceneName[sceneName] = knowledgesInScene;
   this.informationTypesByKnowledgeName[knowledgeName] = {};
 
-  knowledgesInScene[knowledgeName].roygbivName = knowledgeName;
+  knowledgesInScene[knowledgeName].goldenhorseName = knowledgeName;
   knowledgesInScene[knowledgeName].registeredSceneName = sceneName;
 
   return true;

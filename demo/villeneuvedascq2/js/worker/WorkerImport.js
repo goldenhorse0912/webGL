@@ -38,7 +38,7 @@ var cliInnerDiv;
 var cliDivheader;
 
 // VERSION
-var ROYGBIV_ENGINE_VERSION = 1;
+var goldenhorse_ENGINE_VERSION = 1;
 
 // LOAD
 var loadInput;
@@ -302,7 +302,7 @@ var intersectionObject = 0;
 var projectLoaded = true;
 var jobHandlerInternalCounter = 0;
 var jobHandlerInternalMaxExecutionCount = 0;
-var roygbivScoreUpdateCallbackFunction = 0;
+var goldenhorseScoreUpdateCallbackFunction = 0;
 var screenClickCallbackFunction = 0;
 var screenMouseDownCallbackFunction = 0;
 var screenMouseUpCallbackFunction = 0;
@@ -342,10 +342,10 @@ var CONTAINER_ALIGNMENT_TYPE_RIGHT = "CONTAINER_ALIGNMENT_TYPE_RIGHT";
 var CONTAINER_ALIGNMENT_TYPE_LEFT = "CONTAINER_ALIGNMENT_TYPE_LEFT";
 var CONTAINER_ALIGNMENT_TYPE_TOP = "CONTAINER_ALIGNMENT_TYPE_TOP";
 var CONTAINER_ALIGNMENT_TYPE_BOTTOM = "CONTAINER_ALIGNMENT_TYPE_BOTTOM";
-var roygbivAttributeCounter = 1;
-var roygbivBufferAttributeCounter = 1;
-var roygbivSkippedArrayBufferUpdates = 0;
-var roygbivSkippedElementArrayBufferUpdates = 0;
+var goldenhorseAttributeCounter = 1;
+var goldenhorseBufferAttributeCounter = 1;
+var goldenhorseSkippedArrayBufferUpdates = 0;
+var goldenhorseSkippedElementArrayBufferUpdates = 0;
 var selectionHandler;
 var guiHandler;
 var cpuOperationsHandler;
@@ -523,7 +523,7 @@ if (!WORKERS_SUPPORTED && !(typeof WorkerGlobalScope !== UNDEFINED && self insta
 var Text;
 
 // SCRIPTING UTILITY FUNCTIONS
-var ROYGBIV;
+var goldenhorse;
 
 // KEYCODE TO STRING MAP
 var keyCodeToChar = {
@@ -668,7 +668,7 @@ RayCaster.prototype.refresh = function(){
       objectGroup.updateBoundingBoxes();
     }
     for (var i = 0; i<objectGroup.boundingBoxes.length; i++){
-      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].roygbivObjectName, objName);
+      this.binHandler.insert(objectGroup.boundingBoxes[i], objectGroup.boundingBoxes[i].goldenhorseObjectName, objName);
     }
   }
   if (mode == 0){
@@ -900,7 +900,7 @@ WorldBinHandler.prototype.updateObject = function(obj){
     obj.graphicsGroup.updateMatrixWorld();
     obj.updateBoundingBoxes();
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.deleteObjectFromBin(obj.binInfo, obj.name);
@@ -924,7 +924,7 @@ WorldBinHandler.prototype.show = function(obj){
       return;
     }
     for (var i = 0; i<obj.boundingBoxes.length; i++){
-      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].roygbivObjectName, obj.name);
+      this.insert(obj.boundingBoxes[i], obj.boundingBoxes[i].goldenhorseObjectName, obj.name);
     }
   }else if (obj.isAddedText){
     this.insert(obj.boundingBox, obj.name);
@@ -1334,7 +1334,7 @@ StateLoaderLightweight.prototype.loadBoundingBoxes = function(){
       addedObject.quaternionWhenAttached = new THREE.Quaternion().set(curExport.quaternionWhenAttached._x, curExport.quaternionWhenAttached._y, curExport.quaternionWhenAttached._z, curExport.quaternionWhenAttached._w);
     }
     var bb = new THREE.Box3();
-    bb.roygbivObjectName = objName;
+    bb.goldenhorseObjectName = objName;
     addedObject.boundingBoxes = [bb];
     for (var i = 0; i<curExport.vertices.length; i++){
       var curVertex = curExport.vertices[i];
@@ -1405,7 +1405,7 @@ StateLoaderLightweight.prototype.loadBoundingBoxes = function(){
       var min = new THREE.Vector3(curBBExport.min.x, curBBExport.min.y, curBBExport.min.z);
       var max = new THREE.Vector3(curBBExport.max.x, curBBExport.max.y, curBBExport.max.z);
       var bb = new THREE.Box3(min.clone(), max.clone());
-      bb.roygbivObjectName = curBBExport.roygbivObjectName;
+      bb.goldenhorseObjectName = curBBExport.goldenhorseObjectName;
       objectGroup.boundingBoxes.push(bb);
     }
     objectGroup.updateBoundingBoxes();
@@ -1546,7 +1546,7 @@ StateLoaderLightweight.prototype.loadPhysics = function(){
     }
     physicsBody.position.copy(curAddedObjectExport.physicsPosition);
     physicsBody.quaternion.copy(curAddedObjectExport.physicsQuaternion);
-    physicsBody.roygbivName = objName;
+    physicsBody.goldenhorseName = objName;
     var addedObject = new AddedObject();
     if (curAddedObjectExport.noPhysicsContributionWhenGlued){
       addedObject.noPhysicsContributionWhenGlued = true;
@@ -1577,7 +1577,7 @@ StateLoaderLightweight.prototype.loadPhysics = function(){
     }else{
       physicsBody = physicsBodyGenerator.generateBoxBody({x: curExport.physicsSimplificationParameters.sizeX, y: curExport.physicsSimplificationParameters.sizeY, z: curExport.physicsSimplificationParameters.sizeZ});
     }
-    physicsBody.roygbivName = objName;
+    physicsBody.goldenhorseName = objName;
     var hasAnyPhysicsShape = false;
     physicsBody.position.copy(curExport.initialPhysicsPositionWhenGlued);
     for (var i = 0; i<curExport.childNames.length; i++){
@@ -3915,10 +3915,10 @@ AddedObject.prototype.onPositionChange = function(from, to){
 
 AddedObject.prototype.collisionCallback = function(collisionEvent){
   var body = collisionEvent.body;
-  if ((!body.addedObject && !body.roygbivMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
+  if ((!body.addedObject && !body.goldenhorseMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
     return;
   }
-  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.roygbivMassID;
+  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.goldenhorseMassID;
   var contact = collisionEvent.contact;
   var collisionInfo = reusableCollisionInfo.set(
     targetObjectName, contact.bi.position.x + contact.ri.x, contact.bi.position.y + contact.ri.y,
@@ -3991,7 +3991,7 @@ AddedObject.prototype.exportLightweight = function(){
 AddedObject.prototype.export = function(){
   var exportObject = new Object();
   exportObject["type"] = this.type;
-  exportObject["roygbivMaterialName"] = this.material.roygbivMaterialName;
+  exportObject["goldenhorseMaterialName"] = this.material.goldenhorseMaterialName;
   var exportDestroyedGrids = new Object();
   for (var gridName in this.destroyedGrids){
     exportDestroyedGrids[gridName] = this.destroyedGrids[gridName].export();
@@ -4051,23 +4051,23 @@ AddedObject.prototype.export = function(){
 
   if (this.hasDiffuseMap()){
     var diffuseMap = this.getDiffuseMap();
-    exportObject["diffuseRoygbivTexturePackName"] = diffuseMap.roygbivTexturePackName;
+    exportObject["diffusegoldenhorseTexturePackName"] = diffuseMap.goldenhorseTexturePackName;
   }
   if (this.hasAlphaMap()){
     var alphaMap = this.getAlphaMap();
-    exportObject["alphaRoygbivTexturePackName"] = alphaMap.roygbivTexturePackName;
+    exportObject["alphagoldenhorseTexturePackName"] = alphaMap.goldenhorseTexturePackName;
   }
   if (this.hasAOMap()){
     var aoMap = this.getAOMap();
-    exportObject["aoRoygbivTexturePackName"] = aoMap.roygbivTexturePackName;
+    exportObject["aogoldenhorseTexturePackName"] = aoMap.goldenhorseTexturePackName;
   }
   if (this.hasEmissiveMap()){
     var emissiveMap = this.getEmissiveMap();
-    exportObject["emissiveRoygbivTexturePackName"] = emissiveMap.roygbivTexturePackName;
+    exportObject["emissivegoldenhorseTexturePackName"] = emissiveMap.goldenhorseTexturePackName;
   }
   if (this.hasDisplacementMap()){
     var displacementMap = this.getDisplacementMap();
-    exportObject["displacementRoygbivTexturePackName"] = displacementMap.roygbivTexturePackName;
+    exportObject["displacementgoldenhorseTexturePackName"] = displacementMap.goldenhorseTexturePackName;
     if (!this.parentObjectName){
       exportObject["displacementScale"] = this.getDisplacementScale();
       exportObject["displacementBias"] = this.getDisplacementBias();
@@ -5323,27 +5323,27 @@ AddedObject.prototype.mapTexturePack = function(texturePack){
   this.resetMaps();
   if (texturePack.hasDiffuse){
     this.mapDiffuse(texturePack);
-    this.getDiffuseMap().roygbivTexturePackName = texturePack.name;
+    this.getDiffuseMap().goldenhorseTexturePackName = texturePack.name;
     this.getDiffuseMap().needsUpdate = true;
   }
   if (texturePack.hasAlpha){
     this.mapAlpha(texturePack);
-    this.getAlphaMap().roygbivTexturePackName = texturePack.name;
+    this.getAlphaMap().goldenhorseTexturePackName = texturePack.name;
     this.getAlphaMap().needsUpdate = true;
   }
   if (texturePack.hasAO){
     this.mapAO(texturePack);
-    this.getAOMap().roygbivTexturePackName = texturePack.name;
+    this.getAOMap().goldenhorseTexturePackName = texturePack.name;
     this.getAOMap().needsUpdate = true;
   }
   if (texturePack.hasEmissive){
     this.mapEmissive(texturePack);
-    this.getEmissiveMap().roygbivTexturePackName = texturePack.name;
+    this.getEmissiveMap().goldenhorseTexturePackName = texturePack.name;
     this.getEmissiveMap().needsUpdate = true;
   }
   if (texturePack.hasHeight && VERTEX_SHADER_TEXTURE_FETCH_SUPPORTED){
     this.mapDisplacement(texturePack);
-    this.getDisplacementMap().roygbivTexturePackName = texturePack.name;
+    this.getDisplacementMap().goldenhorseTexturePackName = texturePack.name;
     this.getDisplacementMap().needsUpdate = true;
   }
   this.associatedTexturePack = texturePack.name;
@@ -5926,8 +5926,8 @@ AddedObject.prototype.isVisibleOnThePreviewScene = function(parentName){
 AddedObject.prototype.isTexturePackUsed = function(texturePackName){
   var textureStack = this.getTextureStack();
   for (var i = 0; i<textureStack.length; i++){
-    if (!(textureStack[i].roygbivTexturePackName == "undefined")){
-      if (textureStack[i].roygbivTexturePackName == texturePackName){
+    if (!(textureStack[i].goldenhorseTexturePackName == "undefined")){
+      if (textureStack[i].goldenhorseTexturePackName == texturePackName){
         return true;
       }
     }
@@ -6057,7 +6057,7 @@ AddedObject.prototype.generateBoundingBoxes = function(parentAry){
   }
   this.vertices = pseudoGeometry.vertices;
   var bb = new THREE.Box3();
-  bb.roygbivObjectName = this.name;
+  bb.goldenhorseObjectName = this.name;
   this.boundingBoxes = [bb];
   if (parentAry){
     parentAry.push(bb);
@@ -7604,7 +7604,7 @@ ObjectGroup.prototype.handleRenderSide = function(val){
 }
 
 ObjectGroup.prototype.textureCompare = function(txt1, txt2){
-  if (txt1.roygbivTexturePackName != txt2.roygbivTexturePackName){
+  if (txt1.goldenhorseTexturePackName != txt2.goldenhorseTexturePackName){
     return false;
   }
   if (txt1.offset.x != txt2.offset.x || txt1.offset.y != txt2.offset.y){
@@ -9129,10 +9129,10 @@ ObjectGroup.prototype.glue = function(simplifiedChildrenPhysicsBodies){
 
 ObjectGroup.prototype.collisionCallback = function(collisionEvent){
   var body = collisionEvent.body;
-  if ((!body.addedObject && !body.roygbivMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
+  if ((!body.addedObject && !body.goldenhorseMassID) || (!this.isVisibleOnThePreviewScene() && !this.physicsKeptWhenHidden)){
     return;
   }
-  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.roygbivMassID;
+  var targetObjectName = body.addedObject? collisionEvent.body.addedObject.name: body.goldenhorseMassID;
   var contact = collisionEvent.contact;
   var collisionInfo = reusableCollisionInfo.set(
     targetObjectName, contact.bi.position.x + contact.ri.x, contact.bi.position.y + contact.ri.y,
@@ -9553,7 +9553,7 @@ ObjectGroup.prototype.exportLightweight = function(){
   }
   for (var i = 0; i<this.boundingBoxes.length; i++){
     exportObj.boundingBoxes.push({
-      roygbivObjectName: this.boundingBoxes[i].roygbivObjectName,
+      goldenhorseObjectName: this.boundingBoxes[i].goldenhorseObjectName,
       boundingBox: this.boundingBoxes[i]
     });
   }
@@ -14147,7 +14147,7 @@ ParticleSystem.prototype.rotate = function(axis, radians, fromScript){
 ParticleSystem.prototype.getVelocityAtTime = function(time, targetVector){
   if (this.motionMode == MOTION_MODE_NORMAL){
     if (!targetVector){
-      var vec = ROYGBIV.vector(0, 0, 0);
+      var vec = goldenhorse.vector(0, 0, 0);
       vec.x = this.velocity.x + (this.acceleration.x * time);
       vec.y = this.velocity.y + (this.acceleration.y * time);
       vec.z = this.velocity.z + (this.acceleration.z * time);
@@ -16860,7 +16860,7 @@ Mass.prototype.constructPhysicsBody = function(){
   });
 
   this.physicsBody.position.set(this.center.x, this.center.y, this.center.z);
-  this.physicsBody.roygbivMassID = this.name;
+  this.physicsBody.goldenhorseMassID = this.name;
 }
 var Lightning = function(name, detailThreshold, mobileDetailThreshold, maxDisplacement, count, colorName, radius, roughness){
   this.name = name;

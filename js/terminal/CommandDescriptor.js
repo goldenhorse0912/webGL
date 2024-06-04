@@ -975,7 +975,7 @@ var CommandDescriptor = function(){
     "physicsWorkerMode: Enables or disables the usage of web workers for physics iterations.",
     "printPhysicsWorkerMode: Prints if the physics web worker is enabled or not.",
     "explain: Prints information about given scripting API function.",
-    "printScriptingFunctions: Prints a list of ROYGBIV scripting API functions.",
+    "printScriptingFunctions: Prints a list of goldenhorse scripting API functions.",
     "printPerformance: Prints the performance of rendering functions for the last rendered frame.",
     "search: Finds related commands.",
     "rescaleTexture: Rescales a texture and creates a new texture from the rescaled version.",
@@ -1186,7 +1186,7 @@ var CommandDescriptor = function(){
     41, //uploadImage -> Deprecated due to lack of usecases.
     42, //printImages -> Deprecated as uploadImage is also deprecated.
     43, //mapSpecular -> Specular maps are not supported for now.
-    44, //mapEnvironment -> Deprecated due to lack of use cases of environment maps in the ROYGBIV engine. Will implement mirror materials for better visual effects.
+    44, //mapEnvironment -> Deprecated due to lack of use cases of environment maps in the goldenhorse engine. Will implement mirror materials for better visual effects.
     45, //mapAmbientOcculsion -> Deprecated due to architectural changes in texture handling logic.
     46, //mapAlpha -> Deprecated due to architectural changes in texture handling logic.
     47, //setDefaultMaterial -> Only BASIC materials are supported for now.

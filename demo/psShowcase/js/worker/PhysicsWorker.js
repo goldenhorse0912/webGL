@@ -73,7 +73,7 @@ PhysicsWorker.prototype.debug = function(){
   var response = {isDebug: true, bodies: []};
   for (var i = 0; i<physicsWorld.bodies.length; i++){
     response.bodies.push({
-      name: physicsWorld.bodies[i].roygbivName,
+      name: physicsWorld.bodies[i].goldenhorseName,
       position: {x: physicsWorld.bodies[i].position.x, y: physicsWorld.bodies[i].position.y, z: physicsWorld.bodies[i].position.z},
       quaternion: {x: physicsWorld.bodies[i].quaternion.x, y: physicsWorld.bodies[i].quaternion.y, z: physicsWorld.bodies[i].quaternion.z, w: physicsWorld.bodies[i].quaternion.w}
     });
@@ -88,7 +88,7 @@ PhysicsWorker.prototype.setObjectCollisionCallback = function(obj){
       }
       var contact = event.contact;
       obj.physicsWorkerCollisionInfo.set(
-        worker.idsByObjectName[event.body.roygbivName], contact.bi.position.x + contact.ri.x,
+        worker.idsByObjectName[event.body.goldenhorseName], contact.bi.position.x + contact.ri.x,
         contact.bi.position.y + contact.ri.y, contact.bi.position.z + contact.ri.z, contact.getImpactVelocityAlongNormal(),
         this.physicsBody.quaternion.x, this.physicsBody.quaternion.y, this.physicsBody.quaternion.z, this.physicsBody.quaternion.w
       );

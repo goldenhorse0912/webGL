@@ -124,17 +124,17 @@ window.onload = function() {
   particleSystemGenerator = new ParticleSystemGenerator();
 
   // SCRIPTING UTILITY FUNCTIONS
-  ROYGBIV = new Roygbiv();
+  goldenhorse = new goldenhorse();
   if (!isDeployment){
-    var roygbivScriptingAPIMethodCount = (Object.keys(Roygbiv.prototype).length);
-    if (roygbivScriptingAPIMethodCount != ROYGBIV.functionNames.length){
+    var goldenhorseScriptingAPIMethodCount = (Object.keys(goldenhorse.prototype).length);
+    if (goldenhorseScriptingAPIMethodCount != goldenhorse.functionNames.length){
       console.error("[*] Scripting API error: Some methods are missing in functionNames list.");
     }
-    for (var i = 0; i<ROYGBIV.functionNames.length; i++){
-      if (!Text[Text.ROYGBIV_SCRIPTING_API_PREFIX+ROYGBIV.functionNames[i].toUpperCase()]){
-        console.error("[*] Scripting API error: "+ROYGBIV.functionNames[i]+" explanation is not present.");
+    for (var i = 0; i<goldenhorse.functionNames.length; i++){
+      if (!Text[Text.goldenhorse_SCRIPTING_API_PREFIX+goldenhorse.functionNames[i].toUpperCase()]){
+        console.error("[*] Scripting API error: "+goldenhorse.functionNames[i]+" explanation is not present.");
       }
-      ROYGBIV[ROYGBIV.functionNames[i]].roygbivFuncName = ROYGBIV.functionNames[i];
+      goldenhorse[goldenhorse.functionNames[i]].goldenhorseFuncName = goldenhorse.functionNames[i];
     }
   }
 
@@ -258,7 +258,7 @@ window.onload = function() {
       console.log(
         "%c"+BANNERL1+"\n"+BANNERL2+"\n"+BANNERL3+"\n"+
         BANNERL4+"\n"+BANNERL5 +"\n"+"                                         "
-        + "\nby Oguz Eroglu - github.com/oguzeroglu   ",
+        + "\nby Oguz Eroglu - github.com/goldenhorse0912   ",
         "background: #40318d; color: white"
       );
     }
@@ -455,13 +455,9 @@ function startDeployment(){
   appendtoDeploymentConsole("Author: "+author);
   appendtoDeploymentConsole("");
   appendtoDeploymentConsole("Powered by");
-  appendtoDeploymentConsole(BANNERL1);
-  appendtoDeploymentConsole(BANNERL2);
-  appendtoDeploymentConsole(BANNERL3);
-  appendtoDeploymentConsole(BANNERL4);
-  appendtoDeploymentConsole(BANNERL5);
+
   appendtoDeploymentConsole("");
-  appendtoDeploymentConsole("by Oğuz Eroğlu - github.com/oguzeroglu");
+  appendtoDeploymentConsole("by GoldenHorse - github.com/goldenhorse0912");
   appendtoDeploymentConsole("");
   appendtoDeploymentConsole("");
 

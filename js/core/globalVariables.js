@@ -23,7 +23,7 @@ var cliInnerDiv;
 var cliDivheader;
 
 // VERSION
-var ROYGBIV_ENGINE_VERSION = 1;
+var goldenhorse_ENGINE_VERSION = 1;
 
 // LOAD
 var loadInput;
@@ -298,7 +298,7 @@ var intersectionObject = 0;
 var projectLoaded = true;
 var jobHandlerInternalCounter = 0;
 var jobHandlerInternalMaxExecutionCount = 0;
-var roygbivScoreUpdateCallbackFunction = 0;
+var goldenhorseScoreUpdateCallbackFunction = 0;
 var screenClickCallbackFunction = 0;
 var screenMouseDownCallbackFunction = 0;
 var screenMouseUpCallbackFunction = 0;
@@ -341,10 +341,10 @@ var CONTAINER_ALIGNMENT_TYPE_RIGHT = "CONTAINER_ALIGNMENT_TYPE_RIGHT";
 var CONTAINER_ALIGNMENT_TYPE_LEFT = "CONTAINER_ALIGNMENT_TYPE_LEFT";
 var CONTAINER_ALIGNMENT_TYPE_TOP = "CONTAINER_ALIGNMENT_TYPE_TOP";
 var CONTAINER_ALIGNMENT_TYPE_BOTTOM = "CONTAINER_ALIGNMENT_TYPE_BOTTOM";
-var roygbivAttributeCounter = 1;
-var roygbivBufferAttributeCounter = 1;
-var roygbivSkippedArrayBufferUpdates = 0;
-var roygbivSkippedElementArrayBufferUpdates = 0;
+var goldenhorseAttributeCounter = 1;
+var goldenhorseBufferAttributeCounter = 1;
+var goldenhorseSkippedArrayBufferUpdates = 0;
+var goldenhorseSkippedElementArrayBufferUpdates = 0;
 var selectionHandler;
 var guiHandler;
 var cpuOperationsHandler;
@@ -533,7 +533,7 @@ if (!WORKERS_SUPPORTED && !(typeof WorkerGlobalScope !== UNDEFINED && self insta
 var Text;
 
 // SCRIPTING UTILITY FUNCTIONS
-var ROYGBIV;
+var goldenhorse;
 
 // KEYCODE TO STRING MAP
 var keyCodeToChar = {

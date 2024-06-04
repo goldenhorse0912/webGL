@@ -225,9 +225,9 @@ ModeSwitcher.prototype.switchFromDesignToPreview = function(){
   TOTAL_PARTICLE_COLLISION_LISTEN_COUNT = 0;
   TOTAL_PARTICLE_SYSTEM_COUNT = 0;
   particleCollisionCallbackRequests = new Object();
-  ROYGBIV.globals = new Object();
+  goldenhorse.globals = new Object();
   if (!isDeployment){
-    $("#cliDivheader").text("ROYGBIV 3D Engine - CLI (Preview mode)");
+    $("#cliDivheader").text("goldenhorse 3D Engine - CLI (Preview mode)");
   }
   mode = 1;
   particleSystemGenerator.handleModeSwitch();
@@ -359,7 +359,7 @@ ModeSwitcher.prototype.switchFromPreviewToDesign = function(){
   camera.position.set(initialCameraX, initialCameraY, initialCameraZ);
   camera.rotation.order = 'YXZ';
   camera.rotation.set(0, 0, 0);
-  roygbivScoreUpdateCallbackFunction = 0;
+  goldenhorseScoreUpdateCallbackFunction = 0;
   screenClickCallbackFunction = 0;
   screenMouseDownCallbackFunction = 0;
   screenMouseUpCallbackFunction = 0;
@@ -701,7 +701,7 @@ ModeSwitcher.prototype.switchFromPreviewToDesign = function(){
     terminal.disable();
     rayCaster.onReadyCallback = function(){
       if (!isDeployment){
-        $("#cliDivheader").text("ROYGBIV 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
+        $("#cliDivheader").text("goldenhorse 3D Engine - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
       }
       that.enableTerminal();
       canvas.style.visibility = "";

@@ -407,7 +407,7 @@ StateLoader.prototype.resetProject = function(){
   renderer.setPixelRatio(screenResolution);
   fogConfigurationsVisible = false;
   skyboxDistance = 4000;
-  roygbivScoreUpdateCallbackFunction = 0;
+  goldenhorseScoreUpdateCallbackFunction = 0;
   screenClickCallbackFunction = 0;
   screenMouseDownCallbackFunction = 0;
   screenMouseUpCallbackFunction = 0;
@@ -432,10 +432,10 @@ StateLoader.prototype.resetProject = function(){
   modelLoader.reset();
   analyticsHandler.reset();
   fonts = new Object();
-  roygbivAttributeCounter = 1;
-  roygbivBufferAttributeCounter = 1;
-  roygbivSkippedArrayBufferUpdates = 0;
-  roygbivSkippedElementArrayBufferUpdates = 0;
+  goldenhorseAttributeCounter = 1;
+  goldenhorseBufferAttributeCounter = 1;
+  goldenhorseSkippedArrayBufferUpdates = 0;
+  goldenhorseSkippedElementArrayBufferUpdates = 0;
   particleSystemRefHeight = 0;
   jobHandlerShadowBakerRefresh = false;
   jobHandlerRaycasterRefresh = false;
@@ -490,7 +490,7 @@ StateLoader.prototype.resetProject = function(){
   }
   if (!isDeployment){
     guiHandler.hideAll();
-    $("#cliDivheader").text("ROYGBIV Scene Creator - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
+    $("#cliDivheader").text("goldenhorse Scene Creator - CLI (Design mode - "+sceneHandler.getActiveSceneName()+")");
   }
   LIMIT_BOUNDING_BOX = new THREE.Box3(new THREE.Vector3(-4000, -4000, -4000), new THREE.Vector3(4000, 4000, 4000));
   BIN_SIZE = 50;

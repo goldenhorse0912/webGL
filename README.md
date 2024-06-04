@@ -1,23 +1,21 @@
-![](/screen_shots/banner.png?raw=true)
 
-ROYGBIV is a WebGL engine for motivated programmers who do not have the budget for buying fancy 3D models or licensing a popular engine but still want to make 60 FPS web applications for both mobile and desktop. It is being developed by one of such programmers on top of low level THREE.js features for the graphics and CANNON.js for physics. It is named after this [Boards of Canada track](https://www.youtube.com/watch?v=W-GWjzw0GwQ).    
 
-![](/screen_shots/roygbiv.gif?raw=true)   
+![](/screen_shots/goldenhorse.gif?raw=true)   
 
 ## Demos  
-* [Villeneuve d'Ascq](https://oguzeroglu.github.io/ROYGBIV/demo/villeneuvedascq2/application.html)  
-* [Autonomous Battle](https://oguzeroglu.github.io/kompute-demos-with-roygbiv/autonomousBattle/application.html)    
-* [Blaster](https://oguzeroglu.github.io/ROYGBIV/demo/blaster/application.html)    
-* [Cooking space kebab with a flamethrower](https://oguzeroglu.github.io/ROYGBIV/demo/spaceKebab/application.html)    
-* [Plasma Rifle - Inspired by Doom's Plasma Rifle](https://oguzeroglu.github.io/ROYGBIV/demo/plasmaGun/application.html)    
-* [Jump pads - Inspired by Valve's Ricochet](https://oguzeroglu.github.io/ROYGBIV/demo/jumpPads/application.html)     
-* [Electro shock](https://oguzeroglu.github.io/ROYGBIV/demo/electroShock/application.html)    
-* [Shooter](https://oguzeroglu.github.io/ROYGBIV/demo/shooter/application.html)   
-* [GPU particles showcase](https://oguzeroglu.github.io/ROYGBIV/demo/psShowcase/application.html)   
-* [Online preview of the engine](https://oguzeroglu.github.io/ROYGBIV/roygbiv.html)  
+* [Villeneuve d'Ascq](/blame/main/demo/villeneuvedascq2/application.html)  
+
+* [Blaster](/blame/main/demo/blaster/application.html)    
+* [Cooking space kebab with a flamethrower](/blame/main/demo/spaceKebab/application.html)    
+* [Plasma Rifle - Inspired by Doom's Plasma Rifle](/blame/main/demo/plasmaGun/application.html)    
+* [Jump pads - Inspired by Valve's Ricochet](/blame/main/demo/jumpPads/application.html)     
+* [Electro shock](/blame/main/demo/electroShock/application.html)    
+* [Shooter](/blame/main/demo/shooter/application.html)   
+* [GPU particles showcase](/blame/main/demo/psShowcase/application.html)   
+* [Online preview of the engine](/blame/main/goldenhorse.html)  
 
 ## The current state of the project
-ROYGBIV is still under development and not documented yet. Estimated documentation release date is April 2021.    
+goldenhorse is still under development and not documented yet. Estimated documentation release date is April 2021.    
 
 ### Roadmap
 - [x] Integrated AI engine
@@ -30,7 +28,7 @@ ROYGBIV is still under development and not documented yet. Estimated documentati
 
 ## How to run?
 
-ROYGBIV works on browsers (preferably Chrome or Firefox). It works with a set of commands typed to its command line interface so a documentation will be provided when the project is finished. To install, follow these steps:
+goldenhorse works on browsers (preferably Chrome or Firefox). It works with a set of commands typed to its command line interface so a documentation will be provided when the project is finished. To install, follow these steps:
 
 * Download or clone the repository.
 * If you don't have nodejs/npm download them.
@@ -41,4 +39,4 @@ ROYGBIV works on browsers (preferably Chrome or Firefox). It works with a set of
 
 ## License
 
-ROYGBIV uses MIT license. See the third_party_licenses folder for licenses of used third party libraries.
+goldenhorse uses MIT license. See the third_party_licenses folder for licenses of used third party libraries.
