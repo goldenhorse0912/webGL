@@ -20,8 +20,8 @@ ROYGBIV works on browsers (preferably Chrome or Firefox). It works with a set of
 * Download or clone the repository.
 * If you don't have nodejs/npm download them.
 * Go inside the repository (where server.js is), using the command line run **npm install**
-* Run **node server** to start the server. You should see something like this:
-![](/screen_shots/server.png?raw=true)
+* Run **node server** to start the server. You should see 
+
 * Using your favorite browser, go to page **localhost:8085**
 
 ## License
